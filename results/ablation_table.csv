@@ -1,0 +1,6 @@
+Method Stage,Accuracy (<=3px) %,Mean Error (px),P95 Error (px),Avg Latency (ms)
+NCC only (Raw Image Baseline),46.7,142.89,449.79,54.51
++ FFT Coarse Search,46.7,176.58,493.88,1096.44
++ Hybrid Structural Map (PC + G),46.7,203.68,601.98,1016.39
++ Adaptive Radon Verification,46.7,193.99,601.98,1074.95
++ Subpixel Parabola Refinement (Full Drift-Sense++),46.7,194.37,601.64,1338.04
