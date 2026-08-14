@@ -1,0 +1,16 @@
+image_id,style,split,ref_path,search_path,x_true,y_true,scale_true,rotation_true,noise_level_search
+train_finfet_000,finfet,train,data/train\images\ref_train_finfet_000.png,data/train\images\search_train_finfet_000.png,312.542,261.835,1.0099,-2.06,0.038
+train_finfet_001,finfet,train,data/train\images\ref_train_finfet_001.png,data/train\images\search_train_finfet_001.png,559.692,410.405,0.9584,0.44,0.0266
+train_finfet_002,finfet,train,data/train\images\ref_train_finfet_002.png,data/train\images\search_train_finfet_002.png,583.22,529.643,0.961,2.77,0.0428
+train_finfet_003,finfet,train,data/train\images\ref_train_finfet_003.png,data/train\images\search_train_finfet_003.png,418.646,290.223,0.9605,-2.19,0.0396
+train_finfet_004,finfet,train,data/train\images\ref_train_finfet_004.png,data/train\images\search_train_finfet_004.png,263.652,474.15,0.9876,0.68,0.0391
+train_finfet_005,finfet,train,data/train\images\ref_train_finfet_005.png,data/train\images\search_train_finfet_005.png,274.578,242.15,1.019,2.93,0.0315
+train_finfet_006,finfet,train,data/train\images\ref_train_finfet_006.png,data/train\images\search_train_finfet_006.png,425.101,620.381,0.9572,2.66,0.0369
+train_finfet_007,finfet,train,data/train\images\ref_train_finfet_007.png,data/train\images\search_train_finfet_007.png,555.154,550.691,0.9544,1.9,0.0417
+train_finfet_008,finfet,train,data/train\images\ref_train_finfet_008.png,data/train\images\search_train_finfet_008.png,725.893,727.216,1.0248,1.39,0.0462
+train_finfet_009,finfet,train,data/train\images\ref_train_finfet_009.png,data/train\images\search_train_finfet_009.png,349.617,647.946,1.0077,0.69,0.0211
+train_finfet_010,finfet,train,data/train\images\ref_train_finfet_010.png,data/train\images\search_train_finfet_010.png,429.142,640.905,0.9636,0.18,0.0311
+train_finfet_011,finfet,train,data/train\images\ref_train_finfet_011.png,data/train\images\search_train_finfet_011.png,666.121,311.805,0.9748,1.68,0.0306
+train_finfet_012,finfet,train,data/train\images\ref_train_finfet_012.png,data/train\images\search_train_finfet_012.png,444.78,258.719,1.0089,-2.96,0.0219
+train_finfet_013,finfet,train,data/train\images\ref_train_finfet_013.png,data/train\images\search_train_finfet_013.png,346.208,519.248,1.0417,-1.76,0.027
+train_finfet_014,finfet,train,data/train\images\ref_train_finfet_014.png,data/train\images\search_train_finfet_014.png,300.563,600.163,0.9747,-0.35,0.0442
