@@ -1,0 +1,7 @@
+Train_Domain,Test_Domain,Samples,Acc_le1px,Acc_le3px,Acc_le5px,Acc_le10px,Mean_Err,Median_Err,P95_Err,Mean_Lat_ms,Mode_Classical,Mode_CAR,Mode_Uncertain
+DRAM,DRAM_Unseen,30,0.0,0.0,0.0,3.33,340.71,271.71,764.4,92.87,0,0,30
+FinFET,FinFET_Unseen,30,33.33,60.0,60.0,60.0,116.77,1.64,456.7,75.07,0,12,18
+DRAM,CrossDomain_DRAM_to_FinFET,30,36.67,56.67,56.67,56.67,152.27,2.05,570.76,80.94,0,7,23
+FinFET,CrossDomain_FinFET_to_DRAM,30,0.0,0.0,0.0,0.0,409.75,455.66,716.49,79.7,0,1,29
+DRAM,Unseen_DRAM_Parameters,30,0.0,0.0,0.0,0.0,331.66,286.5,626.8,78.25,0,0,30
+FinFET,Unseen_FinFET_Parameters,30,16.67,40.0,40.0,40.0,250.52,180.3,609.72,64.06,0,11,19

@@ -1,0 +1,5 @@
+Variant,Top1_Recall,Top5_Recall,Top10_Recall,Top20_Recall,Acc_le1px,Acc_le3px,Acc_le5px,Acc_le10px,Mean_Err,Median_Err,P95_Err,Mean_Lat_ms,P95_Lat_ms
+V6_CAR_Baseline,66.5,80.5,85.5,88.5,39.5,60.5,64.5,65.5,83.3,1.72,594.06,88.58,119.1
+V7_A_4Representations,60.5,79.5,84.0,87.0,37.0,58.0,62.5,64.5,77.91,1.9,572.05,518.06,651.41
+V7_B_MultiView_Anchors,56.0,78.0,82.5,85.5,34.5,53.0,55.5,56.0,128.82,2.31,689.49,860.07,1113.44
+V7_C_Full_System,56.0,78.0,82.5,85.5,34.5,53.0,55.5,56.0,128.82,2.31,689.49,877.1,1201.76

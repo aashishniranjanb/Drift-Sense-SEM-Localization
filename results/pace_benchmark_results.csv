@@ -1,0 +1,7 @@
+Dataset,Method,Acc_le1px,Acc_le3px,Acc_le5px,Acc_le10px,Mean_Err,Median_Err,P95_Err,Mean_Lat_ms,P95_Lat_ms
+Original_120,ZNCC_Baseline,32.5,35.83,35.83,35.83,143.18,40.42,635.21,229.03,249.06
+Original_120,FFT_NCC,31.67,35.0,35.83,35.83,172.13,43.33,844.89,47.91,54.0
+Original_120,PACE_Pipeline,25.0,32.5,33.33,33.33,173.01,48.31,844.8,65.38,109.82
+Holdout_Test,ZNCC_Baseline,38.5,62.5,66.0,67.0,86.58,1.6,615.28,146.02,162.25
+Holdout_Test,FFT_NCC,38.5,62.5,66.0,67.0,86.58,1.6,615.28,30.4,31.68
+Holdout_Test,PACE_Pipeline,39.5,60.5,64.5,65.5,84.09,1.72,594.06,44.61,80.76
