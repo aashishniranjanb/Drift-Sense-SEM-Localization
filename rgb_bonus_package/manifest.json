@@ -1,0 +1,11 @@
+{
+  "reference_path": "rgb_bonus_package/images/reference_rgb.png",
+  "search_path": "rgb_bonus_package/images/search_rgb.png",
+  "gt_x": 620.0,
+  "gt_y": 380.0,
+  "predicted_x": 620.0,
+  "predicted_y": 380.0,
+  "error_px": 0.0,
+  "path": "FAST_TRUSTED_FFT",
+  "latency_ms": 57.08
+}
