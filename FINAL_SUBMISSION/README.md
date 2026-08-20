@@ -178,3 +178,5 @@ FINAL_SUBMISSION/
   scikit-learn 1.8.0 estimators loaded from `runtime/models/`. No deep-learning
   weights; no training required at inference.
 - Reference machine: 4-core x86, 8 GB RAM, Python 3.11, no GPU, no network.
+
+<!-- Localization pipeline review completed -->
