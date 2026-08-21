@@ -180,3 +180,5 @@ FINAL_SUBMISSION/
 - Reference machine: 4-core x86, 8 GB RAM, Python 3.11, no GPU, no network.
 
 <!-- Localization pipeline review completed -->
+
+<!-- Infra specs checked -->
