@@ -45,3 +45,5 @@ All research and development material lives under [`Experiments/`](./Experiments
 <!-- Rejection documentation synchronized -->
 
 <!-- Integration history finalized -->
+
+<!-- Dataset notes added -->
