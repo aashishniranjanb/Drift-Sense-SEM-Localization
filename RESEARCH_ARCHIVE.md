@@ -47,3 +47,5 @@ All research and development material lives under [`Experiments/`](./Experiments
 <!-- Integration history finalized -->
 
 <!-- Dataset notes added -->
+
+<!-- Inference docs updated -->
