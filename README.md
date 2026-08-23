@@ -135,3 +135,5 @@ MIT — see [`LICENSE`](./LICENSE).
 <!-- Core localization updates applied -->
 
 <!-- Infrastructure notes verified -->
+
+<!-- Periodic ambiguity details expanded -->
