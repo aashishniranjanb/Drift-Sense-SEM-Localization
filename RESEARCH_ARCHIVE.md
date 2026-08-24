@@ -43,3 +43,5 @@ All research and development material lives under [`Experiments/`](./Experiments
   `Experiments/phase2/V27_REJECTION/v25_rejection_features.csv`).
 
 <!-- Rejection documentation synchronized -->
+
+<!-- Integration history finalized -->
