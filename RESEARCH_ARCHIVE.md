@@ -41,3 +41,5 @@ All research and development material lives under [`Experiments/`](./Experiments
   is the committed V25 inference over the released development set
   (`Experiments/phase2/V28_CHAMPIONSHIP/v28_final_predictions.csv` +
   `Experiments/phase2/V27_REJECTION/v25_rejection_features.csv`).
+
+<!-- Rejection documentation synchronized -->
