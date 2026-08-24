@@ -137,3 +137,5 @@ MIT — see [`LICENSE`](./LICENSE).
 <!-- Infrastructure notes verified -->
 
 <!-- Periodic ambiguity details expanded -->
+
+<!-- Final spellcheck complete -->
