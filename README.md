@@ -133,3 +133,5 @@ score the submission. See [`RESEARCH_ARCHIVE.md`](./RESEARCH_ARCHIVE.md).
 MIT — see [`LICENSE`](./LICENSE).
 
 <!-- Core localization updates applied -->
+
+<!-- Infrastructure notes verified -->
