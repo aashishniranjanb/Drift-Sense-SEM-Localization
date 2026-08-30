@@ -1,31 +1,39 @@
 import numpy as np
+import cv2
 
-def evaluate_rejection_fallback(best_candidate: dict, is_ambiguous: bool) -> tuple:
+# Import robust presence classification from phase2 baseline
+import sys
+sys.path.append("phase2")
+from inference_phase2 import extract_presence_features, classify_presence
+
+def evaluate_rejection_fallback(best_candidate: dict, corr_plane: np.ndarray, 
+                                rotated_template: np.ndarray, search_img: np.ndarray) -> tuple:
     """
     Aashish Rejection and Confidence Fallback:
-    Evaluates whether the candidate match is valid (found=1) or absent/rejected (found=0).
-    Calculates a calibrated composite score.
+    Evaluates whether the candidate match is valid (found=1) or absent/rejected (found=0)
+    using the full robust baseline presence classification.
     """
     if best_candidate is None:
         return 0, 0.0
         
-    corr = best_candidate.get("corr_score", 0.0)
-    psr = best_candidate.get("psr", 0.0)
-    margin = best_candidate.get("peak_margin", 0.0)
-    context = best_candidate.get("context_score", 0.0)
-    phase_penalty = best_candidate.get("phase_penalty", 0.0)
+    px = best_candidate.get("peak_x", 0)
+    py = best_candidate.get("peak_y", 0)
+    context_score = best_candidate.get("context_score", 0.0)
+    phase_residual = best_candidate.get("phase_residual", 0.0)
     
-    # Calibrated composite score
-    composite_score = float(0.40 * corr + 0.30 * context + 0.20 * (psr / 10.0) + 0.10 * margin - phase_penalty)
-    composite_score = max(0.0, min(1.0, composite_score))
+    # Extract presence features
+    presence_feats = extract_presence_features(
+        corr_plane, px, py, rotated_template, search_img,
+        context_score=context_score, phase_residual=phase_residual
+    )
     
-    # Fallback rejection logic:
-    found = 1
-    if corr < 0.35:
-        found = 0
-    elif psr < 3.0 and margin < 0.01 and corr < 0.60:
-        found = 0
-    elif corr < 0.50 and context < 0.20:
-        found = 0
+    # Classify presence
+    found, raw_presence_score = classify_presence(presence_feats)
+    
+    # Calibrated confidence score
+    if found == 0:
+        decision_confidence = 1.0 - raw_presence_score
+    else:
+        decision_confidence = raw_presence_score
         
-    return found, composite_score
+    return int(found), float(decision_confidence)
