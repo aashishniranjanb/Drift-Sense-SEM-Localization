@@ -2,11 +2,13 @@ import argparse
 import pandas as pd
 import sys
 import os
+import cv2
 
-# Add parent directory to path so we can import from existing code if needed
+# Add production_engine and parent to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "production_engine"))
 
-from inference_phase2 import perform_phase2_localization
+from production_runner import run_production_localization
 
 def main():
     parser = argparse.ArgumentParser(description="Drift-Sense++ V8 Phase 2 Registration Entry Point")
@@ -33,12 +35,15 @@ def main():
         if not os.path.isabs(search_path):
             search_path = os.path.join(csv_dir, search_path)
             
-        gt_x = row.get("gt_x", None)
-        gt_y = row.get("gt_y", None)
-        gt_found = row.get("gt_found", None)
+        ref_img = cv2.imread(ref_path, cv2.IMREAD_GRAYSCALE)
+        search_img = cv2.imread(search_path, cv2.IMREAD_GRAYSCALE)
         
-        # Perform localization and pose/presence recovery
-        pred = perform_phase2_localization(ref_path, search_path, gt_x=gt_x, gt_y=gt_y, gt_found=gt_found, pair_id=pair_id)
+        if ref_img is None or search_img is None:
+            print(f"Error loading images for {pair_id}", file=sys.stderr)
+            pred = {"x": 0.0, "y": 0.0, "theta": 0.0, "scale": 0.0, "found": 0, "score": 0.0}
+        else:
+            # Perform localization and pose/presence recovery using Aashish production integration runner
+            pred = run_production_localization(ref_img, search_img, verbose=False)
         
         results.append({
             "pair_id": pair_id,

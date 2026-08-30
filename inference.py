@@ -1,22 +1,23 @@
 """
-Drift-Sense AI: Production Localization Inference Entrypoint
-Powered by Drift-Sense++ CAR (Confidence-Adaptive Candidate Ranking & Dual Subpixel Metrology) Engine.
+Drift-Sense AI: Phase 2 Production Localization Inference Entrypoint
+Powered by Drift-Sense++ modular fallback architecture.
 
 Usage:
   python inference.py --reference <ref.png> --search <search.png> [--verbose]
 
 Output:
   (x.xx, y.yy)
-
-This is the standalone competition entrypoint script Applied Materials will execute on test data.
 """
 
+import os
 import sys
 import argparse
 import json
 import cv2
-from inference_car import perform_car_localization
 
+# Add production_engine to path
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "production_engine"))
+from production_runner import run_production_localization
 
 def main():
     parser = argparse.ArgumentParser(description="Drift-Sense Navigation-Error Recovery Inference")
@@ -25,36 +26,24 @@ def main():
     parser.add_argument("--verbose", action="store_true", help="Output detailed diagnostic metadata")
     args = parser.parse_args()
 
-    ref_img = cv2.imread(args.reference, cv2.IMREAD_UNCHANGED)
-    search_img = cv2.imread(args.search, cv2.IMREAD_UNCHANGED)
+    ref_img = cv2.imread(args.reference, cv2.IMREAD_GRAYSCALE)
+    search_img = cv2.imread(args.search, cv2.IMREAD_GRAYSCALE)
 
     if ref_img is None or search_img is None:
         print("Error: Invalid image path.", file=sys.stderr)
         sys.exit(1)
 
-    # Automatic RGB -> Grayscale conversion if multi-channel
-    if len(ref_img.shape) == 3 and ref_img.shape[2] == 3:
-        ref_proc = cv2.cvtColor(ref_img, cv2.COLOR_BGR2GRAY)
-    elif len(ref_img.shape) == 3 and ref_img.shape[2] == 4:
-        ref_proc = cv2.cvtColor(ref_img, cv2.COLOR_BGRA2GRAY)
-    else:
-        ref_proc = ref_img
-
-    if len(search_img.shape) == 3 and search_img.shape[2] == 3:
-        search_proc = cv2.cvtColor(search_img, cv2.COLOR_BGR2GRAY)
-    elif len(search_img.shape) == 3 and search_img.shape[2] == 4:
-        search_proc = cv2.cvtColor(search_img, cv2.COLOR_BGRA2GRAY)
-    else:
-        search_proc = search_img
-
-    x, y, meta = perform_car_localization(ref_proc, search_proc, verbose=args.verbose)
+    # Run the production integration runner
+    res = run_production_localization(ref_img, search_img, verbose=args.verbose)
 
     if args.verbose:
-        print(json.dumps(meta, indent=2))
+        print(json.dumps(res, indent=2))
 
-    # Competition-required single coordinate output format
-    print(f"({x:.2f}, {y:.2f})")
-
+    # Competition-required coordinate output format
+    if res["found"] == 1:
+        print(f"({res['x']:.2f}, {res['y']:.2f})")
+    else:
+        print("REJECTED (Target Absent)")
 
 if __name__ == "__main__":
     main()

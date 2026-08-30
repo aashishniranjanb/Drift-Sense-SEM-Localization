@@ -2,70 +2,88 @@ import numpy as np
 import cv2
 from scipy.ndimage import maximum_filter
 
-def extract_candidates_fallback(corr_plane: np.ndarray, tw: int, th: int, max_k: int = 100) -> list:
+# Import robust CAR ranking functions from phase2 baseline
+import sys
+sys.path.append("phase2")
+from inference_phase2 import (
+    cluster_replica_families,
+    compute_spatial_fingerprint,
+    rank_candidates,
+    compute_ambiguity_index,
+    rerank_with_pace
+)
+
+def extract_candidates_fallback(corr_plane: np.ndarray, tw: int, th: int, max_k: int = 50) -> list:
     """
     Aashish Candidate Extraction Fallback:
-    Finds local maxima in 7x7 windows and runs iterative NMS with r=5 to recover peaks.
+    Extracts candidates using iterative NMS r=5.
     """
     ch, cw = corr_plane.shape[:2]
     candidates_list = []
     
-    # 1. Local Maxima
-    size_int = 7
-    local_max = (maximum_filter(corr_plane, size=size_int) == corr_plane) & (corr_plane > 0.05)
-    iy, ix = np.where(local_max)
-    for x, y in zip(ix, iy):
-        candidates_list.append({"px": int(x), "py": int(y), "score": float(corr_plane[y, x]), "source": "lmax"})
-        
-    # 2. NMS Peaks
     work = corr_plane.copy()
     for _ in range(max_k):
         _, max_val, _, max_loc = cv2.minMaxLoc(work)
-        if max_val <= 0.05 or np.isnan(max_val): break
+        if max_val <= 0.01 or np.isnan(max_val): break
         px, py = max_loc
-        candidates_list.append({"px": int(px), "py": int(py), "score": float(max_val), "source": "nms"})
+        cx = px + tw / 2.0
+        cy = py + th / 2.0
+        
+        candidates_list.append({
+            "peak_x": px,
+            "peak_y": py,
+            "cx": cx,
+            "cy": cy,
+            "corr_score": float(max_val)
+        })
+        
         y1, y2 = max(0, py - 5), min(ch, py + 6)
         x1, x2 = max(0, px - 5), min(cw, px + 6)
         work[y1:y2, x1:x2] = -999.0
         
-    # Sort and Deduplicate
-    candidates_list.sort(key=lambda x: x["score"], reverse=True)
-    unique = []
-    for c in candidates_list:
-        px, py = c["px"], c["py"]
-        cx = px + tw / 2.0
-        cy = py + th / 2.0
-        if not any(np.hypot(cx - u["cx"], cy - u["cy"]) < 3.0 for u in unique):
-            unique.append({
-                "peak_x": px,
-                "peak_y": py,
-                "cx": cx,
-                "cy": cy,
-                "corr_score": c["score"],
-                "source": c["source"]
-            })
-            if len(unique) >= max_k:
-                break
-    return unique
+    return candidates_list
 
-def rank_candidates_fallback(candidates: list) -> list:
+def rank_candidates_fallback(candidates: list, ref_img: np.ndarray, search_img: np.ndarray, 
+                             est_scale: float, est_theta: float) -> list:
     """
-    Aashish Ranking Fallback (Confidence-Adaptive Ranking):
-    Ranks candidates using a combined score of correlation and context matching.
+    Aashish Ranking Fallback (Full CAR Pipeline):
+    Invokes the complete replica clustering, spatial fingerprinting, and PACE re-ranking engines.
     """
     if len(candidates) == 0:
         return []
         
-    # Standard combined ranker score
-    for c in candidates:
-        c["score_combined"] = float(0.50 * c["corr_score"] + 0.50 * c.get("context_score", 0.0) - c.get("phase_penalty", 0.0))
-        
-    # Sort candidates by combined score descending
-    candidates.sort(key=lambda x: x["score_combined"], reverse=True)
+    sh, sw = search_img.shape[:2]
     
-    # Calculate peak margin
-    for i in range(len(candidates)):
-        next_score = candidates[i+1]["corr_score"] if i+1 < len(candidates) else 0.0
-        candidates[i]["peak_margin"] = candidates[i]["corr_score"] - next_score
+    # 1. Cluster Replica Families
+    candidates = cluster_replica_families(candidates, est_scale)
+    
+    # 2. Spatial Fingerprint Matching
+    for c in candidates:
+        fam_members = [m for m in candidates if m.get("family_id") == c.get("family_id")]
+        fp = compute_spatial_fingerprint(search_img, c["cx"], c["cy"], est_scale, fam_members)
+        c.update(fp)
+        
+    # 3. Base Ranking Rules
+    candidates = rank_candidates(candidates)
+    
+    # 4. Periodicity Lattice Detection
+    ambiguity_score, is_ambiguous = compute_ambiguity_index(candidates, est_scale)
+    for c in candidates:
+        c["periodicity_index"] = ambiguity_score
+        
+    # 5. Conditional PACE Context Re-Ranking
+    if is_ambiguous and len(candidates) > 0:
+        candidates = rerank_with_pace(ref_img, search_img, candidates, est_scale, est_theta)
+        
+        # Apply Center-Prior Tie-Breaker
+        for cand in candidates:
+            center_penalty = float(0.08 * (cand["center_prior"] / (sw / 2.0)))
+            cand["rank_score"] = cand.get("rank_score", 0.0) - center_penalty
+            
+        # Re-sort after PACE and center-prior
+        candidates.sort(key=lambda x: x.get("rank_score", 0.0), reverse=True)
+    else:
+        # Sort by default rank score or combined score
+        candidates.sort(key=lambda x: x.get("score_combined", 0.0), reverse=True)
         
     return candidates
