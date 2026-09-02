@@ -1,0 +1,2 @@
+Total Score,Localization (40),Pose (20),Rejection (15),Calibration (10),Efficiency (5),Docs (10),Rejection F1,Calibration AUC,PRESENT recall,Set B <= 5px
+25.09025974025974,0.0,0.0,5.454545454545455,4.635714285714286,5.0,10.0,0.36363636363636365,0.4635714285714286,0.0,0.0
