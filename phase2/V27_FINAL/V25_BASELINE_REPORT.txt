@@ -1,0 +1,35 @@
+﻿
+=================================================================
+           DRIFT-SENSE++ PHASE 2 HARDENED BENCHMARK
+=================================================================
+Total Evaluated Pairs: 180
+  - Set A (Nominal):   70
+  - Set B (Degraded):  70
+  - Set C (Absent):    40
+-----------------------------------------------------------------
+1. LOCALIZATION METRICS (<= 5 px Target):
+  Set A <= 1 px: 80.00% | Set A <= 5 px: 100.00% | Median: 0.22 px
+  Set B <= 1 px: 81.58% | Set B <= 5 px: 97.37% | Median: 0.17 px
+  OFFICIAL WEIGHTED LOC SCORE (0.45*A + 0.55*B): 98.55%
+-----------------------------------------------------------------
+2. POSE RECOVERY METRICS:
+  Set A Scale MAE: 0.0520 | Rotation MAE: 0.0939░
+  Set B Scale MAE: 0.0571 | Rotation MAE: 0.1559░
+-----------------------------------------------------------------
+3. ABSENCE REJECTION METRICS (Set C Target F1 > 0.90):
+  Overall Precision: 0.3800 | Recall: 0.9500
+  Set C Rejection F1 Score: 0.5429
+-----------------------------------------------------------------
+4. CONFIDENCE MONOTONICITY:
+  Spearman Rank Correlation (rho): 0.5490
+-----------------------------------------------------------------
+5. FAILURE TAXONOMY SUMMARY:
+  - SUBPIXEL_SUCCESS: 63 cases (35.0%)
+  - PRESENCE_FALSE_NEGATIVE: 62 cases (34.4%)
+  - REJECTION_SUCCESS: 38 cases (21.1%)
+  - IN_BOUNDS_SUCCESS: 14 cases (7.8%)
+  - ABSENCE_FALSE_POSITIVE: 2 cases (1.1%)
+  - PERIODIC_REPLICA: 1 cases (0.6%)
+=================================================================
+
+Failure taxonomy written to phase2/V27_FINAL\failure_taxonomy.csv

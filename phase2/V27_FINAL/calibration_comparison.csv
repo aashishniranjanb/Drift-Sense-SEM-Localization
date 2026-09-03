@@ -1,0 +1,6 @@
+Score_Name,Spearman_rho,Calibration_Points,Notes
+S0: V25 Score,0.5490353926221451,5.4903539262214505,Untouched frozen V25
+S1: V25 + Margin,0.546141632190729,5.46141632190729,Score + 0.1*margin
+S2: V25 + Margin + Context,0.5586070617414447,5.586070617414447,Score + 0.1*margin + 0.05*context
+S3: Full LR (In-Sample),0.4844822753059392,4.8448227530593915,Logistic regression fitted on all 180
+S4: OOF LR (5-Fold CV),0.41436423408316364,4.1436423408316365,Out-of-fold generalizable estimate
