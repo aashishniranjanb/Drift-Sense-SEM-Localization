@@ -88,9 +88,13 @@ def localize_grayscale(ref_img, search_img):
     pres_score = float(_PRESENCE["model"].predict_proba(pres_row[_PRESENCE["features"]])[0, 1])
     found = 1 if pres_score > _PRESENCE_THRESHOLD else 0
 
+    # gate-independent best-candidate localization (used by the standalone
+    # inference.py, which always returns a coordinate)
+    raw_x, raw_y, _, _ = refine_pose(ref_img, search_img, est_scale, est_theta,
+                                     best_cand["peak_x"], best_cand["peak_y"], corr_plane)
+
     if found == 1:
-        rx, ry, _, _ = refine_pose(ref_img, search_img, est_scale, est_theta,
-                                   best_cand["peak_x"], best_cand["peak_y"], corr_plane)
+        rx, ry = raw_x, raw_y
         theta_out, scale_out = est_theta, est_scale
     else:
         rx = ry = 0.0
@@ -99,6 +103,7 @@ def localize_grayscale(ref_img, search_img):
     ev = pres_row.iloc[0].to_dict()
     return {"x": float(rx), "y": float(ry), "theta": float(theta_out), "scale": float(scale_out),
             "found": int(found), "score": float(pres_score),
+            "raw_x": float(raw_x), "raw_y": float(raw_y),
             "evidence": {k: float(v) for k, v in ev.items()},
             "corr_plane": corr_plane, "template": best_template,
             "est_scale": est_scale, "est_theta": est_theta,
@@ -107,6 +112,7 @@ def localize_grayscale(ref_img, search_img):
 
 def _null_result():
     return {"x": 0.0, "y": 0.0, "theta": 0.0, "scale": 0.0, "found": 0, "score": 0.0,
+            "raw_x": 0.0, "raw_y": 0.0,
             "evidence": {k: 0.0 for k in ["top1_score", "margin", "top1_corr", "top1_ctx",
                                           "top1_neigh", "top1_grad", "mode_strong"]},
             "corr_plane": None, "template": None, "est_scale": 10.0, "est_theta": 0.0,

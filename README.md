@@ -2,8 +2,9 @@
 
 ### Applied Materials · Phase 2 Submission
 
-**Entry point:** [`FINAL_SUBMISSION/register.py`](./FINAL_SUBMISSION/register.py)
-· **Language:** Python · **Runtime:** CPU only, no network
+**Official scoring entry point:** [`FINAL_SUBMISSION/register.py`](./FINAL_SUBMISSION/register.py)
+· **Standalone localizer:** [`FINAL_SUBMISSION/inference.py`](./FINAL_SUBMISSION/inference.py)
+· **Runtime:** CPU only, Python 3.11, no network
 
 ---
 
@@ -13,19 +14,7 @@ The authoritative competition submission is one folder:
 
 ## **[FINAL_SUBMISSION/](./FINAL_SUBMISSION/)**
 
-| File | Purpose |
-|---|---|
-| [`register.py`](./FINAL_SUBMISSION/register.py) | Official inference entry point |
-| [`requirements.txt`](./FINAL_SUBMISSION/requirements.txt) | Pinned runtime dependencies |
-| [`generate_dataset.py`](./FINAL_SUBMISSION/generate_dataset.py) | Documented synthetic SEM pair generator |
-| [`failure_analysis.pdf`](./FINAL_SUBMISSION/failure_analysis.pdf) | Required failure analysis (2 pages) |
-| [`README.md`](./FINAL_SUBMISSION/README.md) | Complete execution instructions |
-| `runtime/` | Inference modules and model weights (bundled) |
-| `documentation/` | Method, validation, references |
-| `verification/` | `register.py` output + full score breakdown |
-| `visuals/` | Supporting technical figures |
-
-### One-command execution
+### Official Phase 2 scoring
 
 ```bash
 cd FINAL_SUBMISSION
@@ -33,22 +22,42 @@ pip install -r requirements.txt
 python register.py --input pairs.csv --output predictions.csv
 ```
 
-**Output** — one row per `pair_id`:
+`predictions.csv` — one row per `pair_id`, columns exactly
+`pair_id,x,y,theta,scale,found,score`. When `found = 0`, the pose columns are 0.
+Every `pair_id` appears exactly once.
 
+### Component 2 standalone localizer
+
+```bash
+cd FINAL_SUBMISSION
+python inference.py --reference reference.png --search search.png
+# -> x=<float>
+#    y=<float>
 ```
-pair_id,x,y,theta,scale,found,score
+
+Same internal engine as `register.py`, single pair, `(x, y)` only.
+
+### Generate a sample pair
+
+```bash
+python FINAL_SUBMISSION/generate_dataset.py --architecture DRAM --num-pairs 5 --output-dir ./demo_data
 ```
 
-When `found = 0`: `x = y = theta = scale = 0`.
+Writes images + `ground_truth.csv` with the true reference-pattern centre.
 
-### Measured result (released 180-pair development set)
+---
 
-| Localization | Pose | Rejection | Calibration | Efficiency | Docs | **Total** |
-|---|---|---|---|---|---|---|
-| 40.00 / 40 | 19.20 / 20 | 8.03 / 15 | 8.27 / 10 | 5.00 / 5 | 10.00 / 10 | **90.50 / 100** |
+## Repository map
 
-Set A & B localization ≤ 5 px: **100 %**. Median runtime **0.07 s/pair**.
-See [`FINAL_SUBMISSION/documentation/VALIDATION.md`](./FINAL_SUBMISSION/documentation/VALIDATION.md).
+| Path | What |
+|---|---|
+| [`FINAL_SUBMISSION/`](./FINAL_SUBMISSION/) | **Authoritative Phase 2 package.** Entry points, weights, verification, docs. Self-contained. |
+| [`FINAL_SUBMISSION/README.md`](./FINAL_SUBMISSION/README.md) | Full execution manual + scoring rubric |
+| [`releases/`](./releases/) | Zipped archive of `FINAL_SUBMISSION/` (same content, downloadable) |
+| `phase2/`, `PHASE_10`…`PHASE_16`, `experiments/`, `diagnostics_and_tools/` | Version history V10 → V48, ablations, rejected approaches. **Not on the execution path.** |
+| `misc/` | Loose development scripts, old data dumps, superseded packages, deck tooling |
+| [`RESEARCH_ARCHIVE.md`](./RESEARCH_ARCHIVE.md) | Map of everything historical |
+| `AMP_Phase 2 material/`, `Dataset_AMP_Phase 2/` | Organizer-provided reference material |
 
 ---
 
@@ -89,32 +98,36 @@ pair_id, x, y, theta, scale, found, score
 
 The global correlation maximum is **not** necessarily the true physical site:
 repetitive DRAM/FinFET arrays produce many near-identical replica peaks
-(ΔNCC < 0.005). The system therefore ranks candidates on structural evidence —
+(ΔNCC < 0.005). The system ranks candidates on structural evidence —
 multi-scale context, phase consistency, gradient agreement, replica-family
 population — rather than trusting the strongest peak.
 
-## 4. Failure analysis
+## 4. Measured result (released 180-pair development set)
 
-Full analysis: [`FINAL_SUBMISSION/failure_analysis.pdf`](./FINAL_SUBMISSION/failure_analysis.pdf).
-Main failure classes: periodic-replica confusion · degraded true-instance miss ·
-absent-image false positive · confidence-ordering collapse · incorrect-site
-pose estimation.
+| Localization | Pose | Rejection | Calibration | Efficiency | Docs | **Total** |
+|---|---|---|---|---|---|---|
+| 40.00 / 40 | 19.20 / 20 | 8.03 / 15 | 8.27 / 10 | 5.00 / 5 | 10.00 / 10 | **90.50 / 100** |
 
-## 5. Reproducibility
+Set A & B localization ≤ 5 px: **100 %**. Median runtime **0.07 s/pair**. Zero
+periodic-replica acceptances. Full breakdown:
+[`FINAL_SUBMISSION/documentation/VALIDATION.md`](./FINAL_SUBMISSION/documentation/VALIDATION.md).
 
-The submission is self-contained. No runtime network access. Judges should
-execute only the code inside `FINAL_SUBMISSION/`. Inference is deterministic.
+## 5. Failure analysis
 
-## 6. Research history
+[`FINAL_SUBMISSION/failure_analysis.pdf`](./FINAL_SUBMISSION/failure_analysis.pdf) (2 pages).
+Main failure classes: periodic-replica confusion · degraded true-instance
+miss · absent-image false positive · confidence-ordering collapse ·
+incorrect-site pose estimation.
 
-Everything outside `FINAL_SUBMISSION/` is historical: phase-by-phase
-experiments, ablations, rejected approaches, and diagnostic tooling, retained
-for scientific transparency. It is **not** required to run or score the
-submission. See [`RESEARCH_ARCHIVE.md`](./RESEARCH_ARCHIVE.md) for a map.
+## 6. Reproducibility
 
-## 7. Team
+The submission is self-contained. No runtime network access. Judges execute
+only the code inside `FINAL_SUBMISSION/`. Inference is deterministic.
 
-Per-workstream audit notes: [`FINAL_SUBMISSION/team/`](./FINAL_SUBMISSION/team/).
+## 7. Research history
+
+Everything outside `FINAL_SUBMISSION/` is historical and not required to run or
+score the submission. See [`RESEARCH_ARCHIVE.md`](./RESEARCH_ARCHIVE.md).
 
 ## License
 
