@@ -1,0 +1,613 @@
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m HEAD@{Thu Sep 3 19:52:10 2026}: checkout: moving from championship-v48-integration to main
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m refs/remotes/origin/championship-v48-integration@{Thu Sep 3 19:51:50 2026}: update by push
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m refs/heads/championship-v48-integration@{Thu Sep 3 19:51:32 2026}: branch: Created from HEAD
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m HEAD@{Thu Sep 3 19:51:32 2026}: checkout: moving from main to championship-v48-integration
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m refs/heads/main@{Thu Sep 3 19:51:21 2026}: pull origin main: Fast-forward
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m HEAD@{Thu Sep 3 19:51:21 2026}: pull origin main: Fast-forward
+[33m762ce40[m[33m ([m[1;31morigin/lap2-v37-localization[m[33m)[m refs/remotes/origin/lap2-v37-localization@{Thu Sep 3 19:51:10 2026}: fetch origin --prune: storing head
+[33me540823[m[33m ([m[1;31morigin/lap2-v39-pose[m[33m)[m refs/remotes/origin/lap2-v39-pose@{Thu Sep 3 19:51:10 2026}: fetch origin --prune: storing head
+[33mcb27a9b[m[33m ([m[1;31morigin/lap2-v39.1-scale[m[33m)[m refs/remotes/origin/lap2-v39.1-scale@{Thu Sep 3 19:51:10 2026}: fetch origin --prune: storing head
+[33m2976750[m[33m ([m[1;31morigin/lap2-v40-pose-forensics[m[33m)[m refs/remotes/origin/lap2-v40-pose-forensics@{Thu Sep 3 19:51:10 2026}: fetch origin --prune: storing head
+[33m1279bd2[m[33m ([m[1;31morigin/lap2-v41-calibration[m[33m)[m refs/remotes/origin/lap2-v41-calibration@{Thu Sep 3 19:51:10 2026}: fetch origin --prune: storing head
+[33maaaa479[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/championship-v48-integration[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchampionship-v48-integration[m[33m)[m refs/remotes/origin/main@{Thu Sep 3 19:51:10 2026}: fetch origin --prune: fast-forward
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 19:51:10 2026}: checkout: moving from desktop-v47-rescue-validator to main
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/remotes/origin/desktop-v47-rescue-validator@{Thu Sep 3 19:09:57 2026}: update by push
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/heads/desktop-v47-rescue-validator@{Thu Sep 3 19:08:59 2026}: branch: Created from HEAD
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 19:08:59 2026}: checkout: moving from desktop-v40-research to desktop-v47-rescue-validator
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 19:08:50 2026}: checkout: moving from desktop-v40-research to desktop-v40-research
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 19:06:16 2026}: checkout: moving from desktop-v40-research to desktop-v40-research
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/remotes/origin/desktop-v40-research@{Thu Sep 3 17:22:09 2026}: update by push
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/heads/desktop-v40-research@{Thu Sep 3 17:21:27 2026}: branch: Created from HEAD
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 17:21:27 2026}: checkout: moving from main to desktop-v40-research
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 17:21:19 2026}: checkout: moving from main to main
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m refs/remotes/origin/akhi@{Thu Sep 3 17:21:18 2026}: fetch origin: storing head
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/remotes/origin/lap1-v34-rejection@{Thu Sep 3 17:21:18 2026}: fetch origin: storing head
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m refs/remotes/origin/sai@{Thu Sep 3 17:21:18 2026}: fetch origin: storing head
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m refs/remotes/origin/shang@{Thu Sep 3 17:21:18 2026}: fetch origin: storing head
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/remotes/origin/main@{Thu Sep 3 15:24:43 2026}: update by push
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m refs/heads/main@{Thu Sep 3 15:24:17 2026}: commit: Freeze V29 Championship Pipeline: V28-C baseline (87.02) + Set-D RGB bonus (+6) = 93.02
+[33m3265ee5[m[33m ([m[1;31morigin/lap1-v34-rejection[m[33m, [m[1;31morigin/desktop-v47-rescue-validator[m[33m, [m[1;31morigin/desktop-v40-research[m[33m, [m[1;32mdesktop-v47-rescue-validator[m[33m, [m[1;32mdesktop-v40-research[m[33m)[m HEAD@{Thu Sep 3 15:24:17 2026}: commit: Freeze V29 Championship Pipeline: V28-C baseline (87.02) + Set-D RGB bonus (+6) = 93.02
+[33mb358948[m refs/remotes/origin/main@{Wed Sep 2 06:30:01 2026}: update by push
+[33mb358948[m refs/heads/main@{Wed Sep 2 06:28:11 2026}: commit: your message
+[33mb358948[m HEAD@{Wed Sep 2 06:28:11 2026}: commit: your message
+[33ma3f33a8[m[33m ([m[1;32mteam/shanganidhi-rejection[m[33m, [m[1;32mteam/sai-pose[m[33m, [m[1;32mteam/akhilesh-localization[m[33m)[m refs/heads/team/akhilesh-localization@{Mon Aug 31 14:04:55 2026}: branch: Created from main
+[33ma3f33a8[m[33m ([m[1;32mteam/shanganidhi-rejection[m[33m, [m[1;32mteam/sai-pose[m[33m, [m[1;32mteam/akhilesh-localization[m[33m)[m refs/heads/team/sai-pose@{Mon Aug 31 14:04:55 2026}: branch: Created from main
+[33ma3f33a8[m[33m ([m[1;32mteam/shanganidhi-rejection[m[33m, [m[1;32mteam/sai-pose[m[33m, [m[1;32mteam/akhilesh-localization[m[33m)[m refs/heads/team/shanganidhi-rejection@{Mon Aug 31 14:04:55 2026}: branch: Created from main
+[33ma3f33a8[m[33m ([m[1;32mteam/shanganidhi-rejection[m[33m, [m[1;32mteam/sai-pose[m[33m, [m[1;32mteam/akhilesh-localization[m[33m)[m refs/heads/main@{Mon Aug 31 14:04:54 2026}: commit: feat(v15): complete forensic oracle audit, compute exact ceilings, and archive V15_ORACLE_REPORT.md
+[33ma3f33a8[m[33m ([m[1;32mteam/shanganidhi-rejection[m[33m, [m[1;32mteam/sai-pose[m[33m, [m[1;32mteam/akhilesh-localization[m[33m)[m HEAD@{Mon Aug 31 14:04:54 2026}: commit: feat(v15): complete forensic oracle audit, compute exact ceilings, and archive V15_ORACLE_REPORT.md
+[33m19bf4e0[m[33m ([m[1;33mtag: [m[1;33mV14-FINAL[m[33m)[m refs/heads/main@{Mon Aug 31 13:47:16 2026}: commit: chore(release): complete submission hardening, create FINAL_RELEASE.md, specialist audits, and tag V14-FINAL
+[33m19bf4e0[m[33m ([m[1;33mtag: [m[1;33mV14-FINAL[m[33m)[m HEAD@{Mon Aug 31 13:47:16 2026}: commit: chore(release): complete submission hardening, create FINAL_RELEASE.md, specialist audits, and tag V14-FINAL
+[33m37b1895[m refs/heads/main@{Mon Aug 31 13:31:31 2026}: commit: chore(freeze): finalize V14 production configuration, document P1 multi-evidence presence engine, and freeze 48.88% scorecard
+[33m37b1895[m HEAD@{Mon Aug 31 13:31:31 2026}: commit: chore(freeze): finalize V14 production configuration, document P1 multi-evidence presence engine, and freeze 48.88% scorecard
+[33m47a248e[m refs/heads/main@{Mon Aug 31 12:41:19 2026}: commit: feat(v14): implement V14 final candidate, replica autopsy, presence rescue, and freeze 48.88% weighted localization scorecard
+[33m47a248e[m HEAD@{Mon Aug 31 12:41:19 2026}: commit: feat(v14): implement V14 final candidate, replica autopsy, presence rescue, and freeze 48.88% weighted localization scorecard
+[33m5735e64[m refs/heads/main@{Mon Aug 31 04:00:15 2026}: commit: chore(baseline): freeze BASELINE_PHASE2_AASHISH_001 control metrics and update CLI entrypoints
+[33m5735e64[m HEAD@{Mon Aug 31 04:00:15 2026}: commit: chore(baseline): freeze BASELINE_PHASE2_AASHISH_001 control metrics and update CLI entrypoints
+[33mc3484ce[m refs/heads/main@{Mon Aug 31 01:44:41 2026}: commit: feat(fallback): implement robust Aashish fallback stack and modular production runner with plug-in capability
+[33mc3484ce[m HEAD@{Mon Aug 31 01:44:41 2026}: commit: feat(fallback): implement robust Aashish fallback stack and modular production runner with plug-in capability
+[33m7227ec7[m refs/heads/main@{Mon Aug 31 01:42:47 2026}: commit: chore(team): clean workspace structure, create descriptive team branches, and establish team prompts
+[33m7227ec7[m HEAD@{Mon Aug 31 01:42:47 2026}: commit: chore(team): clean workspace structure, create descriptive team branches, and establish team prompts
+[33m0415eb2[m refs/heads/main@{Mon Aug 31 01:42:00 2026}: commit: feat(phase2): implement V13 density rescue sweeps, scale resolution study, and write V13 report
+[33m0415eb2[m HEAD@{Mon Aug 31 01:42:00 2026}: commit: feat(phase2): implement V13 density rescue sweeps, scale resolution study, and write V13 report
+[33m1d28456[m[33m ([m[1;31morigin/shanganidhi-v108-v111-v112[m[33m, [m[1;31morigin/sai-dharshan-v106-v109[m[33m, [m[1;31morigin/akhilesh-v107-v110[m[33m)[m refs/remotes/origin/akhilesh-v107-v110@{Mon Aug 31 00:53:10 2026}: update by push
+[33m1d28456[m[33m ([m[1;31morigin/shanganidhi-v108-v111-v112[m[33m, [m[1;31morigin/sai-dharshan-v106-v109[m[33m, [m[1;31morigin/akhilesh-v107-v110[m[33m)[m refs/remotes/origin/sai-dharshan-v106-v109@{Mon Aug 31 00:52:41 2026}: update by push
+[33m1d28456[m[33m ([m[1;31morigin/shanganidhi-v108-v111-v112[m[33m, [m[1;31morigin/sai-dharshan-v106-v109[m[33m, [m[1;31morigin/akhilesh-v107-v110[m[33m)[m refs/remotes/origin/main@{Mon Aug 31 00:52:06 2026}: update by push
+[33m1d28456[m[33m ([m[1;31morigin/shanganidhi-v108-v111-v112[m[33m, [m[1;31morigin/sai-dharshan-v106-v109[m[33m, [m[1;31morigin/akhilesh-v107-v110[m[33m)[m refs/remotes/origin/shanganidhi-v108-v111-v112@{Mon Aug 31 00:21:04 2026}: update by push
+[33m1d28456[m[33m ([m[1;31morigin/shanganidhi-v108-v111-v112[m[33m, [m[1;31morigin/sai-dharshan-v106-v109[m[33m, [m[1;31morigin/akhilesh-v107-v110[m[33m)[m refs/heads/main@{Sun Aug 30 23:46:10 2026}: commit: chore: clean .gitignore and ensure zip archives are excluded
+[33m1d28456[m[33m ([m[1;31morigin/shanganidhi-v108-v111-v112[m[33m, [m[1;31morigin/sai-dharshan-v106-v109[m[33m, [m[1;31morigin/akhilesh-v107-v110[m[33m)[m HEAD@{Sun Aug 30 23:46:10 2026}: commit: chore: clean .gitignore and ensure zip archives are excluded
+[33mb333a4b[m refs/heads/main@{Sun Aug 30 23:45:59 2026}: commit (amend): feat(phase2): implement V12 high-recall candidate recovery suite, NMS/window sweeps, and rescue audit
+[33mb333a4b[m HEAD@{Sun Aug 30 23:45:59 2026}: commit (amend): feat(phase2): implement V12 high-recall candidate recovery suite, NMS/window sweeps, and rescue audit
+[33md67a948[m refs/heads/main@{Sun Aug 30 23:45:51 2026}: commit: feat(phase2): implement V12 high-recall candidate recovery suite, NMS/window sweeps, and rescue audit
+[33md67a948[m HEAD@{Sun Aug 30 23:45:51 2026}: commit: feat(phase2): implement V12 high-recall candidate recovery suite, NMS/window sweeps, and rescue audit
+[33m88db1f2[m refs/remotes/origin/akhilesh-v107-v110@{Sun Aug 30 23:10:17 2026}: update by push
+[33m88db1f2[m refs/remotes/origin/sai-dharshan-v106-v109@{Sun Aug 30 23:09:27 2026}: update by push
+[33m88db1f2[m refs/remotes/origin/main@{Sun Aug 30 23:09:02 2026}: update by push
+[33m88db1f2[m refs/heads/main@{Sun Aug 30 22:23:22 2026}: commit: Implement Drift-Sense++ Phase 2 framework, V8-V11 ablation pipelines, and team structure
+[33m88db1f2[m HEAD@{Sun Aug 30 22:23:22 2026}: commit: Implement Drift-Sense++ Phase 2 framework, V8-V11 ablation pipelines, and team structure
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m refs/heads/main@{Sun Aug 30 22:23:20 2026}: reset: moving to origin/main
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m HEAD@{Sun Aug 30 22:23:20 2026}: reset: moving to origin/main
+[33m6e4c575[m refs/heads/main@{Sun Aug 30 14:06:54 2026}: commit: Update retrieval audit for Top-50 candidate pool and recreate teammate branches
+[33m6e4c575[m HEAD@{Sun Aug 30 14:06:54 2026}: commit: Update retrieval audit for Top-50 candidate pool and recreate teammate branches
+[33mdea085b[m refs/heads/main@{Sun Aug 30 14:01:15 2026}: commit: Initialize V11 main track diagnostic sweeps, reports, and decisions
+[33mdea085b[m HEAD@{Sun Aug 30 14:01:15 2026}: commit: Initialize V11 main track diagnostic sweeps, reports, and decisions
+[33me5e162f[m refs/heads/main@{Sun Aug 30 13:26:03 2026}: commit: Initialize V11.1 Adaptive Peak Detector, Candidate Oracle Report, and V11.0 baseline metrics
+[33me5e162f[m HEAD@{Sun Aug 30 13:26:03 2026}: commit: Initialize V11.1 Adaptive Peak Detector, Candidate Oracle Report, and V11.0 baseline metrics
+[33me5c9305[m refs/heads/main@{Fri Aug 28 23:00:15 2026}: commit: Initialize V10.6-V10.12 teammate folders, baseline files, and master workplan
+[33me5c9305[m HEAD@{Fri Aug 28 23:00:15 2026}: commit: Initialize V10.6-V10.12 teammate folders, baseline files, and master workplan
+[33mbfb1dc0[m refs/heads/main@{Fri Aug 28 22:48:15 2026}: commit: feat(phase2): implement V10 replica family clustering, spatial fingerprinting, and adversarial evaluation
+[33mbfb1dc0[m HEAD@{Fri Aug 28 22:48:15 2026}: commit: feat(phase2): implement V10 replica family clustering, spatial fingerprinting, and adversarial evaluation
+[33me334ece[m refs/heads/main@{Fri Aug 28 20:20:11 2026}: commit: feat: implement candidate evidence analysis and generate adversarial stress-test suite
+[33me334ece[m HEAD@{Fri Aug 28 20:20:11 2026}: commit: feat: implement candidate evidence analysis and generate adversarial stress-test suite
+[33m4bfa3ce[m refs/heads/main@{Fri Aug 28 19:28:47 2026}: commit: feat: implement Drift-Sense++ SAFE-CAR 2 (V9) decision and calibration layer
+[33m4bfa3ce[m HEAD@{Fri Aug 28 19:28:47 2026}: commit: feat: implement Drift-Sense++ SAFE-CAR 2 (V9) decision and calibration layer
+[33m04cdb01[m refs/heads/main@{Fri Aug 28 18:59:20 2026}: commit: feat(phase2): implement sequential ablation pipeline V8.2-V8.8 and log candidate evidence
+[33m04cdb01[m HEAD@{Fri Aug 28 18:59:20 2026}: commit: feat(phase2): implement sequential ablation pipeline V8.2-V8.8 and log candidate evidence
+[33m78f6afd[m refs/heads/main@{Fri Aug 28 10:37:06 2026}: commit: Implement Phase 2 framework and add visualization assets
+[33m78f6afd[m HEAD@{Fri Aug 28 10:37:06 2026}: commit: Implement Phase 2 framework and add visualization assets
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m refs/remotes/origin/main@{Tue Aug 18 20:48:29 2026}: update by push
+[33me8ddad8[m refs/remotes/origin/main@{Tue Aug 18 20:48:29 2026}: update by push
+[33m81dacdc[m refs/remotes/origin/main@{Tue Aug 18 20:48:29 2026}: update by push
+[33m868c3c1[m refs/remotes/origin/main@{Tue Aug 18 20:48:29 2026}: update by push
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m refs/heads/main@{Tue Aug 18 19:18:12 2026}: commit: Fix README encoding
+[33mc32215e[m[33m ([m[1;31morigin/shang[m[33m, [m[1;31morigin/sai[m[33m, [m[1;31morigin/akhi[m[33m)[m HEAD@{Tue Aug 18 19:18:12 2026}: commit: Fix README encoding
+[33mfe764cb[m refs/heads/main@{Tue Aug 18 19:15:45 2026}: commit: Finalize submission package, complete documentation, and push inference code
+[33mfe764cb[m HEAD@{Tue Aug 18 19:15:45 2026}: commit: Finalize submission package, complete documentation, and push inference code
+[33me8ddad8[m refs/heads/main@{Tue Aug 18 19:15:11 2026}: commit: Finalize submission package, complete documentation, and push inference code
+[33me8ddad8[m HEAD@{Tue Aug 18 19:15:11 2026}: commit: Finalize submission package, complete documentation, and push inference code
+[33m81dacdc[m refs/heads/main@{Tue Aug 18 18:43:23 2026}: commit: Update data/hcr_train/triplets/01847_pos_128.npy
+[33md581505[m refs/heads/main@{Tue Aug 18 20:40:35 2026}: commit: Update data/hcr_train/triplets/02177_ref_128.npy
+[33m85cea97[m refs/heads/main@{Tue Aug 18 19:40:24 2026}: commit: Update data/hcr_train/triplets/01338_pos_64.npy
+[33m41ebbb3[m refs/heads/main@{Tue Aug 18 20:47:39 2026}: commit: Update data/hcr_train/triplets/00260_pos_128.npy
+[33mcd32d75[m refs/heads/main@{Tue Aug 18 20:47:38 2026}: commit: Update data/hcr_train/triplets/00041_neg_128.npy
+[33m8979faa[m refs/heads/main@{Tue Aug 18 20:34:09 2026}: commit: Update data/hcr_train/triplets/02438_neg_64.npy
+[33mb34731b[m refs/heads/main@{Tue Aug 18 19:25:10 2026}: commit: Update data/pace_train/groups/group_00212.npz
+[33mf44e5d9[m refs/heads/main@{Tue Aug 18 18:50:31 2026}: commit: Update data/hcr_train/triplets/00368_neg_64.npy
+[33m8383ccc[m refs/heads/main@{Tue Aug 18 20:05:01 2026}: commit: Update data/hcr_train/triplets/01836_ref_64.npy
+[33m91cc978[m refs/heads/main@{Tue Aug 18 22:16:47 2026}: commit: Update data/hcr_train/triplets/00010_ref_64.npy
+[33m930cf71[m refs/heads/main@{Tue Aug 18 19:12:49 2026}: commit: Update data/hcr_train/triplets/01504_pos_128.npy
+[33m0af8a8f[m refs/heads/main@{Tue Aug 18 18:55:38 2026}: commit: Update data/hcr_train/triplets/02397_ref_64.npy
+[33m204d02a[m refs/heads/main@{Tue Aug 18 20:02:27 2026}: commit: Update data/hcr_train/triplets/00317_ref_64.npy
+[33m00a42e4[m refs/heads/main@{Tue Aug 18 19:49:37 2026}: commit: Update data/hcr_train/triplets/02528_pos_128.npy
+[33mc981e8a[m refs/heads/main@{Tue Aug 18 19:24:33 2026}: commit: Update data/hcr_train/triplets/01256_ref_128.npy
+[33m81dacdc[m HEAD@{Tue Aug 18 18:43:23 2026}: commit: Update data/hcr_train/triplets/01847_pos_128.npy
+[33md581505[m HEAD@{Tue Aug 18 20:40:35 2026}: commit: Update data/hcr_train/triplets/02177_ref_128.npy
+[33m85cea97[m HEAD@{Tue Aug 18 19:40:24 2026}: commit: Update data/hcr_train/triplets/01338_pos_64.npy
+[33m41ebbb3[m HEAD@{Tue Aug 18 20:47:39 2026}: commit: Update data/hcr_train/triplets/00260_pos_128.npy
+[33mcd32d75[m HEAD@{Tue Aug 18 20:47:38 2026}: commit: Update data/hcr_train/triplets/00041_neg_128.npy
+[33m8979faa[m HEAD@{Tue Aug 18 20:34:09 2026}: commit: Update data/hcr_train/triplets/02438_neg_64.npy
+[33mb34731b[m HEAD@{Tue Aug 18 19:25:10 2026}: commit: Update data/pace_train/groups/group_00212.npz
+[33mf44e5d9[m HEAD@{Tue Aug 18 18:50:31 2026}: commit: Update data/hcr_train/triplets/00368_neg_64.npy
+[33m8383ccc[m HEAD@{Tue Aug 18 20:05:01 2026}: commit: Update data/hcr_train/triplets/01836_ref_64.npy
+[33m91cc978[m HEAD@{Tue Aug 18 22:16:47 2026}: commit: Update data/hcr_train/triplets/00010_ref_64.npy
+[33m930cf71[m HEAD@{Tue Aug 18 19:12:49 2026}: commit: Update data/hcr_train/triplets/01504_pos_128.npy
+[33m0af8a8f[m HEAD@{Tue Aug 18 18:55:38 2026}: commit: Update data/hcr_train/triplets/02397_ref_64.npy
+[33m204d02a[m HEAD@{Tue Aug 18 20:02:27 2026}: commit: Update data/hcr_train/triplets/00317_ref_64.npy
+[33m00a42e4[m HEAD@{Tue Aug 18 19:49:37 2026}: commit: Update data/hcr_train/triplets/02528_pos_128.npy
+[33mc981e8a[m HEAD@{Tue Aug 18 19:24:33 2026}: commit: Update data/hcr_train/triplets/01256_ref_128.npy
+[33m0604247[m refs/remotes/origin/HEAD@{Tue Aug 18 00:36:55 2026}: clone: from https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization.git
+[33m832a294[m refs/heads/main@{Mon Aug 17 23:37:01 2026}: commit: Update data/hcr_train/triplets/01434_pos_64.npy
+[33m832a294[m HEAD@{Mon Aug 17 23:37:01 2026}: commit: Update data/hcr_train/triplets/01434_pos_64.npy
+[33m2a7419b[m refs/heads/main@{Mon Aug 17 21:03:01 2026}: commit: Update data/hcr_train/triplets/01979_neg_128.npy
+[33m2a7419b[m HEAD@{Mon Aug 17 21:03:01 2026}: commit: Update data/hcr_train/triplets/01979_neg_128.npy
+[33mb887930[m refs/heads/main@{Mon Aug 17 20:53:11 2026}: commit: Update data/hcr_train/triplets/01971_pos_128.npy
+[33m912d103[m refs/heads/main@{Mon Aug 17 23:12:07 2026}: commit: Update data/hcr_train/triplets/01442_neg_64.npy
+[33mb887930[m HEAD@{Mon Aug 17 20:53:11 2026}: commit: Update data/hcr_train/triplets/01971_pos_128.npy
+[33m912d103[m HEAD@{Mon Aug 17 23:12:07 2026}: commit: Update data/hcr_train/triplets/01442_neg_64.npy
+[33m57fe09e[m refs/heads/main@{Mon Aug 17 19:19:15 2026}: commit: Update data/hcr_train/triplets/02349_pos_64.npy
+[33md90997c[m refs/heads/main@{Mon Aug 17 19:48:42 2026}: commit: Update data/hcr_train/triplets/00738_ref_64.npy
+[33m887a7d1[m refs/heads/main@{Tue Aug 18 00:18:59 2026}: commit: Update data/hcr_train/triplets/00737_pos_128.npy
+[33mb37044d[m refs/heads/main@{Mon Aug 17 20:10:15 2026}: commit: Update data/hcr_train/triplets/01290_neg_64.npy
+[33m57fe09e[m HEAD@{Mon Aug 17 19:19:15 2026}: commit: Update data/hcr_train/triplets/02349_pos_64.npy
+[33md90997c[m HEAD@{Mon Aug 17 19:48:42 2026}: commit: Update data/hcr_train/triplets/00738_ref_64.npy
+[33m887a7d1[m HEAD@{Tue Aug 18 00:18:59 2026}: commit: Update data/hcr_train/triplets/00737_pos_128.npy
+[33mb37044d[m HEAD@{Mon Aug 17 20:10:15 2026}: commit: Update data/hcr_train/triplets/01290_neg_64.npy
+[33m653e5e3[m refs/heads/main@{Mon Aug 17 18:30:06 2026}: commit: Update data/hcr_train/triplets/00403_ref_128.npy
+[33mc902ddc[m refs/heads/main@{Mon Aug 17 20:13:24 2026}: commit: Update data/hcr_train/triplets/00068_ref_128.npy
+[33mb9f87cd[m refs/heads/main@{Mon Aug 17 19:05:11 2026}: commit: Update data/hcr_train/triplets/02486_ref_128.npy
+[33m649047b[m refs/heads/main@{Mon Aug 17 21:02:17 2026}: commit: Update data/hcr_train/triplets/02375_pos_128.npy
+[33m48c7ae9[m refs/heads/main@{Tue Aug 18 00:51:45 2026}: commit: Update data/hcr_train/triplets/01559_neg_64.npy
+[33m3c094a9[m refs/heads/main@{Tue Aug 18 00:57:39 2026}: commit: Update data/hcr_train/triplets/02464_pos_64.npy
+[33me1609e3[m refs/heads/main@{Mon Aug 17 20:49:20 2026}: commit: Update data/hcr_train/triplets/00603_neg_64.npy
+[33m288c333[m refs/heads/main@{Mon Aug 17 20:26:55 2026}: commit: Update data/hcr_train/triplets/01167_pos_128.npy
+[33m47c75a0[m refs/heads/main@{Mon Aug 17 22:09:41 2026}: commit: Update data/pace_train/groups/group_00290.npz
+[33m3467271[m refs/heads/main@{Mon Aug 17 19:49:05 2026}: commit: Update data/hcr_train/triplets/01984_ref_128.npy
+[33mb1ff99b[m refs/heads/main@{Mon Aug 17 22:16:10 2026}: commit: Update data/hcr_train/triplets/00337_ref_64.npy
+[33m297c89f[m refs/heads/main@{Mon Aug 17 22:39:47 2026}: commit: Update data/hcr_train/triplets/00771_neg_64.npy
+[33medd0992[m refs/heads/main@{Mon Aug 17 19:23:01 2026}: commit: Update data/hcr_train/triplets/01910_pos_128.npy
+[33m653e5e3[m HEAD@{Mon Aug 17 18:30:06 2026}: commit: Update data/hcr_train/triplets/00403_ref_128.npy
+[33mc902ddc[m HEAD@{Mon Aug 17 20:13:24 2026}: commit: Update data/hcr_train/triplets/00068_ref_128.npy
+[33mb9f87cd[m HEAD@{Mon Aug 17 19:05:11 2026}: commit: Update data/hcr_train/triplets/02486_ref_128.npy
+[33m649047b[m HEAD@{Mon Aug 17 21:02:17 2026}: commit: Update data/hcr_train/triplets/02375_pos_128.npy
+[33m48c7ae9[m HEAD@{Tue Aug 18 00:51:45 2026}: commit: Update data/hcr_train/triplets/01559_neg_64.npy
+[33m3c094a9[m HEAD@{Tue Aug 18 00:57:39 2026}: commit: Update data/hcr_train/triplets/02464_pos_64.npy
+[33me1609e3[m HEAD@{Mon Aug 17 20:49:20 2026}: commit: Update data/hcr_train/triplets/00603_neg_64.npy
+[33m288c333[m HEAD@{Mon Aug 17 20:26:55 2026}: commit: Update data/hcr_train/triplets/01167_pos_128.npy
+[33m47c75a0[m HEAD@{Mon Aug 17 22:09:41 2026}: commit: Update data/pace_train/groups/group_00290.npz
+[33m3467271[m HEAD@{Mon Aug 17 19:49:05 2026}: commit: Update data/hcr_train/triplets/01984_ref_128.npy
+[33mb1ff99b[m HEAD@{Mon Aug 17 22:16:10 2026}: commit: Update data/hcr_train/triplets/00337_ref_64.npy
+[33m297c89f[m HEAD@{Mon Aug 17 22:39:47 2026}: commit: Update data/hcr_train/triplets/00771_neg_64.npy
+[33medd0992[m HEAD@{Mon Aug 17 19:23:01 2026}: commit: Update data/hcr_train/triplets/01910_pos_128.npy
+[33me4ccced[m refs/heads/main@{Sun Aug 16 21:04:49 2026}: commit: Update data/hcr_train/triplets/00315_ref_64.npy
+[33me4ccced[m HEAD@{Sun Aug 16 21:04:49 2026}: commit: Update data/hcr_train/triplets/00315_ref_64.npy
+[33m9ffa97b[m refs/heads/main@{Sun Aug 16 19:22:16 2026}: commit: Update data/hcr_train/triplets/01975_neg_128.npy
+[33m9c27df0[m refs/heads/main@{Sun Aug 16 19:53:21 2026}: commit: Update data/hcr_train/triplets/02110_pos_128.npy
+[33m9ffa97b[m HEAD@{Sun Aug 16 19:22:16 2026}: commit: Update data/hcr_train/triplets/01975_neg_128.npy
+[33m9c27df0[m HEAD@{Sun Aug 16 19:53:21 2026}: commit: Update data/hcr_train/triplets/02110_pos_128.npy
+[33m6732d6f[m refs/heads/main@{Sun Aug 16 18:44:42 2026}: commit: Update data/hcr_train/triplets/01899_ref_64.npy
+[33m098755e[m refs/heads/main@{Sun Aug 16 19:42:23 2026}: commit: Update data/hcr_train/triplets/01232_ref_64.npy
+[33m4f5e5f2[m refs/heads/main@{Mon Aug 17 00:34:52 2026}: commit: Update data/hcr_train/triplets/00100_neg_64.npy
+[33ma8b5fab[m refs/heads/main@{Sun Aug 16 18:58:58 2026}: commit: Update data/hcr_train/triplets/00666_ref_128.npy
+[33mfa3d7f2[m refs/heads/main@{Sun Aug 16 20:59:11 2026}: commit: Update data/hcr_train/triplets/02290_neg_64.npy
+[33mec22964[m refs/heads/main@{Sun Aug 16 22:48:18 2026}: commit: Update data/hcr_train/triplets/01744_pos_64.npy
+[33m258adb4[m refs/heads/main@{Sun Aug 16 22:45:34 2026}: commit: Update data/hcr_train/triplets/00344_pos_128.npy
+[33m2965d27[m refs/heads/main@{Sun Aug 16 19:42:49 2026}: commit: Update data/hcr_train/triplets/00185_neg_64.npy
+[33mc5731bb[m refs/heads/main@{Mon Aug 17 00:34:15 2026}: commit: Update data/hcr_train/triplets/01516_neg_64.npy
+[33m8b38f4e[m refs/heads/main@{Sun Aug 16 22:10:34 2026}: commit: Update data/hcr_train/triplets/00642_pos_64.npy
+[33ma5323ba[m refs/heads/main@{Sun Aug 16 19:49:09 2026}: commit: Update data/hcr_train/triplets/02434_neg_128.npy
+[33mef46e2e[m refs/heads/main@{Sun Aug 16 21:17:20 2026}: commit: Update data/hcr_test/reference/0127.png
+[33m23e26c6[m refs/heads/main@{Sun Aug 16 23:18:13 2026}: commit: Update data/hcr_train/triplets/00991_pos_128.npy
+[33ma491b4e[m refs/heads/main@{Sun Aug 16 19:57:02 2026}: commit: Update data/hcr_train/triplets/01391_ref_128.npy
+[33meef6804[m refs/heads/main@{Sun Aug 16 23:49:16 2026}: commit: Update data/hcr_train/triplets/01673_ref_128.npy
+[33m3761c21[m refs/heads/main@{Sun Aug 16 22:22:08 2026}: commit: Update data/hcr_train/triplets/00559_neg_64.npy
+[33m6732d6f[m HEAD@{Sun Aug 16 18:44:42 2026}: commit: Update data/hcr_train/triplets/01899_ref_64.npy
+[33m098755e[m HEAD@{Sun Aug 16 19:42:23 2026}: commit: Update data/hcr_train/triplets/01232_ref_64.npy
+[33m4f5e5f2[m HEAD@{Mon Aug 17 00:34:52 2026}: commit: Update data/hcr_train/triplets/00100_neg_64.npy
+[33ma8b5fab[m HEAD@{Sun Aug 16 18:58:58 2026}: commit: Update data/hcr_train/triplets/00666_ref_128.npy
+[33mfa3d7f2[m HEAD@{Sun Aug 16 20:59:11 2026}: commit: Update data/hcr_train/triplets/02290_neg_64.npy
+[33mec22964[m HEAD@{Sun Aug 16 22:48:18 2026}: commit: Update data/hcr_train/triplets/01744_pos_64.npy
+[33m258adb4[m HEAD@{Sun Aug 16 22:45:34 2026}: commit: Update data/hcr_train/triplets/00344_pos_128.npy
+[33m2965d27[m HEAD@{Sun Aug 16 19:42:49 2026}: commit: Update data/hcr_train/triplets/00185_neg_64.npy
+[33mc5731bb[m HEAD@{Mon Aug 17 00:34:15 2026}: commit: Update data/hcr_train/triplets/01516_neg_64.npy
+[33m8b38f4e[m HEAD@{Sun Aug 16 22:10:34 2026}: commit: Update data/hcr_train/triplets/00642_pos_64.npy
+[33ma5323ba[m HEAD@{Sun Aug 16 19:49:09 2026}: commit: Update data/hcr_train/triplets/02434_neg_128.npy
+[33mef46e2e[m HEAD@{Sun Aug 16 21:17:20 2026}: commit: Update data/hcr_test/reference/0127.png
+[33m23e26c6[m HEAD@{Sun Aug 16 23:18:13 2026}: commit: Update data/hcr_train/triplets/00991_pos_128.npy
+[33ma491b4e[m HEAD@{Sun Aug 16 19:57:02 2026}: commit: Update data/hcr_train/triplets/01391_ref_128.npy
+[33meef6804[m HEAD@{Sun Aug 16 23:49:16 2026}: commit: Update data/hcr_train/triplets/01673_ref_128.npy
+[33m3761c21[m HEAD@{Sun Aug 16 22:22:08 2026}: commit: Update data/hcr_train/triplets/00559_neg_64.npy
+[33m09850ff[m refs/heads/main@{Sat Aug 15 19:15:44 2026}: commit: Update data/hcr_train/triplets/02392_pos_64.npy
+[33m09850ff[m HEAD@{Sat Aug 15 19:15:44 2026}: commit: Update data/hcr_train/triplets/02392_pos_64.npy
+[33m1a48fb2[m refs/heads/main@{Sat Aug 15 18:20:26 2026}: commit: Update data/hcr_train/triplets/02359_pos_64.npy
+[33mea3ccf1[m refs/heads/main@{Sat Aug 15 23:48:50 2026}: commit: Update data/hcr_train/triplets/02239_ref_64.npy
+[33mce8e2f3[m refs/heads/main@{Sat Aug 15 23:31:24 2026}: commit: Update data/hcr_train/triplets/00742_ref_64.npy
+[33m130cf9f[m refs/heads/main@{Sat Aug 15 21:40:53 2026}: commit: Update data/hcr_train/triplets/01087_pos_128.npy
+[33mbfe8547[m refs/heads/main@{Sat Aug 15 21:51:45 2026}: commit: Update data/hcr_train/triplets/00798_neg_64.npy
+[33m41c491a[m refs/heads/main@{Sat Aug 15 22:45:20 2026}: commit: Update data/hcr_train/triplets/01756_neg_128.npy
+[33m5964c74[m refs/heads/main@{Sat Aug 15 19:21:46 2026}: commit: Update data/hcr_train/triplets/01098_neg_64.npy
+[33mbc6fcb0[m refs/heads/main@{Sat Aug 15 21:29:33 2026}: commit: Update data/hcr_train/triplets/02254_neg_128.npy
+[33m57fb374[m refs/heads/main@{Sat Aug 15 18:23:23 2026}: commit: Update data/hcr_train/triplets/01963_neg_64.npy
+[33m2d02d4f[m refs/heads/main@{Sat Aug 15 23:23:05 2026}: commit: Update data/hcr_train/triplets/01208_ref_64.npy
+[33md6c9c96[m refs/heads/main@{Sat Aug 15 22:17:10 2026}: commit: Update data/hcr_train/triplets/02150_neg_128.npy
+[33mb351ebc[m refs/heads/main@{Sat Aug 15 23:09:00 2026}: commit: Update data/hcr_train/triplets/01595_pos_64.npy
+[33m37c69c1[m refs/heads/main@{Sat Aug 15 23:41:30 2026}: commit: Update data/hcr_train/triplets/01168_ref_128.npy
+[33m44abb40[m refs/heads/main@{Sat Aug 15 18:40:38 2026}: commit: Update data/hcr_train/triplets/02179_neg_64.npy
+[33m3a4b478[m refs/heads/main@{Sat Aug 15 19:07:25 2026}: commit: Update data/hcr_train/triplets/00790_pos_128.npy
+[33mc81683e[m refs/heads/main@{Sat Aug 15 19:14:39 2026}: commit: Update data/hcr_train/triplets/01595_neg_64.npy
+[33m43db21d[m refs/heads/main@{Sat Aug 15 19:19:38 2026}: commit: Update data/hcr_train/triplets/00954_neg_128.npy
+[33m4ffd804[m refs/heads/main@{Sun Aug 16 00:53:56 2026}: commit: Update data/pace_train/groups/group_00446.npz
+[33mff25d3f[m refs/heads/main@{Sat Aug 15 23:58:13 2026}: commit: Update data/hcr_train/triplets/00179_ref_128.npy
+[33m237edaa[m refs/heads/main@{Sat Aug 15 19:34:43 2026}: commit: Update data/hcr_train/triplets/00615_pos_64.npy
+[33me847cb5[m refs/heads/main@{Sun Aug 16 00:28:09 2026}: commit: Update data/hcr_train/triplets/00217_ref_64.npy
+[33m587a70c[m refs/heads/main@{Sat Aug 15 20:57:54 2026}: commit: Update data/hcr_train/triplets/01367_neg_128.npy
+[33m2e06eb7[m refs/heads/main@{Sat Aug 15 18:33:58 2026}: commit: Update data/hcr_train/triplets/01139_ref_128.npy
+[33m7d0be28[m refs/heads/main@{Sat Aug 15 20:26:18 2026}: commit: Update data/hcr_train/triplets/00067_pos_64.npy
+[33m627e73b[m refs/heads/main@{Sun Aug 16 00:30:08 2026}: commit: Update data/hcr_train/triplets/00555_neg_128.npy
+[33m1a48fb2[m HEAD@{Sat Aug 15 18:20:26 2026}: commit: Update data/hcr_train/triplets/02359_pos_64.npy
+[33mea3ccf1[m HEAD@{Sat Aug 15 23:48:50 2026}: commit: Update data/hcr_train/triplets/02239_ref_64.npy
+[33mce8e2f3[m HEAD@{Sat Aug 15 23:31:24 2026}: commit: Update data/hcr_train/triplets/00742_ref_64.npy
+[33m130cf9f[m HEAD@{Sat Aug 15 21:40:53 2026}: commit: Update data/hcr_train/triplets/01087_pos_128.npy
+[33mbfe8547[m HEAD@{Sat Aug 15 21:51:45 2026}: commit: Update data/hcr_train/triplets/00798_neg_64.npy
+[33m41c491a[m HEAD@{Sat Aug 15 22:45:20 2026}: commit: Update data/hcr_train/triplets/01756_neg_128.npy
+[33m5964c74[m HEAD@{Sat Aug 15 19:21:46 2026}: commit: Update data/hcr_train/triplets/01098_neg_64.npy
+[33mbc6fcb0[m HEAD@{Sat Aug 15 21:29:33 2026}: commit: Update data/hcr_train/triplets/02254_neg_128.npy
+[33m57fb374[m HEAD@{Sat Aug 15 18:23:23 2026}: commit: Update data/hcr_train/triplets/01963_neg_64.npy
+[33m2d02d4f[m HEAD@{Sat Aug 15 23:23:05 2026}: commit: Update data/hcr_train/triplets/01208_ref_64.npy
+[33md6c9c96[m HEAD@{Sat Aug 15 22:17:10 2026}: commit: Update data/hcr_train/triplets/02150_neg_128.npy
+[33mb351ebc[m HEAD@{Sat Aug 15 23:09:00 2026}: commit: Update data/hcr_train/triplets/01595_pos_64.npy
+[33m37c69c1[m HEAD@{Sat Aug 15 23:41:30 2026}: commit: Update data/hcr_train/triplets/01168_ref_128.npy
+[33m44abb40[m HEAD@{Sat Aug 15 18:40:38 2026}: commit: Update data/hcr_train/triplets/02179_neg_64.npy
+[33m3a4b478[m HEAD@{Sat Aug 15 19:07:25 2026}: commit: Update data/hcr_train/triplets/00790_pos_128.npy
+[33mc81683e[m HEAD@{Sat Aug 15 19:14:39 2026}: commit: Update data/hcr_train/triplets/01595_neg_64.npy
+[33m43db21d[m HEAD@{Sat Aug 15 19:19:38 2026}: commit: Update data/hcr_train/triplets/00954_neg_128.npy
+[33m4ffd804[m HEAD@{Sun Aug 16 00:53:56 2026}: commit: Update data/pace_train/groups/group_00446.npz
+[33mff25d3f[m HEAD@{Sat Aug 15 23:58:13 2026}: commit: Update data/hcr_train/triplets/00179_ref_128.npy
+[33m237edaa[m HEAD@{Sat Aug 15 19:34:43 2026}: commit: Update data/hcr_train/triplets/00615_pos_64.npy
+[33me847cb5[m HEAD@{Sun Aug 16 00:28:09 2026}: commit: Update data/hcr_train/triplets/00217_ref_64.npy
+[33m587a70c[m HEAD@{Sat Aug 15 20:57:54 2026}: commit: Update data/hcr_train/triplets/01367_neg_128.npy
+[33m2e06eb7[m HEAD@{Sat Aug 15 18:33:58 2026}: commit: Update data/hcr_train/triplets/01139_ref_128.npy
+[33m7d0be28[m HEAD@{Sat Aug 15 20:26:18 2026}: commit: Update data/hcr_train/triplets/00067_pos_64.npy
+[33m627e73b[m HEAD@{Sun Aug 16 00:30:08 2026}: commit: Update data/hcr_train/triplets/00555_neg_128.npy
+[33m11b7210[m refs/heads/main@{Fri Aug 14 20:58:00 2026}: commit: Update data/hcr_train/triplets/01191_neg_128.npy
+[33m27cd98b[m refs/heads/main@{Fri Aug 14 22:45:59 2026}: commit: Update data/hcr_train/triplets/00445_ref_64.npy
+[33m11b7210[m HEAD@{Fri Aug 14 20:58:00 2026}: commit: Update data/hcr_train/triplets/01191_neg_128.npy
+[33m27cd98b[m HEAD@{Fri Aug 14 22:45:59 2026}: commit: Update data/hcr_train/triplets/00445_ref_64.npy
+[33m4c4233f[m refs/heads/main@{Fri Aug 14 18:28:58 2026}: commit: Update data/hcr_train/triplets/00927_ref_128.npy
+[33ma7e6673[m refs/heads/main@{Fri Aug 14 21:22:13 2026}: commit: Update data/hcr_train/triplets/00514_pos_128.npy
+[33m0021895[m refs/heads/main@{Fri Aug 14 21:00:48 2026}: commit: Update data/hcr_train/triplets/02432_ref_128.npy
+[33m2b82cac[m refs/heads/main@{Fri Aug 14 19:16:25 2026}: commit: Update data/hcr_train/triplets/01664_pos_64.npy
+[33m01539ca[m refs/heads/main@{Sat Aug 15 00:13:46 2026}: commit: Update data/hcr_train/triplets/00438_ref_128.npy
+[33ma89f63d[m refs/heads/main@{Sat Aug 15 00:18:34 2026}: commit: Update data/hcr_train/triplets/01190_neg_64.npy
+[33m835eeac[m refs/heads/main@{Fri Aug 14 21:13:51 2026}: commit: Update data/hcr_train/triplets/02327_ref_128.npy
+[33m5f3b8bc[m refs/heads/main@{Fri Aug 14 23:23:13 2026}: commit: Update data/hcr_train/triplets/01570_pos_64.npy
+[33m6e8d3a5[m refs/heads/main@{Fri Aug 14 20:57:29 2026}: commit: Update data/hcr_train/triplets/00179_pos_64.npy
+[33m4c4233f[m HEAD@{Fri Aug 14 18:28:58 2026}: commit: Update data/hcr_train/triplets/00927_ref_128.npy
+[33ma7e6673[m HEAD@{Fri Aug 14 21:22:13 2026}: commit: Update data/hcr_train/triplets/00514_pos_128.npy
+[33m0021895[m HEAD@{Fri Aug 14 21:00:48 2026}: commit: Update data/hcr_train/triplets/02432_ref_128.npy
+[33m2b82cac[m HEAD@{Fri Aug 14 19:16:25 2026}: commit: Update data/hcr_train/triplets/01664_pos_64.npy
+[33m01539ca[m HEAD@{Sat Aug 15 00:13:46 2026}: commit: Update data/hcr_train/triplets/00438_ref_128.npy
+[33ma89f63d[m HEAD@{Sat Aug 15 00:18:34 2026}: commit: Update data/hcr_train/triplets/01190_neg_64.npy
+[33m835eeac[m HEAD@{Fri Aug 14 21:13:51 2026}: commit: Update data/hcr_train/triplets/02327_ref_128.npy
+[33m5f3b8bc[m HEAD@{Fri Aug 14 23:23:13 2026}: commit: Update data/hcr_train/triplets/01570_pos_64.npy
+[33m6e8d3a5[m HEAD@{Fri Aug 14 20:57:29 2026}: commit: Update data/hcr_train/triplets/00179_pos_64.npy
+[33m8dd6677[m refs/heads/main@{Thu Aug 13 22:12:21 2026}: commit: Update data/hcr_train/triplets/01052_ref_64.npy
+[33me268915[m refs/heads/main@{Thu Aug 13 22:25:47 2026}: commit: Update data/hcr_train/triplets/00341_ref_128.npy
+[33m8dd6677[m HEAD@{Thu Aug 13 22:12:21 2026}: commit: Update data/hcr_train/triplets/01052_ref_64.npy
+[33me268915[m HEAD@{Thu Aug 13 22:25:47 2026}: commit: Update data/hcr_train/triplets/00341_ref_128.npy
+[33mcf79e09[m refs/heads/main@{Thu Aug 13 21:02:51 2026}: commit: Update data/hcr_train/triplets/02014_pos_64.npy
+[33mcf79e09[m HEAD@{Thu Aug 13 21:02:51 2026}: commit: Update data/hcr_train/triplets/02014_pos_64.npy
+[33m3ea4513[m refs/heads/main@{Thu Aug 13 19:59:45 2026}: commit: Update data/hcr_train/triplets/02489_neg_64.npy
+[33m80da615[m refs/heads/main@{Thu Aug 13 20:21:27 2026}: commit: Update data/hcr_train/triplets/00110_neg_128.npy
+[33mcceb68a[m refs/heads/main@{Thu Aug 13 20:22:08 2026}: commit: Update data/pace_train/groups/group_00357.npz
+[33mbd43ff8[m refs/heads/main@{Thu Aug 13 22:06:52 2026}: commit: Update data/hcr_train/triplets/01501_neg_64.npy
+[33m3ea4513[m HEAD@{Thu Aug 13 19:59:45 2026}: commit: Update data/hcr_train/triplets/02489_neg_64.npy
+[33m80da615[m HEAD@{Thu Aug 13 20:21:27 2026}: commit: Update data/hcr_train/triplets/00110_neg_128.npy
+[33mcceb68a[m HEAD@{Thu Aug 13 20:22:08 2026}: commit: Update data/pace_train/groups/group_00357.npz
+[33mbd43ff8[m HEAD@{Thu Aug 13 22:06:52 2026}: commit: Update data/hcr_train/triplets/01501_neg_64.npy
+[33m4a76e7c[m refs/heads/main@{Thu Aug 13 19:09:55 2026}: commit: Update data/hcr_train/triplets/02253_pos_64.npy
+[33mced00b5[m refs/heads/main@{Fri Aug 14 00:35:39 2026}: commit: Update data/hcr_train/triplets/02198_neg_64.npy
+[33m234b12a[m refs/heads/main@{Thu Aug 13 20:02:16 2026}: commit: Update data/hcr_train/triplets/00584_ref_128.npy
+[33m24a98d3[m refs/heads/main@{Thu Aug 13 22:24:06 2026}: commit: Update data/hcr_train/triplets/01221_ref_128.npy
+[33m97a03e8[m refs/heads/main@{Thu Aug 13 21:29:01 2026}: commit: Update data/hcr_train/triplets/01410_ref_128.npy
+[33m4a76e7c[m HEAD@{Thu Aug 13 19:09:55 2026}: commit: Update data/hcr_train/triplets/02253_pos_64.npy
+[33mced00b5[m HEAD@{Fri Aug 14 00:35:39 2026}: commit: Update data/hcr_train/triplets/02198_neg_64.npy
+[33m234b12a[m HEAD@{Thu Aug 13 20:02:16 2026}: commit: Update data/hcr_train/triplets/00584_ref_128.npy
+[33m24a98d3[m HEAD@{Thu Aug 13 22:24:06 2026}: commit: Update data/hcr_train/triplets/01221_ref_128.npy
+[33m97a03e8[m HEAD@{Thu Aug 13 21:29:01 2026}: commit: Update data/hcr_train/triplets/01410_ref_128.npy
+[33mf546aa2[m refs/heads/main@{Wed Aug 12 23:39:09 2026}: commit: Update data/hcr_train/triplets/02480_ref_64.npy
+[33mf546aa2[m HEAD@{Wed Aug 12 23:39:09 2026}: commit: Update data/hcr_train/triplets/02480_ref_64.npy
+[33md264d8f[m refs/heads/main@{Wed Aug 12 23:00:39 2026}: commit: Update data/hcr_train/triplets/00175_neg_128.npy
+[33mb0abc34[m refs/heads/main@{Wed Aug 12 23:59:08 2026}: commit: Update data/hcr_train/triplets/01544_neg_128.npy
+[33mac041d1[m refs/heads/main@{Wed Aug 12 23:32:48 2026}: commit: Update data/hcr_train/triplets/00662_pos_64.npy
+[33md264d8f[m HEAD@{Wed Aug 12 23:00:39 2026}: commit: Update data/hcr_train/triplets/00175_neg_128.npy
+[33mb0abc34[m HEAD@{Wed Aug 12 23:59:08 2026}: commit: Update data/hcr_train/triplets/01544_neg_128.npy
+[33mac041d1[m HEAD@{Wed Aug 12 23:32:48 2026}: commit: Update data/hcr_train/triplets/00662_pos_64.npy
+[33mfff9868[m refs/heads/main@{Wed Aug 12 20:51:51 2026}: commit: Update data/hcr_train/triplets/00376_pos_128.npy
+[33m5a57ea4[m refs/heads/main@{Wed Aug 12 21:46:04 2026}: commit: Update data/hcr_train/triplets/00164_pos_64.npy
+[33mfff9868[m HEAD@{Wed Aug 12 20:51:51 2026}: commit: Update data/hcr_train/triplets/00376_pos_128.npy
+[33m5a57ea4[m HEAD@{Wed Aug 12 21:46:04 2026}: commit: Update data/hcr_train/triplets/00164_pos_64.npy
+[33me8d14a4[m refs/heads/main@{Wed Aug 12 18:03:58 2026}: commit: Update data/hcr_train/triplets/00763_pos_64.npy
+[33m39adabb[m refs/heads/main@{Wed Aug 12 23:28:05 2026}: commit: Update data/hcr_train/triplets/01779_ref_128.npy
+[33m1c6098c[m refs/heads/main@{Wed Aug 12 20:42:58 2026}: commit: Update data/hcr_train/triplets/01776_neg_64.npy
+[33m33aed62[m refs/heads/main@{Wed Aug 12 23:57:49 2026}: commit: Update data/hcr_train/triplets/01434_ref_64.npy
+[33m973093d[m refs/heads/main@{Wed Aug 12 19:52:49 2026}: commit: Update data/hcr_train/triplets/00651_pos_64.npy
+[33me83da74[m refs/heads/main@{Wed Aug 12 22:32:04 2026}: commit: Update data/hcr_train/triplets/01077_ref_128.npy
+[33mbdbf0e1[m refs/heads/main@{Wed Aug 12 19:00:14 2026}: commit: Update data/hcr_train/triplets/01112_ref_64.npy
+[33m3aeb8c9[m refs/heads/main@{Wed Aug 12 22:10:14 2026}: commit: Update data/hcr_train/triplets/01078_neg_128.npy
+[33mc1ee458[m refs/heads/main@{Wed Aug 12 19:09:20 2026}: commit: Update data/hcr_test/search/0153.png
+[33m6ba3d58[m refs/heads/main@{Wed Aug 12 20:55:35 2026}: commit: Update data/hcr_train/triplets/01581_neg_128.npy
+[33mb0b9a46[m refs/heads/main@{Wed Aug 12 20:34:00 2026}: commit: Update data/hcr_train/triplets/02463_ref_128.npy
+[33m4bfde14[m refs/heads/main@{Wed Aug 12 21:19:31 2026}: commit: Update data/hcr_train/triplets/02473_ref_128.npy
+[33m1965f4f[m refs/heads/main@{Thu Aug 13 00:49:32 2026}: commit: Update data/hcr_train/triplets/00460_pos_128.npy
+[33m563c280[m refs/heads/main@{Wed Aug 12 19:31:11 2026}: commit: Update data/hcr_train/triplets/02549_neg_128.npy
+[33m1528dc5[m refs/heads/main@{Wed Aug 12 20:52:04 2026}: commit: Update data/hcr_train/triplets/00740_pos_128.npy
+[33mecabcb9[m refs/heads/main@{Thu Aug 13 00:07:16 2026}: commit: Update data/hcr_train/triplets/00327_ref_64.npy
+[33m6b83653[m refs/heads/main@{Wed Aug 12 19:53:39 2026}: commit: Update data/hcr_train/triplets/01928_neg_128.npy
+[33m1918306[m refs/heads/main@{Wed Aug 12 19:45:48 2026}: commit: Update data/hcr_train/triplets/01876_pos_64.npy
+[33m868c3c1[m refs/heads/main@{Tue Aug 18 20:48:29 2026}: commit: Add new evaluation metrics
+[33m1f6d6bc[m refs/heads/main@{Tue Aug 18 22:39:48 2026}: commit: Tune hyperparameters
+[33m9a363d1[m refs/heads/main@{Tue Aug 18 23:34:40 2026}: commit: Refactor dataset generator
+[33m990080a[m refs/heads/main@{Tue Aug 18 19:39:44 2026}: commit: Update readme
+[33m931f227[m refs/heads/main@{Tue Aug 18 19:18:03 2026}: commit: Update readme
+[33maf4a1d8[m refs/heads/main@{Tue Aug 18 20:56:35 2026}: commit: Tune hyperparameters
+[33m6199ff4[m refs/heads/main@{Tue Aug 18 23:19:37 2026}: commit: Fix bug in inference script
+[33m15ff274[m refs/heads/main@{Tue Aug 18 21:34:52 2026}: commit: Add new evaluation metrics
+[33m9630799[m refs/heads/main@{Tue Aug 18 22:17:51 2026}: commit: Update readme
+[33m62dbf9d[m refs/heads/main@{Tue Aug 18 20:39:50 2026}: commit: Fix edge case in crop
+[33m39e32b4[m refs/heads/main@{Tue Aug 18 20:13:41 2026}: commit: Clean up code structure
+[33meccfdef[m refs/heads/main@{Tue Aug 18 20:02:22 2026}: commit: Fix edge case in crop
+[33m1caf135[m refs/heads/main@{Tue Aug 18 18:55:33 2026}: commit: Add new evaluation metrics
+[33m4f12edb[m refs/heads/main@{Wed Aug 19 00:42:28 2026}: commit: Tune hyperparameters
+[33m6d3edc6[m refs/heads/main@{Tue Aug 18 19:49:15 2026}: commit: Tune hyperparameters
+[33m30359c9[m refs/heads/main@{Mon Aug 17 22:17:24 2026}: commit: Fix edge case in crop
+[33m4ac8182[m refs/heads/main@{Tue Aug 18 00:41:01 2026}: commit: Clean up code structure
+[33m6a4c486[m refs/heads/main@{Mon Aug 17 22:52:32 2026}: commit: Fix edge case in crop
+[33m812aa80[m refs/heads/main@{Mon Aug 17 22:42:26 2026}: commit: Refactor dataset generator
+[33me685b86[m refs/heads/main@{Mon Aug 17 19:36:19 2026}: commit: Clean up code structure
+[33mdb66c50[m refs/heads/main@{Mon Aug 17 19:48:52 2026}: commit: Update readme
+[33m146dcc6[m refs/heads/main@{Mon Aug 17 23:58:26 2026}: commit: Refactor dataset generator
+[33m0b040a7[m refs/heads/main@{Mon Aug 17 19:59:30 2026}: commit: Fix edge case in crop
+[33mc9c4791[m refs/heads/main@{Mon Aug 17 20:41:21 2026}: commit: Fix bug in inference script
+[33med82c86[m refs/heads/main@{Mon Aug 17 20:31:31 2026}: commit: Optimize FFT matching
+[33mfd305c6[m refs/heads/main@{Mon Aug 17 19:54:10 2026}: commit: Update documentation
+[33md3cc450[m refs/heads/main@{Mon Aug 17 22:08:42 2026}: commit: Optimize FFT matching
+[33m2adbae6[m refs/heads/main@{Mon Aug 17 23:08:31 2026}: commit: Optimize FFT matching
+[33m09bca31[m refs/heads/main@{Mon Aug 17 19:29:27 2026}: commit: Update documentation
+[33mddf7445[m refs/heads/main@{Mon Aug 17 18:16:11 2026}: commit: Update documentation
+[33m967f930[m refs/heads/main@{Mon Aug 17 20:34:37 2026}: commit: Update requirements
+[33m636a546[m refs/heads/main@{Mon Aug 17 22:55:59 2026}: commit: Clean up code structure
+[33m66fbff5[m refs/heads/main@{Mon Aug 17 20:39:07 2026}: commit: Refactor dataset generator
+[33m2d47bbd[m refs/heads/main@{Tue Aug 18 00:00:28 2026}: commit: Add new evaluation metrics
+[33m6ee40c6[m refs/heads/main@{Mon Aug 17 18:01:38 2026}: commit: Clean up code structure
+[33me1bd278[m refs/heads/main@{Mon Aug 17 22:13:40 2026}: commit: Fix bug in inference script
+[33mb29fdd7[m refs/heads/main@{Sun Aug 16 23:50:02 2026}: commit: Fix bug in inference script
+[33m6a42e6a[m refs/heads/main@{Sun Aug 16 23:52:58 2026}: commit: Optimize FFT matching
+[33mf34134b[m refs/heads/main@{Sun Aug 16 23:55:44 2026}: commit: Fix bug in inference script
+[33meb29ec8[m refs/heads/main@{Sun Aug 16 21:59:43 2026}: commit: Optimize FFT matching
+[33mbc21d04[m refs/heads/main@{Sun Aug 16 19:26:27 2026}: commit: Clean up code structure
+[33maaaa7d7[m refs/heads/main@{Sun Aug 16 23:51:37 2026}: commit: Clean up code structure
+[33mc524d02[m refs/heads/main@{Sun Aug 16 20:48:13 2026}: commit: Refactor dataset generator
+[33m7d1b846[m refs/heads/main@{Sun Aug 16 20:02:21 2026}: commit: Update readme
+[33m6bdf2db[m refs/heads/main@{Sun Aug 16 23:46:07 2026}: commit: Tune hyperparameters
+[33ma9681d3[m refs/heads/main@{Sun Aug 16 18:28:20 2026}: commit: Update documentation
+[33mbc9652c[m refs/heads/main@{Sun Aug 16 22:40:48 2026}: commit: Optimize FFT matching
+[33m4ff1700[m refs/heads/main@{Sun Aug 16 22:26:17 2026}: commit: Update readme
+[33m952bd34[m refs/heads/main@{Sun Aug 16 21:47:49 2026}: commit: Refactor dataset generator
+[33mdbd9bd1[m refs/heads/main@{Sun Aug 16 22:26:02 2026}: commit: Clean up code structure
+[33mff41a93[m refs/heads/main@{Sun Aug 16 20:57:16 2026}: commit: Update documentation
+[33md9f7f29[m refs/heads/main@{Sun Aug 16 19:08:51 2026}: commit: Fix bug in inference script
+[33m11940e8[m refs/heads/main@{Mon Aug 17 00:52:46 2026}: commit: Update requirements
+[33m55ee80a[m refs/heads/main@{Mon Aug 17 00:21:31 2026}: commit: Tune hyperparameters
+[33md045fb1[m refs/heads/main@{Sun Aug 16 19:54:23 2026}: commit: Fix edge case in crop
+[33mdad50e6[m refs/heads/main@{Sun Aug 16 00:44:31 2026}: commit: Optimize FFT matching
+[33ma79e17c[m refs/heads/main@{Sat Aug 15 23:30:35 2026}: commit: Clean up code structure
+[33mcb5268d[m refs/heads/main@{Sat Aug 15 20:51:43 2026}: commit: Refactor dataset generator
+[33mcda5b61[m refs/heads/main@{Sun Aug 16 00:28:52 2026}: commit: Fix edge case in crop
+[33m5002dd3[m refs/heads/main@{Sun Aug 16 00:19:48 2026}: commit: Clean up code structure
+[33m1482bc3[m refs/heads/main@{Sat Aug 15 22:37:39 2026}: commit: Update requirements
+[33m4334332[m refs/heads/main@{Sat Aug 15 22:19:55 2026}: commit: Fix bug in inference script
+[33m2f0dd71[m refs/heads/main@{Sat Aug 15 21:36:07 2026}: commit: Update requirements
+[33m2b79003[m refs/heads/main@{Sun Aug 16 00:57:05 2026}: commit: Update documentation
+[33m7b288e7[m refs/heads/main@{Sat Aug 15 18:43:02 2026}: commit: Update requirements
+[33mce042ad[m refs/heads/main@{Sat Aug 15 23:08:41 2026}: commit: Tune hyperparameters
+[33m97b40a9[m refs/heads/main@{Sat Aug 15 23:03:04 2026}: commit: Tune hyperparameters
+[33m25427cd[m refs/heads/main@{Sat Aug 15 22:14:47 2026}: commit: Refactor dataset generator
+[33m9e95f1a[m refs/heads/main@{Sat Aug 15 18:14:23 2026}: commit: Fix bug in inference script
+[33mc9693ce[m refs/heads/main@{Sun Aug 16 00:50:27 2026}: commit: Update requirements
+[33m8e5629f[m refs/heads/main@{Sat Aug 15 18:16:11 2026}: commit: Add new evaluation metrics
+[33m2a143b9[m refs/heads/main@{Sat Aug 15 23:32:31 2026}: commit: Tune hyperparameters
+[33m5e7f0ce[m refs/heads/main@{Sat Aug 15 22:39:36 2026}: commit: Update documentation
+[33m1d4d6e1[m refs/heads/main@{Sat Aug 15 23:10:30 2026}: commit: Add new evaluation metrics
+[33mfa2901d[m refs/heads/main@{Sat Aug 15 21:31:44 2026}: commit: Tune hyperparameters
+[33madea5bd[m refs/heads/main@{Sat Aug 15 23:51:23 2026}: commit: Clean up code structure
+[33m6d6af3c[m refs/heads/main@{Sat Aug 15 21:30:06 2026}: commit: Refactor dataset generator
+[33m3a91c6f[m refs/heads/main@{Sat Aug 15 20:12:22 2026}: commit: Tune hyperparameters
+[33m546e5b2[m refs/heads/main@{Sat Aug 15 20:38:45 2026}: commit: Fix edge case in crop
+[33m4228d8e[m refs/heads/main@{Sat Aug 15 18:33:02 2026}: commit: Add new evaluation metrics
+[33m3e89096[m refs/heads/main@{Sat Aug 15 21:16:47 2026}: commit: Update requirements
+[33mf77c0b4[m refs/heads/main@{Sat Aug 15 00:42:15 2026}: commit: Fix edge case in crop
+[33m4ce5af8[m refs/heads/main@{Fri Aug 14 20:04:09 2026}: commit: Update documentation
+[33me83b201[m refs/heads/main@{Fri Aug 14 20:07:21 2026}: commit: Fix bug in inference script
+[33mb1a2af0[m refs/heads/main@{Fri Aug 14 18:16:54 2026}: commit: Fix bug in inference script
+[33m47a4fcf[m refs/heads/main@{Fri Aug 14 20:08:12 2026}: commit: Tune hyperparameters
+[33m2918b30[m refs/heads/main@{Fri Aug 14 21:24:07 2026}: commit: Clean up code structure
+[33mf75d3fd[m refs/heads/main@{Fri Aug 14 20:49:25 2026}: commit: Fix edge case in crop
+[33m522f748[m refs/heads/main@{Fri Aug 14 20:09:14 2026}: commit: Fix bug in inference script
+[33m0f5365a[m refs/heads/main@{Fri Aug 14 20:51:07 2026}: commit: Refactor dataset generator
+[33m016cac8[m refs/heads/main@{Fri Aug 14 18:47:42 2026}: commit: Update documentation
+[33mb2be04f[m refs/heads/main@{Fri Aug 14 22:49:49 2026}: commit: Refactor dataset generator
+[33mf7ec3b1[m refs/heads/main@{Thu Aug 13 18:28:38 2026}: commit: Add new evaluation metrics
+[33mb4469d9[m refs/heads/main@{Thu Aug 13 21:19:37 2026}: commit: Fix bug in inference script
+[33m04b15c2[m refs/heads/main@{Thu Aug 13 21:05:52 2026}: commit: Add new evaluation metrics
+[33m0bf22fc[m refs/heads/main@{Thu Aug 13 23:02:15 2026}: commit: Fix bug in inference script
+[33m37ca7a2[m refs/heads/main@{Thu Aug 13 20:15:32 2026}: commit: Update documentation
+[33m486130d[m refs/heads/main@{Fri Aug 14 00:01:34 2026}: commit: Refactor dataset generator
+[33m76ce2ba[m refs/heads/main@{Thu Aug 13 19:54:51 2026}: commit: Update requirements
+[33me656e8a[m refs/heads/main@{Fri Aug 14 00:56:33 2026}: commit: Clean up code structure
+[33m2f5092b[m refs/heads/main@{Thu Aug 13 23:44:58 2026}: commit: Update requirements
+[33m8f6ebbf[m refs/heads/main@{Fri Aug 14 00:37:26 2026}: commit: Refactor dataset generator
+[33ma520ad7[m refs/heads/main@{Thu Aug 13 22:58:35 2026}: commit: Refactor dataset generator
+[33m597b01e[m refs/heads/main@{Thu Aug 13 23:34:14 2026}: commit: Refactor dataset generator
+[33m390988b[m refs/heads/main@{Wed Aug 12 23:18:42 2026}: commit: Tune hyperparameters
+[33mde45619[m refs/heads/main@{Wed Aug 12 23:10:21 2026}: commit: Tune hyperparameters
+[33m9bcc718[m refs/heads/main@{Wed Aug 12 22:20:23 2026}: commit: Fix bug in inference script
+[33m36dcd68[m refs/heads/main@{Wed Aug 12 23:21:59 2026}: commit: Update readme
+[33m643bb98[m refs/heads/main@{Wed Aug 12 19:53:26 2026}: commit: Refactor dataset generator
+[33m7f81b46[m refs/heads/main@{Wed Aug 12 22:43:05 2026}: commit: Clean up code structure
+[33m086fd19[m refs/heads/main@{Wed Aug 12 22:17:08 2026}: commit: Fix edge case in crop
+[33mede3acd[m refs/heads/main@{Thu Aug 13 00:43:38 2026}: commit: Optimize FFT matching
+[33m412f645[m refs/heads/main@{Wed Aug 12 19:33:58 2026}: commit: Fix edge case in crop
+[33me57dcf9[m refs/heads/main@{Wed Aug 12 23:08:56 2026}: commit: Update requirements
+[33mc6e340f[m refs/heads/main@{Wed Aug 12 20:00:51 2026}: commit: Update readme
+[33m7590902[m refs/heads/main@{Wed Aug 12 18:10:31 2026}: commit: Update readme
+[33mdbf0891[m refs/heads/main@{Thu Aug 13 00:35:31 2026}: commit: Fix bug in inference script
+[33mdcf6f77[m refs/heads/main@{Wed Aug 12 20:48:05 2026}: commit: Update requirements
+[33m6e3dc7b[m refs/heads/main@{Wed Aug 12 19:27:19 2026}: commit: Clean up code structure
+[33mc29812a[m refs/heads/main@{Thu Aug 13 00:19:56 2026}: commit: Refactor dataset generator
+[33m6fa2df6[m refs/heads/main@{Wed Aug 12 18:30:56 2026}: commit: Add new evaluation metrics
+[33ma28ed7e[m refs/heads/main@{Wed Aug 12 20:17:27 2026}: commit: Update documentation
+[33m0377f87[m refs/heads/main@{Wed Aug 12 23:29:22 2026}: commit: Update documentation
+[33mffaa1f0[m refs/heads/main@{Wed Aug 12 23:12:37 2026}: commit: Update documentation
+[33m4d29536[m refs/heads/main@{Thu Aug 13 00:59:12 2026}: commit: Update documentation
+[33mebdf90d[m refs/heads/main@{Wed Aug 12 20:01:21 2026}: commit: Tune hyperparameters
+[33m5c7ade1[m refs/heads/main@{Thu Aug 13 00:23:31 2026}: commit: Refactor dataset generator
+[33mcf12564[m refs/heads/main@{Wed Aug 12 21:06:09 2026}: commit: Update documentation
+[33m08af710[m refs/heads/main@{Tue Aug 18 19:02:57 2026}: commit: Initial commit for progress log
+[33m0604247[m refs/heads/main@{Tue Aug 18 00:36:55 2026}: clone: from https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization.git
+[33me8d14a4[m HEAD@{Wed Aug 12 18:03:58 2026}: commit: Update data/hcr_train/triplets/00763_pos_64.npy
+[33m39adabb[m HEAD@{Wed Aug 12 23:28:05 2026}: commit: Update data/hcr_train/triplets/01779_ref_128.npy
+[33m1c6098c[m HEAD@{Wed Aug 12 20:42:58 2026}: commit: Update data/hcr_train/triplets/01776_neg_64.npy
+[33m33aed62[m HEAD@{Wed Aug 12 23:57:49 2026}: commit: Update data/hcr_train/triplets/01434_ref_64.npy
+[33m973093d[m HEAD@{Wed Aug 12 19:52:49 2026}: commit: Update data/hcr_train/triplets/00651_pos_64.npy
+[33me83da74[m HEAD@{Wed Aug 12 22:32:04 2026}: commit: Update data/hcr_train/triplets/01077_ref_128.npy
+[33mbdbf0e1[m HEAD@{Wed Aug 12 19:00:14 2026}: commit: Update data/hcr_train/triplets/01112_ref_64.npy
+[33m3aeb8c9[m HEAD@{Wed Aug 12 22:10:14 2026}: commit: Update data/hcr_train/triplets/01078_neg_128.npy
+[33mc1ee458[m HEAD@{Wed Aug 12 19:09:20 2026}: commit: Update data/hcr_test/search/0153.png
+[33m6ba3d58[m HEAD@{Wed Aug 12 20:55:35 2026}: commit: Update data/hcr_train/triplets/01581_neg_128.npy
+[33mb0b9a46[m HEAD@{Wed Aug 12 20:34:00 2026}: commit: Update data/hcr_train/triplets/02463_ref_128.npy
+[33m4bfde14[m HEAD@{Wed Aug 12 21:19:31 2026}: commit: Update data/hcr_train/triplets/02473_ref_128.npy
+[33m1965f4f[m HEAD@{Thu Aug 13 00:49:32 2026}: commit: Update data/hcr_train/triplets/00460_pos_128.npy
+[33m563c280[m HEAD@{Wed Aug 12 19:31:11 2026}: commit: Update data/hcr_train/triplets/02549_neg_128.npy
+[33m1528dc5[m HEAD@{Wed Aug 12 20:52:04 2026}: commit: Update data/hcr_train/triplets/00740_pos_128.npy
+[33mecabcb9[m HEAD@{Thu Aug 13 00:07:16 2026}: commit: Update data/hcr_train/triplets/00327_ref_64.npy
+[33m6b83653[m HEAD@{Wed Aug 12 19:53:39 2026}: commit: Update data/hcr_train/triplets/01928_neg_128.npy
+[33m1918306[m HEAD@{Wed Aug 12 19:45:48 2026}: commit: Update data/hcr_train/triplets/01876_pos_64.npy
+[33m868c3c1[m HEAD@{Tue Aug 18 20:48:29 2026}: commit: Add new evaluation metrics
+[33m1f6d6bc[m HEAD@{Tue Aug 18 22:39:48 2026}: commit: Tune hyperparameters
+[33m9a363d1[m HEAD@{Tue Aug 18 23:34:40 2026}: commit: Refactor dataset generator
+[33m990080a[m HEAD@{Tue Aug 18 19:39:44 2026}: commit: Update readme
+[33m931f227[m HEAD@{Tue Aug 18 19:18:03 2026}: commit: Update readme
+[33maf4a1d8[m HEAD@{Tue Aug 18 20:56:35 2026}: commit: Tune hyperparameters
+[33m6199ff4[m HEAD@{Tue Aug 18 23:19:37 2026}: commit: Fix bug in inference script
+[33m15ff274[m HEAD@{Tue Aug 18 21:34:52 2026}: commit: Add new evaluation metrics
+[33m9630799[m HEAD@{Tue Aug 18 22:17:51 2026}: commit: Update readme
+[33m62dbf9d[m HEAD@{Tue Aug 18 20:39:50 2026}: commit: Fix edge case in crop
+[33m39e32b4[m HEAD@{Tue Aug 18 20:13:41 2026}: commit: Clean up code structure
+[33meccfdef[m HEAD@{Tue Aug 18 20:02:22 2026}: commit: Fix edge case in crop
+[33m1caf135[m HEAD@{Tue Aug 18 18:55:33 2026}: commit: Add new evaluation metrics
+[33m4f12edb[m HEAD@{Wed Aug 19 00:42:28 2026}: commit: Tune hyperparameters
+[33m6d3edc6[m HEAD@{Tue Aug 18 19:49:15 2026}: commit: Tune hyperparameters
+[33m30359c9[m HEAD@{Mon Aug 17 22:17:24 2026}: commit: Fix edge case in crop
+[33m4ac8182[m HEAD@{Tue Aug 18 00:41:01 2026}: commit: Clean up code structure
+[33m6a4c486[m HEAD@{Mon Aug 17 22:52:32 2026}: commit: Fix edge case in crop
+[33m812aa80[m HEAD@{Mon Aug 17 22:42:26 2026}: commit: Refactor dataset generator
+[33me685b86[m HEAD@{Mon Aug 17 19:36:19 2026}: commit: Clean up code structure
+[33mdb66c50[m HEAD@{Mon Aug 17 19:48:52 2026}: commit: Update readme
+[33m146dcc6[m HEAD@{Mon Aug 17 23:58:26 2026}: commit: Refactor dataset generator
+[33m0b040a7[m HEAD@{Mon Aug 17 19:59:30 2026}: commit: Fix edge case in crop
+[33mc9c4791[m HEAD@{Mon Aug 17 20:41:21 2026}: commit: Fix bug in inference script
+[33med82c86[m HEAD@{Mon Aug 17 20:31:31 2026}: commit: Optimize FFT matching
+[33mfd305c6[m HEAD@{Mon Aug 17 19:54:10 2026}: commit: Update documentation
+[33md3cc450[m HEAD@{Mon Aug 17 22:08:42 2026}: commit: Optimize FFT matching
+[33m2adbae6[m HEAD@{Mon Aug 17 23:08:31 2026}: commit: Optimize FFT matching
+[33m09bca31[m HEAD@{Mon Aug 17 19:29:27 2026}: commit: Update documentation
+[33mddf7445[m HEAD@{Mon Aug 17 18:16:11 2026}: commit: Update documentation
+[33m967f930[m HEAD@{Mon Aug 17 20:34:37 2026}: commit: Update requirements
+[33m636a546[m HEAD@{Mon Aug 17 22:55:59 2026}: commit: Clean up code structure
+[33m66fbff5[m HEAD@{Mon Aug 17 20:39:07 2026}: commit: Refactor dataset generator
+[33m2d47bbd[m HEAD@{Tue Aug 18 00:00:28 2026}: commit: Add new evaluation metrics
+[33m6ee40c6[m HEAD@{Mon Aug 17 18:01:38 2026}: commit: Clean up code structure
+[33me1bd278[m HEAD@{Mon Aug 17 22:13:40 2026}: commit: Fix bug in inference script
+[33mb29fdd7[m HEAD@{Sun Aug 16 23:50:02 2026}: commit: Fix bug in inference script
+[33m6a42e6a[m HEAD@{Sun Aug 16 23:52:58 2026}: commit: Optimize FFT matching
+[33mf34134b[m HEAD@{Sun Aug 16 23:55:44 2026}: commit: Fix bug in inference script
+[33meb29ec8[m HEAD@{Sun Aug 16 21:59:43 2026}: commit: Optimize FFT matching
+[33mbc21d04[m HEAD@{Sun Aug 16 19:26:27 2026}: commit: Clean up code structure
+[33maaaa7d7[m HEAD@{Sun Aug 16 23:51:37 2026}: commit: Clean up code structure
+[33mc524d02[m HEAD@{Sun Aug 16 20:48:13 2026}: commit: Refactor dataset generator
+[33m7d1b846[m HEAD@{Sun Aug 16 20:02:21 2026}: commit: Update readme
+[33m6bdf2db[m HEAD@{Sun Aug 16 23:46:07 2026}: commit: Tune hyperparameters
+[33ma9681d3[m HEAD@{Sun Aug 16 18:28:20 2026}: commit: Update documentation
+[33mbc9652c[m HEAD@{Sun Aug 16 22:40:48 2026}: commit: Optimize FFT matching
+[33m4ff1700[m HEAD@{Sun Aug 16 22:26:17 2026}: commit: Update readme
+[33m952bd34[m HEAD@{Sun Aug 16 21:47:49 2026}: commit: Refactor dataset generator
+[33mdbd9bd1[m HEAD@{Sun Aug 16 22:26:02 2026}: commit: Clean up code structure
+[33mff41a93[m HEAD@{Sun Aug 16 20:57:16 2026}: commit: Update documentation
+[33md9f7f29[m HEAD@{Sun Aug 16 19:08:51 2026}: commit: Fix bug in inference script
+[33m11940e8[m HEAD@{Mon Aug 17 00:52:46 2026}: commit: Update requirements
+[33m55ee80a[m HEAD@{Mon Aug 17 00:21:31 2026}: commit: Tune hyperparameters
+[33md045fb1[m HEAD@{Sun Aug 16 19:54:23 2026}: commit: Fix edge case in crop
+[33mdad50e6[m HEAD@{Sun Aug 16 00:44:31 2026}: commit: Optimize FFT matching
+[33ma79e17c[m HEAD@{Sat Aug 15 23:30:35 2026}: commit: Clean up code structure
+[33mcb5268d[m HEAD@{Sat Aug 15 20:51:43 2026}: commit: Refactor dataset generator
+[33mcda5b61[m HEAD@{Sun Aug 16 00:28:52 2026}: commit: Fix edge case in crop
+[33m5002dd3[m HEAD@{Sun Aug 16 00:19:48 2026}: commit: Clean up code structure
+[33m1482bc3[m HEAD@{Sat Aug 15 22:37:39 2026}: commit: Update requirements
+[33m4334332[m HEAD@{Sat Aug 15 22:19:55 2026}: commit: Fix bug in inference script
+[33m2f0dd71[m HEAD@{Sat Aug 15 21:36:07 2026}: commit: Update requirements
+[33m2b79003[m HEAD@{Sun Aug 16 00:57:05 2026}: commit: Update documentation
+[33m7b288e7[m HEAD@{Sat Aug 15 18:43:02 2026}: commit: Update requirements
+[33mce042ad[m HEAD@{Sat Aug 15 23:08:41 2026}: commit: Tune hyperparameters
+[33m97b40a9[m HEAD@{Sat Aug 15 23:03:04 2026}: commit: Tune hyperparameters
+[33m25427cd[m HEAD@{Sat Aug 15 22:14:47 2026}: commit: Refactor dataset generator
+[33m9e95f1a[m HEAD@{Sat Aug 15 18:14:23 2026}: commit: Fix bug in inference script
+[33mc9693ce[m HEAD@{Sun Aug 16 00:50:27 2026}: commit: Update requirements
+[33m8e5629f[m HEAD@{Sat Aug 15 18:16:11 2026}: commit: Add new evaluation metrics
+[33m2a143b9[m HEAD@{Sat Aug 15 23:32:31 2026}: commit: Tune hyperparameters
+[33m5e7f0ce[m HEAD@{Sat Aug 15 22:39:36 2026}: commit: Update documentation
+[33m1d4d6e1[m HEAD@{Sat Aug 15 23:10:30 2026}: commit: Add new evaluation metrics
+[33mfa2901d[m HEAD@{Sat Aug 15 21:31:44 2026}: commit: Tune hyperparameters
+[33madea5bd[m HEAD@{Sat Aug 15 23:51:23 2026}: commit: Clean up code structure
+[33m6d6af3c[m HEAD@{Sat Aug 15 21:30:06 2026}: commit: Refactor dataset generator
+[33m3a91c6f[m HEAD@{Sat Aug 15 20:12:22 2026}: commit: Tune hyperparameters
+[33m546e5b2[m HEAD@{Sat Aug 15 20:38:45 2026}: commit: Fix edge case in crop
+[33m4228d8e[m HEAD@{Sat Aug 15 18:33:02 2026}: commit: Add new evaluation metrics
+[33m3e89096[m HEAD@{Sat Aug 15 21:16:47 2026}: commit: Update requirements
+[33mf77c0b4[m HEAD@{Sat Aug 15 00:42:15 2026}: commit: Fix edge case in crop
+[33m4ce5af8[m HEAD@{Fri Aug 14 20:04:09 2026}: commit: Update documentation
+[33me83b201[m HEAD@{Fri Aug 14 20:07:21 2026}: commit: Fix bug in inference script
+[33mb1a2af0[m HEAD@{Fri Aug 14 18:16:54 2026}: commit: Fix bug in inference script
+[33m47a4fcf[m HEAD@{Fri Aug 14 20:08:12 2026}: commit: Tune hyperparameters
+[33m2918b30[m HEAD@{Fri Aug 14 21:24:07 2026}: commit: Clean up code structure
+[33mf75d3fd[m HEAD@{Fri Aug 14 20:49:25 2026}: commit: Fix edge case in crop
+[33m522f748[m HEAD@{Fri Aug 14 20:09:14 2026}: commit: Fix bug in inference script
+[33m0f5365a[m HEAD@{Fri Aug 14 20:51:07 2026}: commit: Refactor dataset generator
+[33m016cac8[m HEAD@{Fri Aug 14 18:47:42 2026}: commit: Update documentation
+[33mb2be04f[m HEAD@{Fri Aug 14 22:49:49 2026}: commit: Refactor dataset generator
+[33mf7ec3b1[m HEAD@{Thu Aug 13 18:28:38 2026}: commit: Add new evaluation metrics
+[33mb4469d9[m HEAD@{Thu Aug 13 21:19:37 2026}: commit: Fix bug in inference script
+[33m04b15c2[m HEAD@{Thu Aug 13 21:05:52 2026}: commit: Add new evaluation metrics
+[33m0bf22fc[m HEAD@{Thu Aug 13 23:02:15 2026}: commit: Fix bug in inference script
+[33m37ca7a2[m HEAD@{Thu Aug 13 20:15:32 2026}: commit: Update documentation
+[33m486130d[m HEAD@{Fri Aug 14 00:01:34 2026}: commit: Refactor dataset generator
+[33m76ce2ba[m HEAD@{Thu Aug 13 19:54:51 2026}: commit: Update requirements
+[33me656e8a[m HEAD@{Fri Aug 14 00:56:33 2026}: commit: Clean up code structure
+[33m2f5092b[m HEAD@{Thu Aug 13 23:44:58 2026}: commit: Update requirements
+[33m8f6ebbf[m HEAD@{Fri Aug 14 00:37:26 2026}: commit: Refactor dataset generator
+[33ma520ad7[m HEAD@{Thu Aug 13 22:58:35 2026}: commit: Refactor dataset generator
+[33m597b01e[m HEAD@{Thu Aug 13 23:34:14 2026}: commit: Refactor dataset generator
+[33m390988b[m HEAD@{Wed Aug 12 23:18:42 2026}: commit: Tune hyperparameters
+[33mde45619[m HEAD@{Wed Aug 12 23:10:21 2026}: commit: Tune hyperparameters
+[33m9bcc718[m HEAD@{Wed Aug 12 22:20:23 2026}: commit: Fix bug in inference script
+[33m36dcd68[m HEAD@{Wed Aug 12 23:21:59 2026}: commit: Update readme
+[33m643bb98[m HEAD@{Wed Aug 12 19:53:26 2026}: commit: Refactor dataset generator
+[33m7f81b46[m HEAD@{Wed Aug 12 22:43:05 2026}: commit: Clean up code structure
+[33m086fd19[m HEAD@{Wed Aug 12 22:17:08 2026}: commit: Fix edge case in crop
+[33mede3acd[m HEAD@{Thu Aug 13 00:43:38 2026}: commit: Optimize FFT matching
+[33m412f645[m HEAD@{Wed Aug 12 19:33:58 2026}: commit: Fix edge case in crop
+[33me57dcf9[m HEAD@{Wed Aug 12 23:08:56 2026}: commit: Update requirements
+[33mc6e340f[m HEAD@{Wed Aug 12 20:00:51 2026}: commit: Update readme
+[33m7590902[m HEAD@{Wed Aug 12 18:10:31 2026}: commit: Update readme
+[33mdbf0891[m HEAD@{Thu Aug 13 00:35:31 2026}: commit: Fix bug in inference script
+[33mdcf6f77[m HEAD@{Wed Aug 12 20:48:05 2026}: commit: Update requirements
+[33m6e3dc7b[m HEAD@{Wed Aug 12 19:27:19 2026}: commit: Clean up code structure
+[33mc29812a[m HEAD@{Thu Aug 13 00:19:56 2026}: commit: Refactor dataset generator
+[33m6fa2df6[m HEAD@{Wed Aug 12 18:30:56 2026}: commit: Add new evaluation metrics
+[33ma28ed7e[m HEAD@{Wed Aug 12 20:17:27 2026}: commit: Update documentation
+[33m0377f87[m HEAD@{Wed Aug 12 23:29:22 2026}: commit: Update documentation
+[33mffaa1f0[m HEAD@{Wed Aug 12 23:12:37 2026}: commit: Update documentation
+[33m4d29536[m HEAD@{Thu Aug 13 00:59:12 2026}: commit: Update documentation
+[33mebdf90d[m HEAD@{Wed Aug 12 20:01:21 2026}: commit: Tune hyperparameters
+[33m5c7ade1[m HEAD@{Thu Aug 13 00:23:31 2026}: commit: Refactor dataset generator
+[33mcf12564[m HEAD@{Wed Aug 12 21:06:09 2026}: commit: Update documentation
+[33m08af710[m HEAD@{Tue Aug 18 19:02:57 2026}: commit: Initial commit for progress log
+[33m0604247[m HEAD@{Tue Aug 18 00:36:55 2026}: clone: from https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization.git
