@@ -1,6 +1,0 @@
-signal,top10,top20,top50,top100,top200
-NCC,0,0,0,0,3
-Gradient_NCC,0,1,4,31,35
-Context_Combined,11,13,23,32,35
-Phase_Consistency,1,7,21,35,35
-Center_Proximity,4,9,20,26,35

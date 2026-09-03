@@ -1,6 +1,0 @@
-Variant,Top1_Recall,Top5_Recall,Top10_Recall,Top20_Recall,Acc_le1px,Acc_le3px,Acc_le5px,Acc_le10px,Acc_le25px,Mean_Err,Median_Err,P95_Err,Mean_Lat_ms,P95_Lat_ms,Max_Lat_ms
-Variant_A_Intensity_FFT,66.5,80.5,85.5,88.5,39.5,63.0,66.5,67.0,71.5,86.52,1.45,615.18,59.36,107.64,144.92
-Variant_B_Gradient_FFT,66.0,79.5,83.5,86.0,39.5,63.0,66.0,66.0,71.0,67.61,1.51,497.38,56.89,89.09,233.37
-Variant_C_Dual_Channel_Union,67.0,79.5,84.5,87.0,39.0,63.0,67.0,67.5,71.5,74.72,1.45,564.94,113.17,163.73,263.39
-Variant_D_CAR_Final,67.0,79.5,84.5,87.0,40.5,61.5,66.0,67.5,71.5,73.17,1.51,554.22,139.2,227.94,355.02
-Variant_E_CAR_RGB_Bonus,67.0,79.5,84.5,87.0,40.5,61.5,66.0,67.5,71.5,73.17,1.51,554.22,120.8,170.14,268.8
