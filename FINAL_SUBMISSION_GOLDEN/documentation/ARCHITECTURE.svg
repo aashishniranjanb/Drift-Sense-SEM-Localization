@@ -1,0 +1,116 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 850" width="1000" height="850" style="background:#0d1117; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+  <defs>
+    <linearGradient id="gradRef" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#238636" />
+      <stop offset="100%" stop-color="#2ea043" />
+    </linearGradient>
+    <linearGradient id="gradSearch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f6feb" />
+      <stop offset="100%" stop-color="#388bfd" />
+    </linearGradient>
+    <linearGradient id="gradCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161b22" />
+      <stop offset="100%" stop-color="#21262d" />
+    </linearGradient>
+    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8957e5" />
+      <stop offset="100%" stop-color="#a371f7" />
+    </linearGradient>
+    <linearGradient id="gradGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d29922" />
+      <stop offset="100%" stop-color="#e3b341" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#58a6ff" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="30" y="25" width="940" height="70" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5" />
+  <text x="50" y="60" fill="#f0f6fc" font-size="22" font-weight="700">DRIFT-SENSE++ ARCHITECTURE PIPELINE</text>
+  <text x="50" y="82" fill="#8b949e" font-size="13">Nanoscale SEM Reference Localization under Periodic Structural Ambiguity &amp; Scale/Rotation Drift</text>
+  <rect x="830" y="42" width="120" height="34" rx="6" fill="#238636" />
+  <text x="890" y="64" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">SCORE: 90.50</text>
+
+  <!-- Input Blocks -->
+  <g transform="translate(140, 125)">
+    <rect x="0" y="0" width="220" height="65" rx="8" fill="url(#gradRef)" filter="url(#shadow)" />
+    <text x="110" y="28" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Reference Image</text>
+    <text x="110" y="48" fill="#e6edf3" font-size="11" text-anchor="middle">High SNR (128x128 / 256x256)</text>
+  </g>
+
+  <g transform="translate(640, 125)">
+    <rect x="0" y="0" width="220" height="65" rx="8" fill="url(#gradSearch)" filter="url(#shadow)" />
+    <text x="110" y="28" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Search Image</text>
+    <text x="110" y="48" fill="#e6edf3" font-size="11" text-anchor="middle">Degraded SEM (1000x1000)</text>
+  </g>
+
+  <!-- Stage 1: Coarse Grid Search -->
+  <g transform="translate(260, 225)">
+    <rect x="0" y="0" width="480" height="75" rx="8" fill="url(#gradCard)" stroke="#388bfd" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="240" y="28" fill="#58a6ff" font-size="14" font-weight="700" text-anchor="middle">Stage 1: Coarse-to-Fine FFT / NCC Search</text>
+    <text x="240" y="50" fill="#c9d1d9" font-size="12" text-anchor="middle">Multi-scale pyramidal grid (8.0x - 12.0x) + Orientation sweep (-5° to +5°)</text>
+    <text x="240" y="66" fill="#8b949e" font-size="11" text-anchor="middle">Normalized Cross-Correlation in frequency domain via FFT</text>
+  </g>
+
+  <!-- Stage 2: Candidate Extraction & Periodic Clustering -->
+  <g transform="translate(260, 335)">
+    <rect x="0" y="0" width="480" height="75" rx="8" fill="url(#gradCard)" stroke="#8957e5" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="240" y="28" fill="#bc8cff" font-size="14" font-weight="700" text-anchor="middle">Stage 2: 200-Candidate Pool &amp; Replica Clustering</text>
+    <text x="240" y="50" fill="#c9d1d9" font-size="12" text-anchor="middle">Local spatial non-maximum suppression (NMS) + Peak Extraction</text>
+    <text x="240" y="66" fill="#8b949e" font-size="11" text-anchor="middle">Groups candidates into periodic lattice families to prevent replica false-trapping</text>
+  </g>
+
+  <!-- Multi-Evidence Split Cards -->
+  <g transform="translate(100, 445)">
+    <rect x="0" y="0" width="380" height="90" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="190" y="25" fill="#3fb950" font-size="13" font-weight="700" text-anchor="middle">Orthogonal Local Evidence</text>
+    <text x="190" y="46" fill="#c9d1d9" font-size="11" text-anchor="middle">• Sobel gradient orientation phase agreement</text>
+    <text x="190" y="64" fill="#c9d1d9" font-size="11" text-anchor="middle">• Phase-only residual correlation sharpness</text>
+    <text x="190" y="80" fill="#c9d1d9" font-size="11" text-anchor="middle">• Local peak prominence ratio (PSR &gt; 12.0)</text>
+  </g>
+
+  <g transform="translate(520, 445)">
+    <rect x="0" y="0" width="380" height="90" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="190" y="25" fill="#d29922" font-size="13" font-weight="700" text-anchor="middle">Global Structural Evidence</text>
+    <text x="190" y="46" fill="#c9d1d9" font-size="11" text-anchor="middle">• Extended 128x128 contextual surround match</text>
+    <text x="190" y="64" fill="#c9d1d9" font-size="11" text-anchor="middle">• Periodic lattice spacing and symmetry agreement</text>
+    <text x="190" y="80" fill="#c9d1d9" font-size="11" text-anchor="middle">• Global replica family population density</text>
+  </g>
+
+  <!-- Stage 3 & 4: Ranker & Rejection -->
+  <g transform="translate(260, 565)">
+    <rect x="0" y="0" width="480" height="75" rx="8" fill="url(#gradCard)" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="240" y="28" fill="#56d364" font-size="14" font-weight="700" text-anchor="middle">Stage 3 &amp; 4: Learned Ranker (V25) + Safe Rejection (V28-C)</text>
+    <text x="240" y="50" fill="#c9d1d9" font-size="12" text-anchor="middle">Gradient-boosted candidate discriminator selects optimal physical site</text>
+    <text x="240" y="66" fill="#8b949e" font-size="11" text-anchor="middle">Two-tier peak ambiguity threshold rejects absent structures (FP = 2 / 40)</text>
+  </g>
+
+  <!-- Stage 5 & 6: Pose Refinement & Calibration -->
+  <g transform="translate(260, 675)">
+    <rect x="0" y="0" width="480" height="75" rx="8" fill="url(#gradCard)" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)" />
+    <text x="240" y="28" fill="#e3b341" font-size="14" font-weight="700" text-anchor="middle">Stage 5 &amp; 6: Surgical Pose (V39) + Graded Calibration (V48)</text>
+    <text x="240" y="50" fill="#c9d1d9" font-size="12" text-anchor="middle">2-D continuous paraboloid surface fit (subpixel &lt;0.2 px error)</text>
+    <text x="240" y="66" fill="#8b949e" font-size="11" text-anchor="middle">Monotone graded confidence calibration (Spearman rho = 0.832)</text>
+  </g>
+
+  <!-- Output Block -->
+  <g transform="translate(210, 780)">
+    <rect x="0" y="0" width="580" height="45" rx="8" fill="#238636" filter="url(#shadow)" />
+    <text x="290" y="28" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Output: pair_id, x, y, theta, scale, found, score (Found=0 ⇒ x=y=θ=scale=0)</text>
+  </g>
+
+  <!-- Connective Arrows -->
+  <line x1="250" y1="190" x2="420" y2="225" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="750" y1="190" x2="580" y2="225" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="500" y1="300" x2="500" y2="335" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="420" y1="410" x2="300" y2="445" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="580" y1="410" x2="700" y2="445" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="300" y1="535" x2="420" y2="565" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="700" y1="535" x2="580" y2="565" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="500" y1="640" x2="500" y2="675" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="500" y1="750" x2="500" y2="780" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)" />
+</svg>

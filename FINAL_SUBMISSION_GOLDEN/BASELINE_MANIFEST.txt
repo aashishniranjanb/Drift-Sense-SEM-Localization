@@ -1,0 +1,10 @@
+﻿DRIFT-SENSE++ GOLDEN BASELINE MANIFEST
+Timestamp: 2026-09-04 03:53:14
+Exact Baseline Total Score: 91.040 / 100.00
+- Localization: 40.00 / 40.00 (100% of accepted <= 5px)
+- Pose: 19.743 / 20.00 (Scale MAE = 0.0352)
+- Rejection: 8.028 / 15.00 (F1 = 0.5352, TP=38, FN=2, FP=64, TN=76)
+- Calibration: 8.269 / 10.00 (Spearman = 0.8269, AUC = 0.9953)
+- Efficiency: 5.00 / 5.00 (0.09s/pair)
+- Compliance & Docs: 10.00 / 10.00
+Status: IMMUTABLE REFERENCE

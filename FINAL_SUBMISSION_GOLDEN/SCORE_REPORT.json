@@ -1,0 +1,18 @@
+﻿{
+  "baseline_name": "GOLDEN_LOCKED_V54_SCALE_REFINED",
+  "total_score": 91.040,
+  "components": {
+    "localization_40": 40.00,
+    "pose_20": 19.743,
+    "rejection_15": 8.028,
+    "calibration_10": 8.269,
+    "efficiency_5": 5.00,
+    "compliance_10": 10.00
+  },
+  "metrics": {
+    "scale_mae": 0.0352,
+    "rejection_f1": 0.5352,
+    "calibration_auc": 0.9953,
+    "spearman": 0.8269
+  }
+}

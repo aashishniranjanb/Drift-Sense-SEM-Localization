@@ -1,0 +1,4 @@
+image_id,style,split,ref_path,search_path,x_true,y_true,scale_true,rotation_true,noise_level_search
+val_dram_000,dram,val,FINAL_SUBMISSION/verification/sample_pairs\images\ref_val_dram_000.png,FINAL_SUBMISSION/verification/sample_pairs\images\search_val_dram_000.png,286.0,739.0,0.1,0.23,0.0571
+val_dram_001,dram,val,FINAL_SUBMISSION/verification/sample_pairs\images\ref_val_dram_001.png,FINAL_SUBMISSION/verification/sample_pairs\images\search_val_dram_001.png,627.3,732.5,0.1,0.14,0.0538
+val_dram_002,dram,val,FINAL_SUBMISSION/verification/sample_pairs\images\ref_val_dram_002.png,FINAL_SUBMISSION/verification/sample_pairs\images\search_val_dram_002.png,472.1,608.7,0.1,0.32,0.0684

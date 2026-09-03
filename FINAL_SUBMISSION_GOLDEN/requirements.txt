@@ -1,0 +1,11 @@
+# Drift-Sense++ Phase 2 — runtime dependencies (pinned from pip freeze)
+# Reference machine: Python 3.11, 4-core x86, 8 GB RAM, no GPU, no network.
+# All model weights ship inside this package; nothing is downloaded at run time.
+
+numpy==2.4.0
+scipy==1.16.3
+scikit-learn==1.8.0
+opencv-python-headless==4.13.0.92
+pandas==2.3.3
+joblib==1.5.3
+threadpoolctl==3.6.0
