@@ -160,6 +160,11 @@ Drift-Sense-SEM-Localization/
 ├── DEMO/                          ← 🖼️ Visual demonstration & in-browser interactive explorer
 │   ├── DEMO.md
 │   ├── interactive_visualizer.html
+│   ├── site/                      ← 🌐 Production static research dashboard (GitHub Pages)
+│   │   ├── index.html
+│   │   ├── assets/
+│   │   ├── data/samples.json
+│   │   └── README.md
 │   └── *.png
 │
 ├── FINAL_SUBMISSION/              ← ⭐ AUTHORITATIVE, SELF-CONTAINED SUBMISSION PACKAGE
@@ -181,11 +186,6 @@ Drift-Sense-SEM-Localization/
 │
 ├── misc/                          ← Archived development scripts and intermediate packages
 ├── releases/                      ← Packaged submission archives (FINAL_SUBMISSION.zip)
-├── site/                          ← 🌐 Production static research dashboard (GitHub Pages)
-│   ├── index.html
-│   ├── assets/
-│   ├── data/samples.json
-│   └── README.md
 ├── tests/                         ← Automated unit tests & invariant checks
 │
 ├── FINAL_SUBMISSION.zip           ← 📦 Standalone downloadable competition archive (~9.97 MB)
