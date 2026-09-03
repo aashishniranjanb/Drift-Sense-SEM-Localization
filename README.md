@@ -8,13 +8,11 @@
 
 ---
 
-## ➡️ JUDGE START HERE
+## Getting Started
 
-The authoritative competition submission is one folder:
+The reproducible Phase 2 implementation is contained in [`FINAL_SUBMISSION/`](./FINAL_SUBMISSION/).
 
-## **[FINAL_SUBMISSION/](./FINAL_SUBMISSION/)**
-
-### Official Phase 2 scoring
+### Official Evaluation Interface
 
 ```bash
 cd FINAL_SUBMISSION
@@ -22,28 +20,30 @@ pip install -r requirements.txt
 python register.py --input pairs.csv --output predictions.csv
 ```
 
-`predictions.csv` — one row per `pair_id`, columns exactly
-`pair_id,x,y,theta,scale,found,score`. When `found = 0`, the pose columns are 0.
-Every `pair_id` appears exactly once.
+`predictions.csv` contains one row per `pair_id` with columns `pair_id,x,y,theta,scale,found,score`. When `found = 0`, the pose columns are set to 0.
 
-### Component 2 standalone localizer
+### Component 2 Standalone Localizer
 
 ```bash
 cd FINAL_SUBMISSION
 python inference.py --reference reference.png --search search.png
-# -> x=<float>
-#    y=<float>
+# Output format:
+# x=<float>
+# y=<float>
 ```
 
-Same internal engine as `register.py`, single pair, `(x, y)` only.
+Driven by the same internal engine as `register.py` for single-pair coordinate localization.
 
-### Generate a sample pair
+### Dataset Generator
 
 ```bash
 python FINAL_SUBMISSION/generate_dataset.py --architecture DRAM --num-pairs 5 --output-dir ./demo_data
 ```
 
-Writes images + `ground_truth.csv` with the true reference-pattern centre.
+Generates synthetic pairs and `ground_truth.csv` with known reference-pattern centers.
+
+See [`FINAL_SUBMISSION/README.md`](./FINAL_SUBMISSION/README.md) for execution details, verification reports, and architecture documentation.
+
 
 ---
 
