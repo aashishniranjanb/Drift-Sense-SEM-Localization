@@ -1,0 +1,22 @@
+Running registration on 20 pairs...
+Processed 1/20: pair_000 | score: 0.00 | RGB: False
+Processed 2/20: pair_001 | score: 0.88 | RGB: False
+Processed 3/20: pair_002 | score: 0.00 | RGB: False
+Processed 4/20: pair_003 | score: 0.70 | RGB: False
+Processed 5/20: pair_004 | score: 0.00 | RGB: False
+Processed 6/20: pair_005 | score: 0.57 | RGB: False
+Processed 7/20: pair_006 | score: 0.62 | RGB: False
+Processed 8/20: pair_007 | score: 0.00 | RGB: False
+Processed 9/20: pair_008 | score: 0.88 | RGB: False
+Processed 10/20: pair_009 | score: 0.86 | RGB: False
+Processed 11/20: pair_010 | score: 0.00 | RGB: False
+Processed 12/20: pair_011 | score: 0.94 | RGB: False
+Processed 13/20: pair_012 | score: 0.87 | RGB: False
+Processed 14/20: pair_013 | score: 0.95 | RGB: False
+Processed 15/20: pair_014 | score: 0.58 | RGB: False
+Processed 16/20: pair_015 | score: 0.95 | RGB: False
+Processed 17/20: pair_016 | score: 0.00 | RGB: False
+Processed 18/20: pair_017 | score: 0.99 | RGB: False
+Processed 19/20: pair_018 | score: 0.00 | RGB: False
+Processed 20/20: pair_019 | score: 0.00 | RGB: False
+Registration complete. Results saved to phase2/V48_MAX/VALIDATION/phase2val_predictions.csv
