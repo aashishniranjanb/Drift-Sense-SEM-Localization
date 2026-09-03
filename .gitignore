@@ -24,3 +24,4 @@ hf_space_test/
 # keep the authoritative release archive
 !releases/
 !releases/*.zip
+!FINAL_SUBMISSION.zip
