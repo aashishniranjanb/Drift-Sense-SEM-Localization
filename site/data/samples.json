@@ -1,0 +1,441 @@
+{
+  "pair_001": {
+    "id": "pair_001",
+    "name": "Pair 001",
+    "arch": "DRAM",
+    "condition": "Nominal",
+    "ref_img": "assets/images/ref_pair_001.png",
+    "search_img": "assets/images/search_pair_001.png",
+    "desc": "Periodic DRAM capacitor array under nominal magnification and low drift. Features repetitive 60 nm pitch layout.",
+    "gt": {
+      "x": 627.3,
+      "y": 732.5,
+      "theta": 0.14,
+      "scale": 10.0
+    },
+    "driftsense": {
+      "x": 627.18,
+      "y": 732.42,
+      "theta": "+0.15\u00b0",
+      "scale": "10.04\u00d7",
+      "found": "YES (1)",
+      "score": 0.963,
+      "error_px": 0.17,
+      "tier": "\u2264 1 px (Full Credit 1.0)",
+      "winner_id": 1,
+      "metrics": {
+        "ncc": 0.941,
+        "grad": 0.95,
+        "phase": 0.93,
+        "ctx": 0.97,
+        "family": 24
+      }
+    },
+    "naive": {
+      "x": 567.0,
+      "y": 732.0,
+      "theta": "0.00\u00b0",
+      "scale": "10.00\u00d7",
+      "found": "YES (1)",
+      "score": 0.945,
+      "error_px": 60.3,
+      "tier": "> 5 px (Zero Credit)",
+      "winner_id": 2,
+      "metrics": {
+        "ncc": 0.945,
+        "grad": 0.71,
+        "phase": 0.74,
+        "ctx": 0.61,
+        "family": 18
+      }
+    },
+    "delta": {
+      "ncc_diff": "+0.004 on Replica",
+      "ctx_agreement": "+36.0% on True Site",
+      "phase_consistency": "+19.0% on True Site",
+      "family_density": "+25.0% on True Site",
+      "verdict": "Raw NCC selects Candidate #2 (strongest peak from local noise spike). Drift-Sense++ structural context and gradient orientation isolate Candidate #1 as the genuine physical site at 0.17 px error."
+    },
+    "candidates": [
+      {
+        "id": 1,
+        "x": 627.2,
+        "y": 732.4,
+        "ncc": 0.941,
+        "grad": 0.95,
+        "phase": 0.93,
+        "ctx": 0.97,
+        "family": 24,
+        "status": "True Site (Selected by Drift-Sense++)"
+      },
+      {
+        "id": 2,
+        "x": 567.0,
+        "y": 732.0,
+        "ncc": 0.945,
+        "grad": 0.71,
+        "phase": 0.74,
+        "ctx": 0.61,
+        "family": 18,
+        "status": "Replica Peak (Selected by Naive NCC)"
+      },
+      {
+        "id": 3,
+        "x": 687.0,
+        "y": 732.0,
+        "ncc": 0.938,
+        "grad": 0.7,
+        "phase": 0.73,
+        "ctx": 0.63,
+        "family": 18,
+        "status": "Periodic Replica"
+      },
+      {
+        "id": 4,
+        "x": 627.0,
+        "y": 672.0,
+        "ncc": 0.935,
+        "grad": 0.72,
+        "phase": 0.75,
+        "ctx": 0.62,
+        "family": 18,
+        "status": "Periodic Replica"
+      },
+      {
+        "id": 5,
+        "x": 627.0,
+        "y": 792.0,
+        "ncc": 0.932,
+        "grad": 0.69,
+        "phase": 0.71,
+        "ctx": 0.6,
+        "family": 18,
+        "status": "Periodic Replica"
+      },
+      {
+        "id": 6,
+        "x": 507.0,
+        "y": 732.0,
+        "ncc": 0.92,
+        "grad": 0.65,
+        "phase": 0.68,
+        "ctx": 0.55,
+        "family": 14,
+        "status": "Periodic Replica"
+      },
+      {
+        "id": 7,
+        "x": 747.0,
+        "y": 732.0,
+        "ncc": 0.915,
+        "grad": 0.64,
+        "phase": 0.66,
+        "ctx": 0.54,
+        "family": 14,
+        "status": "Periodic Replica"
+      }
+    ]
+  },
+  "pair_027": {
+    "id": "pair_027",
+    "name": "Pair 027",
+    "arch": "DRAM",
+    "condition": "Degraded",
+    "ref_img": "assets/images/ref_pair_027.png",
+    "search_img": "assets/images/search_pair_027.png",
+    "desc": "Heavy Poisson-Gaussian shot noise with non-uniform SEM charging gradient across the field of view.",
+    "gt": {
+      "x": 472.1,
+      "y": 608.7,
+      "theta": 0.32,
+      "scale": 10.0
+    },
+    "driftsense": {
+      "x": 472.22,
+      "y": 608.61,
+      "theta": "+0.30\u00b0",
+      "scale": "9.98\u00d7",
+      "found": "YES (1)",
+      "score": 0.941,
+      "error_px": 0.15,
+      "tier": "\u2264 1 px (Full Credit 1.0)",
+      "winner_id": 1,
+      "metrics": {
+        "ncc": 0.892,
+        "grad": 0.91,
+        "phase": 0.89,
+        "ctx": 0.93,
+        "family": 21
+      }
+    },
+    "naive": {
+      "x": 412.0,
+      "y": 608.0,
+      "theta": "0.00\u00b0",
+      "scale": "10.00\u00d7",
+      "found": "YES (1)",
+      "score": 0.897,
+      "error_px": 60.1,
+      "tier": "> 5 px (Zero Credit)",
+      "winner_id": 3,
+      "metrics": {
+        "ncc": 0.897,
+        "grad": 0.65,
+        "phase": 0.68,
+        "ctx": 0.58,
+        "family": 16
+      }
+    },
+    "delta": {
+      "ncc_diff": "+0.005 on Replica",
+      "ctx_agreement": "+35.0% on True Site",
+      "phase_consistency": "+21.0% on True Site",
+      "family_density": "+31.0% on True Site",
+      "verdict": "Under severe noise, intensity-based NCC is corrupted by charging gradients. Gradient phase agreement remains invariant and correctly resolves the subpixel site."
+    },
+    "candidates": [
+      {
+        "id": 1,
+        "x": 472.2,
+        "y": 608.6,
+        "ncc": 0.892,
+        "grad": 0.91,
+        "phase": 0.89,
+        "ctx": 0.93,
+        "family": 21,
+        "status": "True Site (Selected by Drift-Sense++)"
+      },
+      {
+        "id": 2,
+        "x": 532.0,
+        "y": 608.0,
+        "ncc": 0.889,
+        "grad": 0.67,
+        "phase": 0.7,
+        "ctx": 0.59,
+        "family": 16,
+        "status": "Periodic Replica"
+      },
+      {
+        "id": 3,
+        "x": 412.0,
+        "y": 608.0,
+        "ncc": 0.897,
+        "grad": 0.65,
+        "phase": 0.68,
+        "ctx": 0.58,
+        "family": 16,
+        "status": "Replica Peak (Selected by Naive NCC)"
+      },
+      {
+        "id": 4,
+        "x": 472.0,
+        "y": 548.0,
+        "ncc": 0.885,
+        "grad": 0.64,
+        "phase": 0.69,
+        "ctx": 0.57,
+        "family": 16,
+        "status": "Periodic Replica"
+      }
+    ]
+  },
+  "pair_078": {
+    "id": "pair_078",
+    "name": "Pair 078",
+    "arch": "FinFET",
+    "condition": "Nominal",
+    "ref_img": "assets/images/ref_pair_078.png",
+    "search_img": "assets/images/search_pair_078.png",
+    "desc": "10 nm multi-fin logic transistor architecture with high-aspect-ratio vertical fin lines and orientation drift.",
+    "gt": {
+      "x": 512.37,
+      "y": 283.19,
+      "theta": 2.13,
+      "scale": 10.42
+    },
+    "driftsense": {
+      "x": 512.37,
+      "y": 283.19,
+      "theta": "+2.13\u00b0",
+      "scale": "10.42\u00d7",
+      "found": "YES (1)",
+      "score": 0.972,
+      "error_px": 0.08,
+      "tier": "\u2264 1 px (Full Credit 1.0)",
+      "winner_id": 1,
+      "metrics": {
+        "ncc": 0.952,
+        "grad": 0.98,
+        "phase": 0.96,
+        "ctx": 0.98,
+        "family": 28
+      }
+    },
+    "naive": {
+      "x": 512.0,
+      "y": 233.0,
+      "theta": "0.00\u00b0",
+      "scale": "10.00\u00d7",
+      "found": "YES (1)",
+      "score": 0.955,
+      "error_px": 50.2,
+      "tier": "> 5 px (Zero Credit)",
+      "winner_id": 2,
+      "metrics": {
+        "ncc": 0.955,
+        "grad": 0.74,
+        "phase": 0.76,
+        "ctx": 0.65,
+        "family": 20
+      }
+    },
+    "delta": {
+      "ncc_diff": "+0.003 on Replica",
+      "ctx_agreement": "+33.0% on True Site",
+      "phase_consistency": "+20.0% on True Site",
+      "family_density": "+40.0% on True Site",
+      "verdict": "FinFET fin pitch repetition causes strong 1-D periodic ambiguities. 128x128 contextual boundary matching breaks vertical symmetry."
+    },
+    "candidates": [
+      {
+        "id": 1,
+        "x": 512.4,
+        "y": 283.2,
+        "ncc": 0.952,
+        "grad": 0.98,
+        "phase": 0.96,
+        "ctx": 0.98,
+        "family": 28,
+        "status": "True Site (Selected by Drift-Sense++)"
+      },
+      {
+        "id": 2,
+        "x": 512.0,
+        "y": 233.0,
+        "ncc": 0.955,
+        "grad": 0.74,
+        "phase": 0.76,
+        "ctx": 0.65,
+        "family": 20,
+        "status": "Adjacent Fin Replica (Selected by Naive NCC)"
+      },
+      {
+        "id": 3,
+        "x": 512.0,
+        "y": 333.0,
+        "ncc": 0.948,
+        "grad": 0.73,
+        "phase": 0.75,
+        "ctx": 0.64,
+        "family": 20,
+        "status": "Adjacent Fin Replica"
+      },
+      {
+        "id": 4,
+        "x": 462.0,
+        "y": 283.0,
+        "ncc": 0.925,
+        "grad": 0.69,
+        "phase": 0.71,
+        "ctx": 0.58,
+        "family": 15,
+        "status": "Transistor Gate Replica"
+      }
+    ]
+  },
+  "pair_absent": {
+    "id": "pair_absent",
+    "name": "Pair Absent (Set C)",
+    "arch": "FinFET / DRAM",
+    "condition": "Absent Reference",
+    "ref_img": "assets/images/ref_pair_absent.png",
+    "search_img": "assets/images/search_pair_absent.png",
+    "desc": "Reference pattern is physically absent from the search field of view. Tests absence rejection.",
+    "gt": {
+      "x": 0.0,
+      "y": 0.0,
+      "theta": 0.0,
+      "scale": 0.0,
+      "found": 0
+    },
+    "driftsense": {
+      "x": 0.0,
+      "y": 0.0,
+      "theta": "0.00\u00b0",
+      "scale": "0.00\u00d7",
+      "found": "NO (0)",
+      "score": 0.042,
+      "error_px": 0.0,
+      "tier": "Rejection Success (Full Credit)",
+      "winner_id": 0,
+      "metrics": {
+        "ncc": 0.68,
+        "grad": 0.42,
+        "phase": 0.38,
+        "ctx": 0.35,
+        "family": 4
+      }
+    },
+    "naive": {
+      "x": 382.0,
+      "y": 445.0,
+      "theta": "+1.20\u00b0",
+      "scale": "9.80\u00d7",
+      "found": "YES (1)",
+      "score": 0.842,
+      "error_px": 999.0,
+      "tier": "False Accept on Noise (Zero Credit)",
+      "winner_id": 1,
+      "metrics": {
+        "ncc": 0.842,
+        "grad": 0.45,
+        "phase": 0.41,
+        "ctx": 0.36,
+        "family": 4
+      }
+    },
+    "delta": {
+      "ncc_diff": "Forced Pick on Noise",
+      "ctx_agreement": "Fails PSR & Ambiguity Gate",
+      "phase_consistency": "Below 0.58 Threshold",
+      "family_density": "Sparse background noise",
+      "verdict": "Naive template matching forces a coordinate pick on random noise. Drift-Sense++ V28-C presence gate detects low peak-to-sidelobe ratio and enforces found=0 with zeroed coordinates."
+    },
+    "candidates": [
+      {
+        "id": 1,
+        "x": 382.0,
+        "y": 445.0,
+        "ncc": 0.842,
+        "grad": 0.45,
+        "phase": 0.41,
+        "ctx": 0.36,
+        "family": 4,
+        "status": "Random Noise Peak (Naive False Accept)"
+      },
+      {
+        "id": 2,
+        "x": 512.0,
+        "y": 620.0,
+        "ncc": 0.831,
+        "grad": 0.41,
+        "phase": 0.39,
+        "ctx": 0.33,
+        "family": 3,
+        "status": "Background Clutter"
+      },
+      {
+        "id": 3,
+        "x": 230.0,
+        "y": 310.0,
+        "ncc": 0.825,
+        "grad": 0.39,
+        "phase": 0.37,
+        "ctx": 0.32,
+        "family": 3,
+        "status": "Background Clutter"
+      }
+    ]
+  }
+}

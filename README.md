@@ -1,4 +1,4 @@
-﻿# Drift-Sense++ — SEM Localization
+# Drift-Sense++ — SEM Localization
 
 ### Applied Materials · Phase 2 Submission
 **Nanoscale SEM Reference Localization under Scale, Rotation, Heavy Degradation & Periodic Structural Ambiguity**
@@ -9,6 +9,9 @@
 [![Runtime](https://img.shields.io/badge/Latency-0.07%20s%2Fpair-blueviolet?style=flat-square)](FINAL_SUBMISSION/documentation/SUBMISSION_MANIFEST.md)
 [![Platform](https://img.shields.io/badge/Platform-Python%203.11%20%7C%20CPU--only-informational?style=flat-square)](FINAL_SUBMISSION/verification/ENVIRONMENT.md)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Interactive_Explorer-0072CE?style=flat-square&logo=googlechrome&logoColor=white)](https://aashishniranjanb.github.io/Drift-Sense-SEM-Localization/)
+
+👉 **[🌐 EXPLORE LIVE DEMO ON GITHUB PAGES](https://aashishniranjanb.github.io/Drift-Sense-SEM-Localization/)** — Interactive candidate response explorer, Raw NCC vs Drift-Sense++ comparison, and subpixel pose fitting.
 
 ---
 
@@ -150,8 +153,9 @@ All in-depth technical documentation is housed cleanly within [`FINAL_SUBMISSION
 ```text
 Drift-Sense-SEM-Localization/
 │
-├── .github/workflows/             ← Automated CI workflows (Python 3.11 preflight & unit tests)
-│   └── verify.yml
+├── .github/workflows/             ← Automated CI & deployment workflows
+│   ├── verify.yml                 ← Python 3.11 preflight & contract verification
+│   └── deploy-pages.yml           ← Automated GitHub Pages deployment
 │
 ├── DEMO/                          ← 🖼️ Visual demonstration & in-browser interactive explorer
 │   ├── DEMO.md
@@ -177,6 +181,11 @@ Drift-Sense-SEM-Localization/
 │
 ├── misc/                          ← Archived development scripts and intermediate packages
 ├── releases/                      ← Packaged submission archives (FINAL_SUBMISSION.zip)
+├── site/                          ← 🌐 Production static research dashboard (GitHub Pages)
+│   ├── index.html
+│   ├── assets/
+│   ├── data/samples.json
+│   └── README.md
 ├── tests/                         ← Automated unit tests & invariant checks
 │
 ├── FINAL_SUBMISSION.zip           ← 📦 Standalone downloadable competition archive (~9.97 MB)

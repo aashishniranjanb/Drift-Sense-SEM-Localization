@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drift-Sense++ | SEM Localization Research & Demonstration</title>
+  <meta name="description" content="Nanoscale SEM reference localization under scale, rotation, heavy degradation, and periodic structural ambiguity. Applied Materials Phase 2.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e2e8f0;
+      --border-dark: #cbd5e1;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --amat-blue: #0072ce;
+      --amat-blue-dark: #005a9e;
+      --amat-blue-light: #eff6ff;
+      --navy: #0a192f;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+      --red: #dc2626;
+      --red-light: #fef2f2;
+      --radius: 6px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); line-height: 1.6; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    header { background: #ffffff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--navy); }
+    .brand-logo { width: 30px; height: 30px; background: var(--amat-blue); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 14px; }
+    .brand-text { font-weight: 700; font-size: 16px; letter-spacing: 0.5px; }
+    .brand-tag { font-size: 11px; background: var(--amat-blue-light); color: var(--amat-blue); padding: 2px 8px; border-radius: 4px; font-weight: 600; border: 1px solid #bfdbfe; }
+    nav ul { display: flex; list-style: none; gap: 24px; }
+    nav a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color 0.15s; }
+    nav a:hover { color: var(--amat-blue); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: var(--radius); font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.15s; }
+    .btn-primary { background: var(--amat-blue); color: #ffffff; border: 1px solid var(--amat-blue); }
+    .btn-primary:hover { background: var(--amat-blue-dark); }
+    .btn-outline { background: #ffffff; color: var(--text); border: 1px solid var(--border-dark); }
+    .btn-outline:hover { background: var(--bg-alt); border-color: var(--amat-blue); }
+    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); }
+    .hero-eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--amat-blue); margin-bottom: 12px; }
+    .hero-title { font-size: 38px; font-weight: 800; color: var(--navy); line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .hero-desc { font-size: 17px; color: var(--text-muted); max-width: 840px; margin-bottom: 32px; font-weight: 400; }
+    .hero-actions { display: flex; gap: 14px; margin-bottom: 44px; flex-wrap: wrap; }
+    .hero-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; background: #ffffff; border: 1px solid var(--border); padding: 20px 24px; border-radius: 8px; }
+    .metric-item { border-right: 1px solid var(--border); padding-right: 16px; }
+    .metric-item:last-child { border-right: none; padding-right: 0; }
+    .metric-val { font-size: 26px; font-weight: 800; color: var(--navy); font-family: var(--font-mono); }
+    .metric-val span { font-size: 14px; font-weight: 500; color: var(--text-light); }
+    .metric-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+    .metric-sub { font-size: 11px; color: var(--text-light); }
+    .disclaimer-banner { background: #eff6ff; border-left: 4px solid var(--amat-blue); padding: 14px 20px; margin: 28px 0; border-radius: 0 var(--radius) var(--radius) 0; font-size: 13px; color: #1e3a8a; line-height: 1.5; }
+    .disclaimer-banner strong { font-weight: 700; color: #172554; }
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    .section-header { margin-bottom: 32px; }
+    .section-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--amat-blue); margin-bottom: 6px; }
+    .section-title { font-size: 26px; font-weight: 700; color: var(--navy); }
+    .section-desc { font-size: 14px; color: var(--text-muted); margin-top: 6px; max-width: 800px; }
+    .explorer-card { background: #ffffff; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.03); overflow: hidden; }
+    .explorer-toolbar { background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .control-group { display: flex; align-items: center; gap: 12px; }
+    .control-label { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+    select { padding: 7px 14px; border-radius: var(--radius); border: 1px solid var(--border-dark); background: #ffffff; color: var(--text); font-size: 13px; font-weight: 500; cursor: pointer; }
+    .toggle-group { display: flex; border: 1px solid var(--border-dark); border-radius: var(--radius); overflow: hidden; background: #ffffff; }
+    .toggle-btn { padding: 7px 16px; font-size: 12px; font-weight: 600; border: none; background: transparent; cursor: pointer; color: var(--text-muted); transition: all 0.15s; }
+    .toggle-btn.active { background: var(--amat-blue); color: #ffffff; }
+    .toggle-btn.active-danger { background: var(--red); color: #ffffff; }
+    .explorer-viewport { display: grid; grid-template-columns: 320px 1fr; border-bottom: 1px solid var(--border); }
+    .panel-box { padding: 20px; display: flex; flex-direction: column; }
+    .panel-box.left { border-right: 1px solid var(--border); background: #fafafa; }
+    .panel-title { font-size: 13px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+    .image-frame { border: 1px solid var(--border); border-radius: 4px; background: #000; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .image-frame img { max-width: 100%; height: auto; display: block; }
+    #searchCanvas { width: 100%; height: auto; max-height: 480px; display: block; cursor: crosshair; }
+    .legend-bar { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: var(--text-muted); flex-wrap: wrap; }
+    .legend-dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+    .explorer-data { padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; background: #ffffff; }
+    .result-box { border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; background: var(--bg-alt); }
+    .result-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 12px; }
+    .result-cell { background: #ffffff; border: 1px solid var(--border); padding: 10px; border-radius: 4px; }
+    .result-cell-label { font-size: 11px; font-weight: 600; color: var(--text-light); text-transform: uppercase; }
+    .result-cell-val { font-size: 15px; font-weight: 700; font-family: var(--font-mono); color: var(--navy); margin-top: 2px; }
+    .status-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-top: 4px; }
+    .badge-success { background: var(--green-light); color: var(--green); border: 1px solid #bbf7d0; }
+    .badge-danger { background: var(--red-light); color: var(--red); border: 1px solid #fecaca; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: var(--bg-alt); font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+    tr:hover td { background: #f1f5f9; cursor: pointer; }
+    tr.selected-row td { background: #e0f2fe; font-weight: 600; }
+    .accordion { border-top: 1px solid var(--border); background: #ffffff; }
+    .accordion-header { padding: 16px 24px; font-size: 13px; font-weight: 700; color: var(--amat-blue); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .accordion-header:hover { background: var(--bg-alt); }
+    .accordion-body { padding: 0 24px 24px; display: none; }
+    .accordion-body.open { display: block; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 12px; }
+    .step-card { border: 1px solid var(--border); border-radius: 6px; padding: 14px; background: var(--bg-alt); }
+    .step-num { font-size: 11px; font-weight: 700; color: var(--amat-blue); font-family: var(--font-mono); }
+    .step-title { font-size: 13px; font-weight: 700; color: var(--navy); margin: 4px 0 6px; }
+    .step-text { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .pipeline-container { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 24px; margin-top: 20px; }
+    .pipeline-img-wrap { background: #0d1117; border-radius: 6px; padding: 16px; text-align: center; margin-bottom: 24px; }
+    .pipeline-img-wrap img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .pipeline-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .pipe-card { background: #ffffff; border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+    .pipe-card.active { border-color: var(--amat-blue); box-shadow: 0 2px 6px rgba(0,114,206,0.1); }
+    .pipe-card-title { font-size: 12px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .pipe-card-desc { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+    .val-table { width: 100%; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin-top: 16px; }
+    .val-table th { background: var(--navy); color: #ffffff; font-size: 11px; padding: 10px 14px; }
+    .val-table td { padding: 12px 14px; font-size: 13px; }
+    .failure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+    .fail-card { border: 1px solid var(--border); border-radius: 6px; background: #ffffff; padding: 16px; }
+    .fail-badge { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--red); background: var(--red-light); padding: 2px 6px; border-radius: 3px; }
+    .fail-title { font-size: 14px; font-weight: 700; color: var(--navy); margin: 8px 0; }
+    .fail-text { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4; }
+    .fail-fix { background: var(--amat-blue-light); border-left: 3px solid var(--amat-blue); padding: 8px 10px; font-size: 11px; color: #1e3a8a; }
+    .timeline-wrap { display: flex; overflow-x: auto; gap: 14px; padding: 16px 0; }
+    .timeline-node { flex: 0 0 160px; border: 1px solid var(--border); border-radius: 6px; background: #ffffff; padding: 12px; }
+    .timeline-node.active { border-color: var(--amat-blue); background: var(--amat-blue-light); }
+    .timeline-ver { font-size: 13px; font-weight: 700; font-family: var(--font-mono); color: var(--navy); }
+    .timeline-name { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .timeline-tag { font-size: 9px; font-weight: 700; padding: 2px 4px; border-radius: 3px; display: inline-block; margin-top: 6px; }
+    .tag-pass { background: var(--green-light); color: var(--green); }
+    .tag-rej { background: var(--red-light); color: var(--red); }
+    .code-box { background: var(--navy); color: #f8fafc; padding: 18px 20px; border-radius: 6px; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; position: relative; margin-top: 14px; overflow-x: auto; }
+    footer { background: var(--navy); color: #94a3b8; padding: 48px 0 32px; font-size: 13px; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px; margin-bottom: 24px; }
+    .footer-brand { color: #ffffff; font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+    .footer-note { font-size: 11px; color: #64748b; max-width: 600px; line-height: 1.5; }
+    @media (max-width: 992px) {
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .metric-item { border-right: none; }
+      .explorer-viewport { grid-template-columns: 1fr; }
+      .explorer-data { grid-template-columns: 1fr; }
+      .pipeline-cards { grid-template-columns: repeat(2, 1fr); }
+      .failure-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-logo">AM</div>
+        <div>
+          <span class="brand-text">DRIFT-SENSE++</span>
+          <span class="brand-tag">SEM LOCALIZATION</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#explorer">Explorer</a></li>
+          <li><a href="#method">Method</a></li>
+          <li><a href="#validation">Validation</a></li>
+          <li><a href="#failures">Failure Analysis</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#reproducibility">Reproduce</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex; gap:10px;">
+        <a href="https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization" class="btn btn-outline" target="_blank">GitHub</a>
+        <a href="#explorer" class="btn btn-primary">Live Explorer</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Applied Materials &middot; Phase 2 Technical Demonstration</div>
+      <h1 class="hero-title">SEM Localization under Periodic Structural Ambiguity</h1>
+      <p class="hero-desc">
+        Recovering position, rotation, and scale from degraded SEM imagery while distinguishing the true physical site from periodic structural replicas.
+      </p>
+      <div class="hero-actions">
+        <a href="#explorer" class="btn btn-primary" style="padding:12px 24px; font-size:14px;">Explore Interactive Demo</a>
+        <a href="#method" class="btn btn-outline" style="padding:12px 24px; font-size:14px;">View Methodology</a>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric-item">
+          <div class="metric-val">90.50 <span>/ 100</span></div>
+          <div class="metric-label">Official Rubric Score</div>
+          <div class="metric-sub">Released Phase 2 Dev Benchmark</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">40.00 <span>/ 40</span></div>
+          <div class="metric-label">Localization Credit</div>
+          <div class="metric-sub">100% accepted pairs &le; 5 px</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">19.20 <span>/ 20</span></div>
+          <div class="metric-label">Pose Precision</div>
+          <div class="metric-sub">Rot MAE &le; 0.065&deg; (Sub-pixel)</div>
+        </div>
+        <div class="metric-item">
+          <div class="metric-val">0.07 <span>s/pair</span></div>
+          <div class="metric-label">Inference Latency</div>
+          <div class="metric-sub">Standard x86 CPU &middot; Zero GPU</div>
+        </div>
+      </div>
+
+      <div class="disclaimer-banner">
+        <strong>IMPORTANT EVALUATION NOTICE:</strong> All benchmark figures reported on this demonstration interface (<strong>90.50 / 100.00</strong>, <strong>100.0% &le; 5 px</strong>, <strong>0.07 s/pair</strong>, <strong>Spearman &rho; = 0.832</strong>) are strictly measured on the <strong>released 180-pair development set</strong> (<code>data/phase2_dev/pairs.csv</code>). The organizer's official hidden-test score remains unknown until formal jury evaluation.
+      </div>
+    </div>
+  </section>
+
+  <section id="explorer">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Centerpiece Demonstration</div>
+        <h2 class="section-title">Interactive SEM Localization Explorer</h2>
+        <p class="section-desc">
+          Compare standard correlation with Drift-Sense++ multi-evidence ranking across genuine semiconductor architectures. Witness how replica ambiguities are resolved.
+        </p>
+      </div>
+
+      <div class="explorer-card">
+        <div class="explorer-toolbar">
+          <div class="control-group">
+            <span class="control-label">Sample Pair:</span>
+            <select id="sampleSelect" onchange="loadSample(this.value)">
+              <option value="pair_001">Pair 001 &mdash; DRAM (Nominal)</option>
+              <option value="pair_027">Pair 027 &mdash; DRAM (Degraded / Noise)</option>
+              <option value="pair_078">Pair 078 &mdash; FinFET (Nominal 10nm)</option>
+              <option value="pair_absent">Pair Absent &mdash; Hard Negative (Set C)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">Matching Algorithm:</span>
+            <div class="toggle-group">
+              <button id="btnNaive" class="toggle-btn" onclick="setAlgorithm('naive')">Raw Single-Peak NCC</button>
+              <button id="btnDrift" class="toggle-btn active" onclick="setAlgorithm('driftsense')">Drift-Sense++ Multi-Evidence</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-viewport">
+          <div class="panel-box left">
+            <div class="panel-title">
+              <span>Reference Template</span>
+              <span id="refDimBadge" style="font-size:11px; color:var(--text-light); font-family:var(--font-mono);">128 &times; 128 px</span>
+            </div>
+            <div class="image-frame" style="height:280px;">
+              <img id="refImg" src="assets/images/ref_pair_001.png" alt="Reference Template">
+            </div>
+            <div style="margin-top:14px; font-size:12px; color:var(--text-muted); line-height:1.5;" id="sampleDesc">
+              Periodic DRAM capacitor matrix with standard SEM charging.
+            </div>
+          </div>
+
+          <div class="panel-box">
+            <div class="panel-title">
+              <span>Wide Search Image &middot; Candidate Response Map</span>
+              <span style="font-size:11px; color:var(--text-light); font-family:var(--font-mono);">1000 &times; 1000 px Field of View</span>
+            </div>
+            <div class="image-frame">
+              <canvas id="searchCanvas" width="700" height="480"></canvas>
+            </div>
+            <div class="legend-bar">
+              <div><span class="legend-dot" style="background:#0072ce;"></span> Selected Winner</div>
+              <div><span class="legend-dot" style="background:#94a3b8;"></span> Alternative Candidates (N=200 Pool)</div>
+              <div><span class="legend-dot" style="background:#dc2626;"></span> False Replica Trap (Raw NCC)</div>
+              <div><span class="legend-dot" style="background:#16a34a;"></span> Ground Truth Center</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="explorer-data">
+          <div>
+            <div class="panel-title">Predicted Localization Output</div>
+            <div class="result-box">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:12px; font-weight:700; color:var(--navy);">DECISION STATUS</span>
+                <span id="foundBadge" class="status-badge badge-success">FOUND: YES (1)</span>
+              </div>
+
+              <div class="result-grid">
+                <div class="result-cell">
+                  <div class="result-cell-label">X Center</div>
+                  <div class="result-cell-val" id="resX">627.18 px</div>
+                </div>
+                <div class="result-cell">
+                  <div class="result-cell-label">Y Center</div>
+                  <div class="result-cell-val" id="resY">732.42 px</div>
+                </div>
+                <div class="result-cell">
+                  <div class="result-cell-label">Rotation (&theta;)</div>
+                  <div class="result-cell-val" id="resTheta">+0.15&deg;</div>
+                </div>
+                <div class="result-cell">
+                  <div class="result-cell-label">Scale</div>
+                  <div class="result-cell-val" id="resScale">10.04&times;</div>
+                </div>
+              </div>
+
+              <div style="margin-top:14px; display:flex; justify-content:space-between; font-size:12px;">
+                <div><strong>Confidence Score:</strong> <span id="resScore" style="font-family:var(--font-mono); font-weight:700;">0.963</span></div>
+                <div><strong>Spatial Error:</strong> <span id="resError" style="font-family:var(--font-mono); font-weight:700; color:var(--green);">0.17 px</span> (<span id="resTier">Tier 1 &le; 1px</span>)</div>
+              </div>
+
+              <div style="margin-top:12px; font-size:11px; color:#1e3a8a; background:#eff6ff; padding:8px 10px; border-radius:4px; border-left:3px solid var(--amat-blue);" id="verdictText">
+                Raw NCC selects Candidate #2 (noise spike). Drift-Sense++ structural context isolates Candidate #1 as the genuine physical site at 0.17 px error.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="panel-title">Candidate Pool Evidence Breakdown</div>
+            <div style="max-height: 220px; overflow-y:auto; border:1px solid var(--border); border-radius:var(--radius);">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Raw NCC</th>
+                    <th>Grad Phase</th>
+                    <th>128 Context</th>
+                    <th>Family</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="candidateTableBody">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-header" onclick="toggleAccordion()">
+            <span>&#9660; WHY THIS LOCATION? (6-Stage Explainability Inspection)</span>
+            <span style="font-size:11px; font-weight:500; color:var(--text-light);">Click to expand algorithmic audit</span>
+          </div>
+          <div class="accordion-body" id="accordionBody">
+            <div class="steps-grid">
+              <div class="step-card">
+                <div class="step-num">STAGE 01</div>
+                <div class="step-title">Frequency Domain Coarse Search</div>
+                <div class="step-text">Pyramidal log-polar FFT sweep identifies capture range across scale [8x, 12x] and rotation [-5°, +5°] in &lt; 0.05s.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STAGE 02</div>
+                <div class="step-title">200-Candidate Extraction</div>
+                <div class="step-text">Spatial Non-Maximum Suppression extracts candidate peaks, preventing greed on a single deceptive maximum.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STAGE 03</div>
+                <div class="step-title">Periodic Replica Clustering</div>
+                <div class="step-text">Candidate peaks are grouped into physical Bravais lattice families based on detected semiconductor array pitch.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STAGE 04</div>
+                <div class="step-title">Multi-Evidence Feature Ranking</div>
+                <div class="step-text">Evaluates Sobel gradient phase agreement, phase-only residuals, and extended 128x128 contextual surround agreement.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STAGE 05</div>
+                <div class="step-title">Safe Presence Rejection Gate</div>
+                <div class="step-text">Two-tier Peak-to-Sidelobe Ratio (PSR) and ambiguity thresholding enforces found=0 with zeroed coordinates on absent images.</div>
+              </div>
+              <div class="step-card">
+                <div class="step-num">STAGE 06</div>
+                <div class="step-title">Continuous Paraboloid Pose Fit</div>
+                <div class="step-text">2-D analytical paraboloid surface fitting on the correlation neighborhood achieves sub-0.2 px subpixel precision.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="method" style="background:#f8fafc;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Engineering Architecture</div>
+        <h2 class="section-title">The Drift-Sense++ Pipeline</h2>
+        <p class="section-desc">
+          Modular cascade designed for subpixel spatial accuracy, periodic replica immunity, and ultra-low CPU latency without GPU dependencies.
+        </p>
+      </div>
+
+      <div class="pipeline-container">
+        <div class="pipeline-img-wrap">
+          <img src="assets/images/ARCHITECTURE.svg" alt="System Architecture Diagram">
+        </div>
+
+        <div class="pipeline-cards">
+          <div class="pipe-card active">
+            <div class="pipe-card-title">1. FFT Scale &amp; Rotation Search</div>
+            <div class="pipe-card-desc">Log-polar frequency domain search rapidly recovers coarse zoom and stage rotation.</div>
+          </div>
+          <div class="pipe-card">
+            <div class="pipe-card-title">2. 200-Candidate Pool</div>
+            <div class="pipe-card-desc">Spatial NMS collects candidate peaks, breaking the single-peak greedy trap.</div>
+          </div>
+          <div class="pipe-card">
+            <div class="pipe-card-title">3. Multi-Evidence Ranker</div>
+            <div class="pipe-card-desc">Gradient orientation and 128x128 context disambiguate periodic array twins.</div>
+          </div>
+          <div class="pipe-card">
+            <div class="pipe-card-title">4. Surgical Pose &amp; Calibration</div>
+            <div class="pipe-card-desc">2-D paraboloid subpixel fitting plus monotone regularized rank confidence.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="validation">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Verified Benchmarks</div>
+        <h2 class="section-title">Phase 2 Development Benchmark Results</h2>
+        <p class="section-desc">
+          Strictly evaluated on the released 180-pair Phase 2 development set (70 Set A nominal, 70 Set B degraded, 40 Set C absent).
+        </p>
+      </div>
+
+      <table class="val-table">
+        <thead>
+          <tr>
+            <th>Evaluation Block</th>
+            <th>Points Scored</th>
+            <th>Max Points</th>
+            <th>Measured Performance</th>
+            <th>Official Contract Verification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Localization</strong></td>
+            <td><strong style="color:var(--green);">40.00</strong></td>
+            <td>40.00</td>
+            <td>100.0% of detected instances &le; 5 px (80.5% Set A / 86.1% Set B &le; 1 px)</td>
+            <td>Tiered per-pair credit (1.0 / 0.8 / 0.6 / 0.4)</td>
+          </tr>
+          <tr>
+            <td><strong>Pose Recovery</strong></td>
+            <td><strong style="color:var(--green);">19.20</strong></td>
+            <td>20.00</td>
+            <td>Rotation MAE: 0.038&deg; (Set A), 0.065&deg; (Set B). Scale MAE: 0.047 / 0.056</td>
+            <td>Subpixel continuous frequency refinement</td>
+          </tr>
+          <tr>
+            <td><strong>Absence Rejection</strong></td>
+            <td><strong style="color:var(--navy);">8.09</strong></td>
+            <td>15.00</td>
+            <td>Set C absent recall: 95.0% (38 True Negatives, 2 False Positives, F1: 0.539)</td>
+            <td>Safe two-tier ambiguity thresholding</td>
+          </tr>
+          <tr>
+            <td><strong>Confidence Calibration</strong></td>
+            <td><strong style="color:var(--green);">8.27</strong></td>
+            <td>10.00</td>
+            <td>Spearman rank correlation &rho; = 0.832 (monotonic alignment with error)</td>
+            <td>Regularized monotone rank regrading</td>
+          </tr>
+          <tr>
+            <td><strong>Runtime Efficiency</strong></td>
+            <td><strong style="color:var(--green);">5.00</strong></td>
+            <td>5.00</td>
+            <td>0.07 s/pair median (cache) / 3.74 s/pair (live full extraction)</td>
+            <td>Well under 5.0 s/pair competition limit</td>
+          </tr>
+          <tr>
+            <td><strong>Compliance &amp; Docs</strong></td>
+            <td><strong style="color:var(--green);">10.00</strong></td>
+            <td>10.00</td>
+            <td>Complete schema, found=0 &rArr; x=y=&theta;=scale=0 invariant barrier enforced</td>
+            <td>All offline weights bundled in ZIP</td>
+          </tr>
+          <tr style="background:#f1f5f9; font-weight:700;">
+            <td>TOTAL SCORE</td>
+            <td><span style="font-size:18px; color:var(--amat-blue);">90.50</span></td>
+            <td>100.00</td>
+            <td colspan="2">Verified Official Development Scorecard</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="failures" style="background:#f8fafc;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Forensic Auditing</div>
+        <h2 class="section-title">SEM Failure Mode Taxonomy &amp; Solutions</h2>
+        <p class="section-desc">
+          Systematic characterization of the 5 primary semiconductor failure modes and their engineered safeguards.
+        </p>
+      </div>
+
+      <div class="failure-grid">
+        <div class="fail-card">
+          <span class="fail-badge">Failure Mode 01</span>
+          <div class="fail-title">Periodic Replica Confusion</div>
+          <div class="fail-text">Near-identical correlation peaks (&Delta;NCC &lt; 0.005) cause naive template matching to trap on an adjacent cell replica.</div>
+          <div class="fail-fix"><strong>Drift-Sense++ Solution:</strong> 200-candidate pool with periodic replica clustering + 128x128 context breaks symmetry.</div>
+        </div>
+
+        <div class="fail-card">
+          <span class="fail-badge">Failure Mode 02</span>
+          <div class="fail-title">Degraded True Instance Miss</div>
+          <div class="fail-text">Heavy Poisson-Gaussian noise and non-uniform SEM charging halos attenuate the physical correlation peak.</div>
+          <div class="fail-fix"><strong>Drift-Sense++ Solution:</strong> Dual-channel Sobel gradient orientation matching eliminates low-frequency charging halos.</div>
+        </div>
+
+        <div class="fail-card">
+          <span class="fail-badge">Failure Mode 03</span>
+          <div class="fail-title">Absent Reference False Accept</div>
+          <div class="fail-text">Unconstrained localizers force a coordinate selection on background noise for empty search images.</div>
+          <div class="fail-fix"><strong>Drift-Sense++ Solution:</strong> Two-tier presence gate (PSR &lt; 12.0) enforces found=0 and sets all pose columns to 0.</div>
+        </div>
+
+        <div class="fail-card">
+          <span class="fail-badge">Failure Mode 04</span>
+          <div class="fail-title">Confidence Score Inversion</div>
+          <div class="fail-text">Raw cross-correlation scores correlate poorly with actual subpixel localization error on noisy SEM lattices.</div>
+          <div class="fail-fix"><strong>Drift-Sense++ Solution:</strong> Monotone regularized rank calibration achieves monotonic ordering (Spearman &rho; = 0.832).</div>
+        </div>
+
+        <div class="fail-card">
+          <span class="fail-badge">Failure Mode 05</span>
+          <div class="fail-title">Subpixel Quantization Error</div>
+          <div class="fail-text">Discrete pixel argmax search introduces up to &plusmn;0.707 px error, missing tight &le;1 px credit tiers.</div>
+          <div class="fail-fix"><strong>Drift-Sense++ Solution:</strong> Continuous 2-D paraboloid surface fitting solves the analytical extremum.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">R&amp;D Evolution</div>
+        <h2 class="section-title">48-Version Research Timeline</h2>
+        <p class="section-desc">
+          The rigorous progression from naive baseline matching to production-grade multi-evidence candidate cascade.
+        </p>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline-node">
+          <div class="timeline-ver">V1 &middot; ZNCC</div>
+          <div class="timeline-name">FFT Baseline</div>
+          <span class="timeline-tag tag-rej">Scale/Rot Fail</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V5 &middot; PACE</div>
+          <div class="timeline-name">Group Ranking</div>
+          <span class="timeline-tag tag-pass">Lattice Insight</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V10 &middot; Pyramid</div>
+          <div class="timeline-name">Scale/Rot Search</div>
+          <span class="timeline-tag tag-pass">Capture Range</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V18 &middot; Multi-Ch</div>
+          <div class="timeline-name">Feature Enrichment</div>
+          <span class="timeline-tag tag-pass">Gradient Phase</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V25 &middot; 40/40</div>
+          <div class="timeline-name">Championship Core</div>
+          <span class="timeline-tag tag-pass">100% &le; 5px</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V28-C &middot; Gate</div>
+          <div class="timeline-name">Safe Rejection</div>
+          <span class="timeline-tag tag-pass">Crushed FP to 2</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V39 &middot; Pose</div>
+          <div class="timeline-name">Surgical Refinement</div>
+          <span class="timeline-tag tag-pass">19.20 / 20 Pose</span>
+        </div>
+        <div class="timeline-node">
+          <div class="timeline-ver">V41 &middot; Calib</div>
+          <div class="timeline-name">Residual Calibration</div>
+          <span class="timeline-tag tag-pass">&rho; = 0.616</span>
+        </div>
+        <div class="timeline-node active">
+          <div class="timeline-ver">V48 &middot; FINAL</div>
+          <div class="timeline-name">Graded Calibration</div>
+          <span class="timeline-tag tag-pass">90.50 / 100</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reproducibility" style="background:#f8fafc;">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Audit &amp; Reproduction</div>
+        <h2 class="section-title">Zero-Risk Reproducibility Suite</h2>
+        <p class="section-desc">
+          Single-command verification matching the Applied Materials Phase 2 Reference Machine contract.
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <h3 style="font-size:15px; color:var(--navy); margin-bottom:8px;">1. Run Judge Preflight Suite</h3>
+          <p style="font-size:13px; color:var(--text-muted);">Executes the 13 automated contract checks (Python 3.11+, 7 columns, CPU-only, air-gapped, determinism):</p>
+          <div class="code-box">
+python JUDGE_TEST/run_all.py
+<br><span style="color:#4ade80;"># Output: [PASS] ALL 13/13 PREFLIGHT CRITERIA SATISFIED</span>
+          </div>
+
+          <h3 style="font-size:15px; color:var(--navy); margin:20px 0 8px;">2. Official Batch Scoring Contract</h3>
+          <p style="font-size:13px; color:var(--text-muted);">The exact command Applied Materials runs during jury scoring:</p>
+          <div class="code-box">
+cd FINAL_SUBMISSION
+pip install -r requirements.txt
+python register.py --input pairs.csv --output predictions.csv
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size:15px; color:var(--navy); margin-bottom:8px;">3. Reference Machine Specification</h3>
+          <div style="background:#ffffff; border:1px solid var(--border); border-radius:6px; padding:16px; font-size:12px; line-height:1.7;">
+            <div>&bull; <strong>Platform:</strong> Python 3.11+ on standard x86 CPU</div>
+            <div>&bull; <strong>Memory:</strong> Peak RSS 1.42 GB (well below 8.0 GB limit)</div>
+            <div>&bull; <strong>Accelerator:</strong> None. GPU is NOT required or used.</div>
+            <div>&bull; <strong>Network:</strong> 0 external requests (100% air-gapped)</div>
+            <div>&bull; <strong>Latency:</strong> 0.07 s/pair median (cache) / 3.74 s (live extraction)</div>
+            <div>&bull; <strong>Deliverable:</strong> All weights ship inside <code>FINAL_SUBMISSION.zip</code></div>
+          </div>
+
+          <div style="margin-top:20px; display:flex; gap:12px;">
+            <a href="https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization/raw/main/FINAL_SUBMISSION.zip" class="btn btn-primary" download>Download FINAL_SUBMISSION.zip (~9.9MB)</a>
+            <a href="https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization" class="btn btn-outline" target="_blank">View GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">DRIFT-SENSE++ RESEARCH GROUP</div>
+          <div style="font-size:12px; color:#cbd5e1;">Aashish Niranjan Barathykannan &middot; Shanganidhi KN &middot; Akhilesh K &middot; Sai Dharshan</div>
+        </div>
+        <div>
+          <a href="https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization" style="color:#93c5fd; text-decoration:none; font-weight:600;">GitHub Repository &rarr;</a>
+        </div>
+      </div>
+      <div class="footer-note">
+        Independent competition project / demonstration interface. Developed for the Applied Materials Drift-Sense SEM Localization Phase 2 Challenge. Not an official Applied Materials product or endorsement.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let SAMPLES = null;
+    let currentSampleKey = 'pair_001';
+    let currentAlgorithm = 'driftsense';
+    let selectedCandidateId = null;
+
+    const canvas = document.getElementById('searchCanvas');
+    const ctx = canvas.getContext('2d');
+    let searchImageObj = new Image();
+
+    fetch('data/samples.json')
+      .then(res => res.json())
+      .then(data => {
+        SAMPLES = data;
+        loadSample('pair_001');
+      })
+      .catch(err => {
+        console.error('Failed to load samples.json:', err);
+      });
+
+    function loadSample(key) {
+      if (!SAMPLES) return;
+      currentSampleKey = key;
+      const s = SAMPLES[key];
+      document.getElementById('refImg').src = s.ref_img;
+      document.getElementById('sampleDesc').textContent = s.desc;
+      searchImageObj.src = s.search_img;
+      selectedCandidateId = null;
+      updateUI();
+    }
+
+    function setAlgorithm(algo) {
+      currentAlgorithm = algo;
+      document.getElementById('btnNaive').className = 'toggle-btn' + (algo === 'naive' ? ' active-danger' : '');
+      document.getElementById('btnDrift').className = 'toggle-btn' + (algo === 'driftsense' ? ' active' : '');
+      updateUI();
+    }
+
+    function updateUI() {
+      if (!SAMPLES) return;
+      const s = SAMPLES[currentSampleKey];
+      const res = currentAlgorithm === 'driftsense' ? s.driftsense : s.naive;
+
+      document.getElementById('resX').textContent = res.x.toFixed(2) + ' px';
+      document.getElementById('resY').textContent = res.y.toFixed(2) + ' px';
+      document.getElementById('resTheta').textContent = res.theta;
+      document.getElementById('resScale').textContent = res.scale;
+      document.getElementById('resScore').textContent = res.score.toFixed(3);
+
+      const fBadge = document.getElementById('foundBadge');
+      if (res.found.startsWith('YES')) {
+        fBadge.className = 'status-badge badge-success';
+        fBadge.textContent = 'FOUND: YES (1)';
+      } else {
+        fBadge.className = 'status-badge badge-danger';
+        fBadge.textContent = 'FOUND: NO (0)';
+      }
+
+      const errSpan = document.getElementById('resError');
+      errSpan.textContent = res.error_px.toFixed(2) + ' px';
+      errSpan.style.color = res.error_px <= 5.0 ? 'var(--green)' : 'var(--red)';
+      document.getElementById('resTier').textContent = res.tier;
+
+      document.getElementById('verdictText').textContent = s.delta.verdict;
+
+      const tbody = document.getElementById('candidateTableBody');
+      tbody.innerHTML = '';
+      const winnerId = res.winner_id;
+
+      s.candidates.forEach(c => {
+        const tr = document.createElement('tr');
+        const isWinner = (c.id === winnerId);
+        if (isWinner) {
+          tr.className = 'selected-row';
+        }
+        tr.onclick = () => {
+          selectedCandidateId = c.id;
+          drawCanvas();
+        };
+        tr.innerHTML = `
+          <td><strong>#${c.id}</strong></td>
+          <td>${c.ncc.toFixed(3)}</td>
+          <td>${c.grad.toFixed(2)}</td>
+          <td>${c.ctx.toFixed(2)}</td>
+          <td>${c.family}</td>
+          <td><span style="color:${isWinner ? (currentAlgorithm==='driftsense'?'#0072ce':'#dc2626') : '#475569'}">${c.status}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      drawCanvas();
+    }
+
+    function drawCanvas() {
+      if (!SAMPLES) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const s = SAMPLES[currentSampleKey];
+      const res = currentAlgorithm === 'driftsense' ? s.driftsense : s.naive;
+
+      if (searchImageObj.complete && searchImageObj.naturalWidth > 0) {
+        ctx.drawImage(searchImageObj, 0, 0, canvas.width, canvas.height);
+      } else {
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      const sx = canvas.width / 1000.0;
+      const sy = canvas.height / 1000.0;
+
+      if (s.gt.found !== 0) {
+        const gx = s.gt.x * sx;
+        const gy = s.gt.y * sy;
+        ctx.beginPath();
+        ctx.arc(gx, gy, 18, 0, Math.PI * 2);
+        ctx.strokeStyle = '#16a34a';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+
+      s.candidates.forEach(c => {
+        const cx = c.x * sx;
+        const cy = c.y * sy;
+        const isWinner = (c.id === res.winner_id);
+        const isClicked = (c.id === selectedCandidateId);
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, isWinner ? 12 : 6, 0, Math.PI * 2);
+
+        if (isWinner) {
+          ctx.fillStyle = currentAlgorithm === 'driftsense' ? 'rgba(0, 114, 206, 0.4)' : 'rgba(220, 38, 38, 0.4)';
+          ctx.fill();
+          ctx.strokeStyle = currentAlgorithm === 'driftsense' ? '#0072ce' : '#dc2626';
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = 'rgba(148, 163, 184, 0.7)';
+          ctx.fill();
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+
+        if (isClicked) {
+          ctx.beginPath();
+          ctx.arc(cx, cy, 22, 0, Math.PI * 2);
+          ctx.strokeStyle = '#eab308';
+          ctx.lineWidth = 2;
+          ctx.setLineDash([4, 4]);
+          ctx.stroke();
+          ctx.setLineDash([]);
+        }
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '10px monospace';
+        ctx.fillText('#' + c.id, cx + 8, cy - 8);
+      });
+    }
+
+    searchImageObj.onload = drawCanvas;
+
+    function toggleAccordion() {
+      const b = document.getElementById('accordionBody');
+      b.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
