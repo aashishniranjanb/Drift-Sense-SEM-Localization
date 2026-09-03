@@ -1,7 +1,0 @@
-Dataset,Method,Acc_le1px,Acc_le3px,Acc_le5px,Acc_le10px,Mean_Err,Median_Err,P95_Err,Mean_Lat_ms,P95_Lat_ms
-Original_120,ZNCC_Baseline,32.5,35.83,35.83,35.83,143.18,40.42,635.21,147.02,180.87
-Original_120,FFT_NCC,31.67,35.0,35.83,35.83,172.13,43.33,844.89,30.32,31.2
-Original_120,CAR_Pipeline,25.83,33.33,34.17,34.17,172.57,47.33,844.8,83.76,95.62
-Holdout_Test,ZNCC_Baseline,38.5,62.5,66.0,67.0,86.58,1.6,615.28,146.02,153.45
-Holdout_Test,FFT_NCC,38.5,62.5,66.0,67.0,86.58,1.6,615.28,30.25,31.44
-Holdout_Test,CAR_Pipeline,39.5,60.5,64.5,65.5,83.3,1.72,594.06,75.68,93.84

@@ -1,2 +1,0 @@
-total_pairs,mean_latency_ms,median_latency_ms,p95_latency_ms,accuracy_1px_pct,accuracy_3px_pct,mean_error_px,median_error_px,p95_error_px
-40,1033.6,974.42,1575.38,5.0,20.0,275.0,244.94,733.01
