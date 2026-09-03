@@ -1,0 +1,4 @@
+pair_id,set_type,reference_path,search_path
+pair_000,SetA,reference\pair_000.png,search\pair_000.png
+pair_001,SetA,reference\pair_001.png,search\pair_001.png
+pair_002,SetA,reference\pair_002.png,search\pair_002.png

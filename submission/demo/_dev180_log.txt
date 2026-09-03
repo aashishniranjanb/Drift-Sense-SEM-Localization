@@ -1,0 +1,11 @@
+[20/180] 10.80s/pair
+[40/180] 10.24s/pair
+[60/180] 10.03s/pair
+[80/180] 9.90s/pair
+[100/180] 9.83s/pair
+[120/180] 9.85s/pair
+[140/180] 9.92s/pair
+[160/180] 10.19s/pair
+[180/180] 10.30s/pair
+done: 180 pairs in 1853.4s (10.30s/pair) -> submission/demo/_dev180_pred.csv
+EXIT=0 ELAPSED=1858s

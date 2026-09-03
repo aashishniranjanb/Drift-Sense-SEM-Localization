@@ -28,7 +28,7 @@ import pandas as pd
 import cv2
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(_HERE, "runtime", "src"))
+sys.path.insert(0, os.path.join(_HERE, "src"))
 
 for _v in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
     os.environ.setdefault(_v, "1")
@@ -43,7 +43,7 @@ from pose_estimator import refine_pose_v39                 # noqa: E402
 
 EV_COLS = ["top1_score", "margin", "top1_corr", "top1_ctx", "top1_neigh", "top1_grad", "mode_strong"]
 
-_CACHE_PATH = os.path.join(_HERE, "runtime", "models", "v25_stage_cache.csv")
+_CACHE_PATH = os.path.join(_HERE, "models", "v25_stage_cache.csv")
 _CACHE = {}
 if os.path.exists(_CACHE_PATH):
     _cdf = pd.read_csv(_CACHE_PATH)

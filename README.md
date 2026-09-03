@@ -1,102 +1,121 @@
-# Drift-Sense++ SAFE-CAR: Adaptive Structural SEM Wafer Localization Engine
+# Drift-Sense++ — SEM Localization
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![PyTorch 2.1+](https://img.shields.io/badge/PyTorch-2.1+-ee4c2c.svg)](https://pytorch.org/)
-[![OpenCV 4.8+](https://img.shields.io/badge/OpenCV-4.8+-green.svg)](https://opencv.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+### Applied Materials · Phase 2 Submission
 
-**Drift-Sense++ SAFE-CAR (Structural Ambiguity-aware Failure-aware Escalation)** is an ultra-fast, subpixel-accurate SEM wafer localization framework engineered for Applied Materials' *Drift-Sense: Navigation-Error Recovery* challenge.
+**Entry point:** [`FINAL_SUBMISSION/register.py`](./FINAL_SUBMISSION/register.py)
+· **Language:** Python · **Runtime:** CPU only, no network
 
 ---
 
-## Quickstart - Applied Materials Judge Execution
+## ➡️ JUDGE START HERE
 
-### 1. Installation
+The authoritative competition submission is one folder:
+
+## **[FINAL_SUBMISSION/](./FINAL_SUBMISSION/)**
+
+| File | Purpose |
+|---|---|
+| [`register.py`](./FINAL_SUBMISSION/register.py) | Official inference entry point |
+| [`requirements.txt`](./FINAL_SUBMISSION/requirements.txt) | Pinned runtime dependencies |
+| [`generate_dataset.py`](./FINAL_SUBMISSION/generate_dataset.py) | Documented synthetic SEM pair generator |
+| [`failure_analysis.pdf`](./FINAL_SUBMISSION/failure_analysis.pdf) | Required failure analysis (2 pages) |
+| [`README.md`](./FINAL_SUBMISSION/README.md) | Complete execution instructions |
+| `runtime/` | Inference modules and model weights (bundled) |
+| `documentation/` | Method, validation, references |
+| `verification/` | `register.py` output + full score breakdown |
+| `visuals/` | Supporting technical figures |
+
+### One-command execution
+
 ```bash
-git clone https://github.com/aashishniranjanb/Drift-Sense-SEM-Localization.git
-cd Drift-Sense-SEM-Localization
+cd FINAL_SUBMISSION
 pip install -r requirements.txt
+python register.py --input pairs.csv --output predictions.csv
 ```
 
-### 2. Standalone Inference CLI Test
-```bash
-python inference.py --reference demo/reference.png --search demo/search.png --verbose
+**Output** — one row per `pair_id`:
+
+```
+pair_id,x,y,theta,scale,found,score
 ```
 
-#### Expected CLI Output:
-```json
-{
-  "x": 305.09,
-  "y": 620.88,
-  "confidence_score": 0.7654,
-  "mode": "CLASSICAL",
-  "decision": "LOCALIZED",
-  "uncertainty": "LOW",
-  "status": "OK",
-  "path": "FAST_TRUSTED_FFT",
-  "latency_ms": 34.88
-}
-(305.09, 620.88)
-```
+When `found = 0`: `x = y = theta = scale = 0`.
 
-### 3. Standalone Synthetic Dataset Generator
-```bash
-python dataset_generator.py --architecture DRAM --num-pairs 20 --output-dir demo_data/
-```
+### Measured result (released 180-pair development set)
+
+| Localization | Pose | Rejection | Calibration | Efficiency | Docs | **Total** |
+|---|---|---|---|---|---|---|
+| 40.00 / 40 | 19.20 / 20 | 8.03 / 15 | 8.27 / 10 | 5.00 / 5 | 10.00 / 10 | **90.50 / 100** |
+
+Set A & B localization ≤ 5 px: **100 %**. Median runtime **0.07 s/pair**.
+See [`FINAL_SUBMISSION/documentation/VALIDATION.md`](./FINAL_SUBMISSION/documentation/VALIDATION.md).
 
 ---
 
-## Performance Benchmark Summary (Frozen 200-Case Held-Out Test Set)
+## 1. What this is
 
-| Metric | Metric Definition & Benchmark Value |
-| :--- | :--- |
-| **Subpixel Precision (<= 1 px)** | **40.5%** of the 200 held-out cases were localized within <= 1 px |
-| **In-Bounds Accuracy (<= 5 px)** | **66.0%** of the 200 held-out cases were localized within <= 5 px |
-| **Median Error** | **1.51 px** median localization error |
-| **P95 Error** | **554.22 px** P95 error *(Bimodal failure distribution)* |
-| **Trusted Fast-Path Latency** | **30.25 ms** *(Executed on 62.0% of captures)* |
-| **End-to-End Mean Latency** | **139.20 ms** overall end-to-end latency |
-| **Harmful AI Overrides** | **1.5%** *(Suppressed from 43.0% in binary models)* |
+Drift-Sense++ recovers the location, rotation and scale of a reference
+structure inside a degraded SEM search image, and decides whether the structure
+is present at all. It targets the Phase 2 conditions: unknown zoom (8–12×),
+small unknown rotation (±5°), heavy SEM degradation, **periodic structural
+ambiguity**, reference-absent pairs, subpixel accuracy, and calibrated
+confidence.
 
----
-
-## Architectural Evolution & Scientific Research Story
+## 2. Pipeline
 
 ```
-V1 (ZNCC / FFT-NCC) -> Fast (30 ms), but vulnerable to periodic DRAM cell ambiguity
-       |
-V2 (Multi-Scale Dual) -> Robust, but unacceptable compute latency (1.98 s)
-       |
-V3 (Adaptive Gated) -> Routing alone insufficient (hard path accuracy 30.8%)
-       |
-V4 (Siamese 1-vs-1 HCR) -> 97.7% binary val acc, BUT demoted GT in 43.0% of cases
-       |
-V5 (Unconditional PACE) -> Group List Ranking solved ranking, BUT overrode clear FFT
-       |
-V6 (SAFE-CAR Winner) -> Confidence Gate (Delta-S >= 0.010, PSR >= 5.5) suppressed AI overrides to 1.5%
-       |
-V7 (Multi-View Retrieval) -> Added 4 features + 4 anchors, BUT diluted candidate union (Top-20 fell to 85.5%)
-       |
-       v
-DRIFT-SENSE++ SAFE-CAR: Frozen Production Winner & Empirical Pareto Frontier
+Reference + Search image
+      │
+      ▼
+Coarse-to-fine scale / rotation FFT-NCC        (unknown zoom + rotation)
+      │
+      ▼
+200-candidate generation  +  periodic-replica family clustering
+      │
+      ▼
+Learned candidate ranker  →  learned presence / absence gate   (V25 + V28-C)
+      │
+      ▼
+V39 surgical pose refinement  (local scale + rotation + 2-D paraboloid subpixel)
+      │
+      ▼
+V41 residual-mix  →  V48 graded calibration   (confidence ordering, score only)
+      │
+      ▼
+pair_id, x, y, theta, scale, found, score
 ```
 
-*Scientific Conclusion: V7 was rejected by a pre-defined acceptance gate, establishing SAFE-CAR as the true empirical Pareto frontier.*
+## 3. Why periodic SEM localization is hard
 
----
+The global correlation maximum is **not** necessarily the true physical site:
+repetitive DRAM/FinFET arrays produce many near-identical replica peaks
+(ΔNCC < 0.005). The system therefore ranks candidates on structural evidence —
+multi-scale context, phase consistency, gradient agreement, replica-family
+population — rather than trusting the strongest peak.
 
-## High-Impact Visual Artifacts Map
+## 4. Failure analysis
 
-1. **End-to-End Success Visualization**: `submission_package/visuals/01_end_to_end_success.png`
-2. **Periodic Ambiguity Shift Analysis**: `submission_package/visuals/02_periodic_ambiguity.png`
-3. **Confidence Safety Gate Diagram**: `submission_package/visuals/03_confidence_gate.png`
-4. **Bimodal Error Histogram & CDF**: `submission_package/visuals/04_error_distribution.png`
-5. **V1-V7 Scientific Progression**: `submission_package/visuals/05_ablation_comparison.png`
-6. **End-to-End System Overview**: `submission_package/visuals/06_system_overview.png`
-7. **Perturbation Stress Matrix Heatmap**: `submission_package/visuals/stress_matrix_heatmap.png`
+Full analysis: [`FINAL_SUBMISSION/failure_analysis.pdf`](./FINAL_SUBMISSION/failure_analysis.pdf).
+Main failure classes: periodic-replica confusion · degraded true-instance miss ·
+absent-image false positive · confidence-ordering collapse · incorrect-site
+pose estimation.
 
----
+## 5. Reproducibility
 
-## License & Citation
-- **License**: MIT License
-- **Literature References**: Joy (1995), Cazaux (1999), Postek & Vladar (2011), Foroosh (2002), Applied Materials Patent US20260160714 (2026). See `submission_package/REFERENCES_CITATIONS.md`.
+The submission is self-contained. No runtime network access. Judges should
+execute only the code inside `FINAL_SUBMISSION/`. Inference is deterministic.
+
+## 6. Research history
+
+Everything outside `FINAL_SUBMISSION/` is historical: phase-by-phase
+experiments, ablations, rejected approaches, and diagnostic tooling, retained
+for scientific transparency. It is **not** required to run or score the
+submission. See [`RESEARCH_ARCHIVE.md`](./RESEARCH_ARCHIVE.md) for a map.
+
+## 7. Team
+
+Per-workstream audit notes: [`FINAL_SUBMISSION/team/`](./FINAL_SUBMISSION/team/).
+
+## License
+
+MIT — see [`LICENSE`](./LICENSE).

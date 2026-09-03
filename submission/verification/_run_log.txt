@@ -1,0 +1,10 @@
+[20/180] 0.11s/pair
+[40/180] 0.09s/pair
+[60/180] 0.09s/pair
+[80/180] 0.09s/pair
+[100/180] 0.09s/pair
+[120/180] 0.09s/pair
+[140/180] 0.08s/pair
+[160/180] 0.08s/pair
+[180/180] 0.07s/pair
+done: 180 pairs in 13.1s (0.07s/pair) -> submission/verification/predictions.csv
