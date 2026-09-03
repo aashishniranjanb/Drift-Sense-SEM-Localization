@@ -54,10 +54,9 @@ See [`FINAL_SUBMISSION/README.md`](./FINAL_SUBMISSION/README.md) for execution d
 | [`FINAL_SUBMISSION/`](./FINAL_SUBMISSION/) | **Authoritative Phase 2 package.** Entry points, weights, verification, docs. Self-contained. |
 | [`FINAL_SUBMISSION/README.md`](./FINAL_SUBMISSION/README.md) | Full execution manual + scoring rubric |
 | [`releases/`](./releases/) | Zipped archive of `FINAL_SUBMISSION/` (same content, downloadable) |
-| `phase2/`, `PHASE_10`…`PHASE_16`, `experiments/`, `diagnostics_and_tools/` | Version history V10 → V48, ablations, rejected approaches. **Not on the execution path.** |
-| `misc/` | Loose development scripts, old data dumps, superseded packages, deck tooling |
+| [`misc/`](./misc/) | Archived development scripts, old data dumps, superseded packages |
 | [`RESEARCH_ARCHIVE.md`](./RESEARCH_ARCHIVE.md) | Map of everything historical |
-| `AMP_Phase 2 material/`, `Dataset_AMP_Phase 2/` | Organizer-provided reference material |
+| [`Experiments/`](./Experiments/) | All R&D history: `phase2/` (V10–V48), `PHASE_10`–`PHASE_16`, architecture experiments, diagnostics, organizer materials, deck visuals, `full_research.md`. **Not on the execution path.** |
 
 ---
 

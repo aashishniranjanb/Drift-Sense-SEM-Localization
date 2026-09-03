@@ -1,5 +1,0 @@
-Variant,Top1_Recall,Top5_Recall,Top10_Recall,Top20_Recall
-V6_CAR_Baseline,66.5,80.5,85.5,88.5
-V7_A_4Representations,60.5,79.5,84.0,87.0
-V7_B_MultiView_Anchors,56.0,78.0,82.5,85.5
-V7_C_Full_System,56.0,78.0,82.5,85.5
