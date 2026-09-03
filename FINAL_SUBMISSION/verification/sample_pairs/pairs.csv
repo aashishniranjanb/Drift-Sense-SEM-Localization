@@ -1,4 +1,4 @@
-pair_id,set_type,reference_path,search_path
-pair_000,SetA,reference\pair_000.png,search\pair_000.png
-pair_001,SetA,reference\pair_001.png,search\pair_001.png
-pair_002,SetA,reference\pair_002.png,search\pair_002.png
+﻿pair_id,reference_path,search_path
+val_dram_000,images/ref_val_dram_000.png,images/search_val_dram_000.png
+val_dram_001,images/ref_val_dram_001.png,images/search_val_dram_001.png
+val_dram_002,images/ref_val_dram_002.png,images/search_val_dram_002.png

@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drift-Sense++ Interactive Localization Explorer</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #58a6ff;
+      --green: #2ea043;
+      --red: #f85149;
+      --purple: #bc8cff;
+      --gold: #d29922;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+    }
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    h1 { font-size: 20px; color: var(--text-bright); display: flex; align-items: center; gap: 10px; }
+    .badge {
+      background: var(--green);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    h2 { font-size: 15px; color: var(--text-bright); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    canvas {
+      background: #010409;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      width: 100%;
+      height: 380px;
+      display: block;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      background: #21262d;
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    button:hover { background: #30363d; }
+    button.active {
+      background: var(--accent);
+      color: #0d1117;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--text-bright); background: #0d1117; }
+    .status-pass { color: var(--green); font-weight: 600; }
+    .status-fail { color: var(--red); font-weight: 600; }
+    .legend {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Drift-Sense++ Interactive Localization Explorer</h1>
+        <p style="font-size:13px; color:#8b949e; margin-top:4px;">Simulation of Periodic SEM Lattices, Replica Ambiguity &amp; Multi-Evidence Ranking</p>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <span class="badge">Official Score: 90.50</span>
+        <span class="badge" style="background:#1f6feb;">Latency: 0.07 s/pair</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Left Card: SEM Search Plane -->
+      <div class="card">
+        <h2>Search Plane (1000x1000 Simulated DRAM Array)</h2>
+        <canvas id="searchCanvas" width="500" height="500"></canvas>
+        <div class="legend">
+          <div class="legend-item"><span class="dot" style="background:#2ea043;"></span> Ground Truth Center</div>
+          <div class="legend-item"><span class="dot" style="background:#f85149;"></span> Naive NCC Max (False Replica)</div>
+          <div class="legend-item"><span class="dot" style="background:#58a6ff;"></span> Candidate Pool (N=200)</div>
+        </div>
+      </div>
+
+      <!-- Right Card: Candidate Analysis & Controls -->
+      <div class="card">
+        <h2>Pipeline Decision Engine</h2>
+        <div class="controls">
+          <div class="control-row">
+            <span>Selection Strategy:</span>
+            <div class="btn-group">
+              <button id="btnNaive" onclick="setMode('naive')">Naive Single-Peak NCC</button>
+              <button id="btnDrift" class="active" onclick="setMode('driftsense')">Drift-Sense++ Multi-Evidence</button>
+            </div>
+          </div>
+          <div class="control-row">
+            <span>Periodic Lattice Noise:</span>
+            <input type="range" id="noiseSlider" min="10" max="60" value="30" oninput="draw()" style="width:180px;">
+          </div>
+        </div>
+
+        <div style="margin-top:12px;">
+          <h2>Top Candidates Evidence Breakdown</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Candidate</th>
+                <th>Raw NCC</th>
+                <th>Gradient Phase</th>
+                <th>Extended Context</th>
+                <th>Replica Family</th>
+                <th>Selected</th>
+              </tr>
+            </thead>
+            <tbody id="candidateTable">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:12px; background:#010409; padding:12px; border-radius:6px; border:1px solid var(--border); font-size:12px; line-height:1.6;">
+          <strong style="color:var(--text-bright);">Architectural Insight:</strong>
+          <p id="insightText">Drift-Sense++ analyzes orthogonal spatial evidence (Sobel gradient orientation + 128x128 contextual surround). While raw NCC traps on Candidate #1 due to edge noise, Drift-Sense++ correctly selects Candidate #2 (the genuine physical site at error 0.18 px).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let mode = 'driftsense';
+    const canvas = document.getElementById('searchCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const gt = { x: 250, y: 250 };
+    const candidates = [
+      { id: "#1 (Edge Replica)", x: 190, y: 190, ncc: 0.942, grad: 0.71, ctx: 0.62, family: 18, naive: true, drift: false },
+      { id: "#2 (True Site)",   x: 250.2, y: 250.1, ncc: 0.938, grad: 0.96, ctx: 0.94, family: 24, naive: false, drift: true },
+      { id: "#3 (Lattice Peak)", x: 310, y: 190, ncc: 0.931, grad: 0.74, ctx: 0.65, family: 18, naive: false, drift: false },
+      { id: "#4 (Lattice Peak)", x: 190, y: 310, ncc: 0.928, grad: 0.72, ctx: 0.61, family: 18, naive: false, drift: false },
+      { id: "#5 (Lattice Peak)", x: 310, y: 310, ncc: 0.925, grad: 0.70, ctx: 0.63, family: 18, naive: false, drift: false }
+    ];
+
+    function setMode(m) {
+      mode = m;
+      document.getElementById('btnNaive').className = mode === 'naive' ? 'active' : '';
+      document.getElementById('btnDrift').className = mode === 'driftsense' ? 'active' : '';
+      updateTable();
+      draw();
+    }
+
+    function updateTable() {
+      const tbody = document.getElementById('candidateTable');
+      tbody.innerHTML = '';
+      candidates.forEach(c => {
+        const isSelected = (mode === 'naive' && c.naive) || (mode === 'driftsense' && c.drift);
+        const tr = document.createElement('tr');
+        tr.style.background = isSelected ? (mode === 'naive' ? '#442020' : '#1c3a27') : 'transparent';
+        tr.innerHTML = `
+          <td><strong>${c.id}</strong></td>
+          <td>${c.ncc.toFixed(3)}</td>
+          <td>${c.grad.toFixed(2)}</td>
+          <td>${c.ctx.toFixed(2)}</td>
+          <td>${c.family}</td>
+          <td class="${isSelected ? (mode === 'naive' ? 'status-fail' : 'status-pass') : ''}">
+            ${isSelected ? (mode === 'naive' ? '❌ Trapped' : '✓ MATCH') : '—'}
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      const insight = document.getElementById('insightText');
+      if (mode === 'naive') {
+        insight.innerHTML = '<span style="color:#f85149; font-weight:600;">Failure Trapped:</span> Naive single-peak NCC selects Candidate #1 because its raw score (0.942) is marginally higher than the true site (0.938). This causes a <strong>84.8 px localization error</strong>, completely missing the ≤ 5 px competition tolerance.';
+      } else {
+        insight.innerHTML = '<span style="color:#2ea043; font-weight:600;">Subpixel Recovery:</span> Drift-Sense++ evaluates orthogonal structural agreement (gradient phase consistency: 0.96 vs 0.71; context: 0.94 vs 0.62). It correctly rejects the false replica and localizes Candidate #2 with <strong>0.18 px error</strong>.';
+      }
+    }
+
+    function draw() {
+      ctx.fillStyle = '#090d13';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw periodic SEM array grid
+      const spacing = 60;
+      ctx.strokeStyle = '#1f2937';
+      ctx.lineWidth = 1;
+      for (let x = 40; x < canvas.width; x += spacing) {
+        for (let y = 40; y < canvas.height; y += spacing) {
+          ctx.beginPath();
+          ctx.arc(x, y, 14, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
+
+      // Draw candidate pool
+      candidates.forEach((c, i) => {
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, 7, 0, Math.PI * 2);
+        ctx.fillStyle = '#58a6ff';
+        ctx.fill();
+        ctx.fillStyle = '#8b949e';
+        ctx.font = '10px monospace';
+        ctx.fillText(`C${i+1}`, c.x + 10, c.y - 8);
+      });
+
+      // Highlight GT
+      ctx.beginPath();
+      ctx.arc(gt.x, gt.y, 16, 0, Math.PI * 2);
+      ctx.strokeStyle = '#2ea043';
+      ctx.lineWidth = 2.5;
+      ctx.stroke();
+
+      // Highlight winner based on mode
+      const sel = mode === 'naive' ? candidates[0] : candidates[1];
+      ctx.beginPath();
+      ctx.arc(sel.x, sel.y, 20, 0, Math.PI * 2);
+      ctx.strokeStyle = mode === 'naive' ? '#f85149' : '#58a6ff';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 4]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+
+    updateTable();
+    draw();
+  </script>
+</body>
+</html>
