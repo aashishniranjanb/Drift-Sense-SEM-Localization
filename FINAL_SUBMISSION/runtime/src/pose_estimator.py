@@ -100,6 +100,71 @@ def refine_scale_local(ref_img, search_img, center_x, center_y, theta0, scale0, 
     return float(best_scale), float(best_score), float(score_s0)
 
 
+def refine_scale_only_quadratic(ref_img, search_img, center_x, center_y, theta0, scale0, delta=0.0100, pad=4):
+    ref_h, ref_w = ref_img.shape[:2]
+    sh, sw = search_img.shape[:2]
+    facs = [1.0 - delta, 1.0 - delta/2, 1.0, 1.0 + delta/2, 1.0 + delta]
+    M = cv2.getRotationMatrix2D((ref_w / 2.0, ref_h / 2.0), theta0, 1.0)
+    ref_rot = cv2.warpAffine(ref_img, M, (ref_w, ref_h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+    
+    max_tw = max(16, int(round(ref_w / (scale0 * (1.0 - delta)))))
+    max_th = max(16, int(round(ref_h / (scale0 * (1.0 - delta)))))
+    cp = pad + 4
+    y1 = int(round(center_y - max_th / 2.0)) - cp
+    x1 = int(round(center_x - max_tw / 2.0)) - cp
+    y2 = int(round(center_y + max_th / 2.0)) + cp
+    x2 = int(round(center_x + max_tw / 2.0)) + cp
+    if y1 < 0 or x1 < 0 or y2 > sh or x2 > sw:
+        return scale0
+    crop = search_img[y1:y2, x1:x2]
+    crop_g = _scharr(crop)
+    
+    scores = []
+    actual_facs = []
+    
+    for f in facs:
+        s = scale0 * f
+        tw = max(16, int(round(ref_w / s)))
+        th = max(16, int(round(ref_h / s)))
+        tcx = center_x - x1
+        tcy = center_y - y1
+        cy1 = int(round(tcy - th / 2.0)) - pad
+        cx1 = int(round(tcx - tw / 2.0)) - pad
+        cy2 = int(round(tcy + th / 2.0)) + pad
+        cx2 = int(round(tcx + tw / 2.0)) + pad
+        if cy1 < 0 or cx1 < 0 or cy2 > crop.shape[0] or cx2 > crop.shape[1]:
+            continue
+        roi = crop[cy1:cy2, cx1:cx2]
+        roi_g = crop_g[cy1:cy2, cx1:cx2]
+        if roi.shape[0] < th or roi.shape[1] < tw:
+            continue
+        tpl = cv2.resize(ref_rot, (tw, th), interpolation=cv2.INTER_AREA)
+        tpl_g = _scharr(tpl)
+        res = cv2.matchTemplate(roi, tpl, cv2.TM_CCOEFF_NORMED)
+        _, mv, _, ml = cv2.minMaxLoc(res)
+        comb = 0.70 * float(mv) + 0.30 * _local_grad_ncc(roi_g, tpl_g, ml)
+        scores.append(comb)
+        actual_facs.append(f)
+        
+    if len(scores) >= 3:
+        x = np.array(actual_facs)
+        y = np.array(scores)
+        try:
+            coeffs = np.polyfit(x, y, 2)
+            a, b, c = coeffs
+            if a < 0:
+                best_f = -b / (2 * a)
+                best_f = np.clip(best_f, 1.0 - delta, 1.0 + delta)
+                return float(scale0 * best_f)
+        except Exception:
+            pass
+            
+    if len(scores) > 0:
+        best_idx = np.argmax(scores)
+        return float(scale0 * actual_facs[best_idx])
+        
+    return float(scale0)
+
 def refine_pose_v39(ref_img, search_img, center_x0, center_y0, theta0, scale0, max_displacement_px=1.0):
     ref_h, ref_w = ref_img.shape[:2]
     sh, sw = search_img.shape[:2]

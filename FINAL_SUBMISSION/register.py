@@ -39,7 +39,7 @@ import pipeline                                            # noqa: E402
 import calibration                                         # noqa: E402
 import rejection                                          # noqa: E402  (V28-C gate)
 import rgb_branch                                          # noqa: E402
-from pose_estimator import refine_pose_v39                 # noqa: E402
+from pose_estimator import refine_pose_v39, refine_scale_only_quadratic  # noqa: E402
 
 EV_COLS = ["top1_score", "margin", "top1_corr", "top1_ctx", "top1_neigh", "top1_grad", "mode_strong"]
 
@@ -73,6 +73,10 @@ def _process_gray(pair_id, ref_gray, search_gray):
         try:
             rx, ry, rt, rs, _ = refine_pose_v39(ref_gray, search_gray, v25_x, v25_y,
                                                 v25_theta, v25_scale, max_displacement_px=1.0)
+            
+            # Additional V54 local scale refinement (freeze x/y/theta)
+            rs = refine_scale_only_quadratic(ref_gray, search_gray, rx, ry, rt, rs, delta=0.0100, pad=4)
+            
             x, y, theta, scale = float(rx), float(ry), float(rt), float(rs)
         except Exception:
             x, y, theta, scale = v25_x, v25_y, v25_theta, v25_scale
