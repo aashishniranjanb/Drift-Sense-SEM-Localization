@@ -1,4 +1,4 @@
-﻿import argparse
+import argparse
 import pandas as pd
 import sys
 import os
@@ -113,6 +113,15 @@ def main():
                 pred["score"] = 0.0
             else:
                 pred["found"] = 1
+                
+            # V47 Validator
+            try:
+                sys.path.append(os.path.join(os.path.dirname(__file__), "V47_RESEARCH"))
+                from v47_validator_prod import validate
+                pred = validate(pred, ref_gray, search_gray)
+            except Exception as e:
+                pass
+
                 
         results.append({
             "pair_id": pair_id,
