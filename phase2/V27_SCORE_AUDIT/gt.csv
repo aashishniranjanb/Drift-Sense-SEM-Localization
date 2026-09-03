@@ -1,0 +1,7 @@
+pair_id,set_type,gt_found,gt_x,gt_y,gt_scale,gt_theta
+A1,SetA,1,100,100,1.0,0.0
+A2,SetA,1,100,100,1.0,0.0
+A3,SetA,1,100,100,1.0,0.0
+B1,SetB,1,100,100,1.0,0.0
+C1,SetC,0,0,0,0.0,0.0
+C2,SetC,0,0,0,0.0,0.0
