@@ -1,4 +1,4 @@
-﻿# Drift-Sense++ — SEM Localization
+# Drift-Sense++ — SEM Localization
 
 ### Applied Materials · Phase 2 Submission
 **Nanoscale SEM Reference Localization under Scale, Rotation, Heavy Degradation & Periodic Structural Ambiguity**
@@ -53,7 +53,13 @@
 
 ## 🚀 Quick Start for Reviewers
 
-### 1. One-Command Quick Evaluation (7 Automated Verification Stages)
+### 1. Judge Preflight Suite (`JUDGE_TEST/run_all.py`)
+```bash
+python JUDGE_TEST/run_all.py
+```
+*Executes the comprehensive 13-stage preflight checklist strictly mirroring the Applied Materials Contract Slide (Python 3.11+, 7 columns, CPU-only, air-gapped, invariant barriers, determinism, runtime < 5s).*
+
+### 2. One-Command Quick Evaluation (7 Automated Verification Stages)
 ```bash
 python FINAL_SUBMISSION/verification/run_all.py
 ```
@@ -116,8 +122,12 @@ Evaluated on the released 180-pair Phase 2 development set (70 Set A nominal, 70
 
 | Document | Purpose |
 |---|---|
+| ⚖️ **[`JUDGE_TEST/`](./JUDGE_TEST/)** | Dedicated judge preflight package with sample pairs, expected outputs & automated audit suite |
 | 📋 **[`SUBMISSION_MANIFEST.md`](./SUBMISSION_MANIFEST.md)** | Authoritative submission specification, hardware invariants, SHA-256 hashes |
+| 🛡️ **[`SCORE_INTEGRITY.md`](./SCORE_INTEGRITY.md)** | Clear separation of official score (unknown), dev benchmark (90.50), diagnostics, and RGB bonus |
+| 💡 **[`WHY_DRIFT_SENSE.md`](./WHY_DRIFT_SENSE.md)** | 5 foundational answers: why not raw NCC, why candidate pool, why periodic families, why context, why explicit geometry |
 | 🔬 **[`RESEARCH_EVOLUTION.md`](./RESEARCH_EVOLUTION.md)** | Full 48-version timeline, failed experiments autopsy, and "Why not deep learning?" |
+| 📝 **[`DECISION_LOG.md`](./DECISION_LOG.md)** | Engineering decision log recording accepted vs rejected architectural hypotheses (V1–V48) |
 | 🧩 **[`FINAL_SUBMISSION/documentation/ABLATION.md`](./FINAL_SUBMISSION/documentation/ABLATION.md)** | Step-by-step ablation table measuring cumulative deltas from Raw NCC (35.70) to Final (90.50) |
 | 🛡️ **[`FINAL_SUBMISSION/documentation/ROBUSTNESS.md`](./FINAL_SUBMISSION/documentation/ROBUSTNESS.md)** | Threat model, tested stress regimes, and boundary-condition safeguards |
 | ⚖️ **[`FINAL_SUBMISSION/documentation/FAILURE_FIX_MATRIX.md`](./FINAL_SUBMISSION/documentation/FAILURE_FIX_MATRIX.md)** | Comprehensive matrix mapping each SEM failure mode to its exact engineering solution |
