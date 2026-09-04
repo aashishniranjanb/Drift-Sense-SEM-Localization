@@ -72,6 +72,86 @@ def perform_pose_fallback_search(ref_img, search_img):
             "corr_plane": ro["corr_plane"]}
 
 
+def multi_hypothesis_search(ref_img, search_img, k_scale=3, m_rot=2,
+                            scale_min=8.0, scale_max=12.0, coarse_step=0.5, fine_step=0.1):
+    """Carry several (scale, theta) hypotheses forward instead of collapsing to
+    the single global-max pose too early.
+
+    On a periodic DRAM/FinFET layout the global correlation maximum frequently
+    sits on a replica at the *wrong* scale, so the true site never enters a
+    single-hypothesis candidate pool. This keeps the top ``k_scale`` coarse
+    scales, fine-refines each, then keeps the top ``m_rot`` rotations per scale.
+
+    Returns a list of hypothesis dicts, sorted by correlation score descending::
+
+        {best_scale, best_theta, best_score, best_template, corr_plane}
+
+    The first element is exactly what ``perform_pose_fallback_search`` would have
+    returned, so single-hypothesis callers can use ``[0]``.
+    """
+    ref_f = ref_img.astype(np.float32)
+    search_f = search_img.astype(np.float32)
+    ref_h, ref_w = ref_f.shape[:2]
+
+    # --- rank coarse scales by their correlation max ---
+    coarse = []
+    for s in np.arange(scale_min, scale_max + 1e-5, coarse_step):
+        tw, th = int(round(ref_w / s)), int(round(ref_h / s))
+        if tw < 10 or th < 10 or tw > search_f.shape[1] or th > search_f.shape[0]:
+            continue
+        tpl = cv2.resize(ref_f, (tw, th), interpolation=cv2.INTER_AREA)
+        _, mv, _, _ = cv2.minMaxLoc(cv2.matchTemplate(search_f, tpl, cv2.TM_CCOEFF_NORMED))
+        coarse.append((float(mv), float(s)))
+    coarse.sort(reverse=True)
+    top_scales = [s for _, s in coarse[:max(1, k_scale)]]
+
+    hyps = []
+    for cs in top_scales:
+        fmin = max(scale_min, cs - coarse_step)
+        fmax = min(scale_max, cs + coarse_step)
+        best_fs, best_fscore, best_tpl = cs, -1.0, None
+        for s in np.arange(fmin, fmax + 1e-5, fine_step):
+            tw, th = int(round(ref_w / s)), int(round(ref_h / s))
+            if tw < 10 or th < 10 or tw > search_f.shape[1] or th > search_f.shape[0]:
+                continue
+            tpl = cv2.resize(ref_f, (tw, th), interpolation=cv2.INTER_AREA)
+            _, mv, _, _ = cv2.minMaxLoc(cv2.matchTemplate(search_f, tpl, cv2.TM_CCOEFF_NORMED))
+            if mv > best_fscore:
+                best_fs, best_fscore, best_tpl = float(s), float(mv), tpl
+        if best_tpl is None:
+            continue
+
+        # top m_rot coarse rotations for this scale, each fine-refined
+        rc = []
+        for a in (-5.0, -3.0, -1.0, 0.0, 1.0, 3.0, 5.0):
+            _, mv, _, _ = cv2.minMaxLoc(cv2.matchTemplate(search_f, rotate_image(best_tpl.astype(np.float32), a),
+                                                          cv2.TM_CCOEFF_NORMED))
+            rc.append((float(mv), a))
+        rc.sort(reverse=True)
+        for _, a0 in rc[:max(1, m_rot)]:
+            b_th, b_sc, b_res, b_rt = a0, -1.0, None, None
+            for a in np.arange(max(-5.0, a0 - 1.0), min(5.0, a0 + 1.0) + 1e-5, 0.25):
+                rt = rotate_image(best_tpl.astype(np.float32), a)
+                res = cv2.matchTemplate(search_f, rt, cv2.TM_CCOEFF_NORMED)
+                _, mv, _, _ = cv2.minMaxLoc(res)
+                if mv > b_sc:
+                    b_th, b_sc, b_res, b_rt = float(a), float(mv), res, rt
+            if b_res is None:
+                continue
+            hyps.append({"best_scale": best_fs, "best_theta": b_th, "best_score": b_sc,
+                         "best_template": b_rt, "corr_plane": b_res})
+
+    # dedup near-identical hypotheses, keep the stronger
+    hyps.sort(key=lambda h: h["best_score"], reverse=True)
+    kept = []
+    for h in hyps:
+        if any(abs(h["best_scale"] - k["best_scale"]) < 0.15 and abs(h["best_theta"] - k["best_theta"]) < 0.3
+               for k in kept):
+            continue
+        kept.append(h)
+    return kept or [perform_pose_fallback_search(ref_img, search_img)]
+
+
 def compute_neighborhood_consistency(search_img, template, px, py, pitch_x, pitch_y):
     th, tw = template.shape
     h, w = search_img.shape
