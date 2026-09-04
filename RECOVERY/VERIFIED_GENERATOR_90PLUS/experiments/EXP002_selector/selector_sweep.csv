@@ -1,0 +1,14 @@
+selector,le1,le2,le3,le5,mean_credit,loc_pts_of_40
+context_combined,72,74,74,74,0.9436,37.74
+fuse corr+ctx+grad,71,72,72,72,0.9205,36.82
+fuse ctx+grad,71,72,72,72,0.9205,36.82
+fuse all4,71,72,72,72,0.9205,36.82
+fuse corr+ctx,71,72,72,72,0.9205,36.82
+prod corr*ctx,71,72,72,72,0.9205,36.82
+corr_score,71,71,71,71,0.9103,36.41
+phase_penalty (low),69,71,71,71,0.9051,36.21
+context_128,69,70,70,70,0.8949,35.79
+grad_ncc,69,69,69,69,0.8846,35.38
+neigh_cons,41,41,41,42,0.5308,21.23
+v25 (baseline ranker),40,40,41,42,0.5256,21.03
+dist_to_center (low),0,0,0,0,0.0,0.0

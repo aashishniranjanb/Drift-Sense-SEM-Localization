@@ -1,0 +1,14 @@
+{
+  "requested": 100,
+  "shipped": 95,
+  "dropped": 5,
+  "seed": 20260904,
+  "profile": "pilot",
+  "geometry": {
+    "R1_roundtrip_px": 1.8189894035458565e-12,
+    "R2_z_err": 5.329070518200751e-15,
+    "R2_theta_err": 4.440892098500626e-16
+  },
+  "runtime_s": 899.5,
+  "supersample": 3
+}
