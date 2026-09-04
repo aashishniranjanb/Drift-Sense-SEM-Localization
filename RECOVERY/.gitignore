@@ -1,0 +1,5 @@
+# recovered engine tree is a read-only reference; keep the runner + reports,
+# not the bulky copied source or its pycache
+V25_ORIGINAL/**/__pycache__/
+V25_ORIGINAL/**/*.pyc
+_smoke*
