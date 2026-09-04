@@ -1,0 +1,6 @@
+{
+  "direct_candidate_recall_top800": "118/140 (84.3%)",
+  "effective_local_refinement_opportunity": "130/140 (92.9%)",
+  "v54_anchor_preservation": "140/140 (100.0%)",
+  "status": "FROZEN_RETRIEVAL_MILESTONE"
+}

@@ -1,0 +1,41 @@
+{
+  "total_score": 91.04,
+  "score_delta": 0.0,
+  "subscores": {
+    "localization": 40.0,
+    "pose": 19.743,
+    "rejection": 8.028,
+    "calibration": 8.269,
+    "efficiency": 5.0,
+    "documentation": 10.0
+  },
+  "set_a_localization": {
+    "le1": 80.0,
+    "le2": 80.0,
+    "le3": 80.0,
+    "le5": 100.0,
+    "mean_err": 0.9831804367921008
+  },
+  "set_b_localization": {
+    "le1": 86.11111111111111,
+    "le2": 86.11111111111111,
+    "le3": 88.88888888888889,
+    "le5": 100.0,
+    "mean_err": 0.7182823917812144
+  },
+  "rejection_counts": {
+    "tp": 38,
+    "fp": 64,
+    "fn": 2,
+    "tn": 76,
+    "f1": 0.5352
+  },
+  "calibration_auc": 0.9953,
+  "safety": {
+    "absent_false_positives": 2,
+    "baseline_successes_broken": 0,
+    "ranking_failures_rescued": 0,
+    "retrieval_failures_rescued": 0
+  },
+  "retrieval_recall": {}
+}

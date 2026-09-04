@@ -1,0 +1,10 @@
+[20/180] 4.36s/pair
+[40/180] 4.37s/pair
+[60/180] 4.40s/pair
+[80/180] 4.40s/pair
+[100/180] 4.42s/pair
+[120/180] 4.46s/pair
+[140/180] 4.45s/pair
+[160/180] 4.43s/pair
+[180/180] 4.44s/pair
+done: 180 pairs in 799.4s (4.44s/pair) -> phase2/V48_MAX/_honest_live_preds.csv

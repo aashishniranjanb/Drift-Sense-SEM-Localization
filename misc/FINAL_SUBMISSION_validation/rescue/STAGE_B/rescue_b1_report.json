@@ -1,0 +1,8 @@
+{
+  "baseline_score": 91.04,
+  "baseline_successes_broken": 0,
+  "new_absent_false_positives": 0,
+  "correct_rescues": 0,
+  "total_pairs_evaluated": 180,
+  "hard_promotion_gate_passed": false
+}

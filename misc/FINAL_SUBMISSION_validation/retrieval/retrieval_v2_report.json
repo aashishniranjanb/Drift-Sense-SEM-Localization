@@ -1,0 +1,43 @@
+{
+  "benchmark_pairs": 140,
+  "baseline_v54_top200_hits": 105,
+  "union_top200_hits": 104,
+  "union_top500_hits": 113,
+  "union_top800_hits": 118,
+  "union_recall_pct": 84.29,
+  "retrieval_failures_recovered": 13,
+  "target_achieved": false,
+  "v54_anchors_preserved": 0,
+  "failure_class_breakdown": {
+    "NMS_SUPPRESSION": {
+      "total": 10,
+      "baseline": 0,
+      "recovered": 4,
+      "rate_pct": 40.0
+    },
+    "LOW_SIGNAL": {
+      "total": 11,
+      "baseline": 0,
+      "recovered": 4,
+      "rate_pct": 36.4
+    },
+    "SPATIAL": {
+      "total": 8,
+      "baseline": 0,
+      "recovered": 2,
+      "rate_pct": 25.0
+    },
+    "DEGRADATION": {
+      "total": 4,
+      "baseline": 0,
+      "recovered": 2,
+      "rate_pct": 50.0
+    },
+    "PERIODIC": {
+      "total": 2,
+      "baseline": 0,
+      "recovered": 1,
+      "rate_pct": 50.0
+    }
+  }
+}

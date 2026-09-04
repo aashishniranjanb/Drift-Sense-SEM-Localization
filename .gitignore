@@ -27,4 +27,5 @@ hf_space_test/
 !FINAL_SUBMISSION.zip
 
 # generated research corpora (regenerable from generator/ + seed)
-RECOVERY/VERIFIED_GENERATOR_90PLUS/corpus/
+RECOVERY/
+data/

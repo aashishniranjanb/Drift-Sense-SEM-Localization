@@ -1,0 +1,43 @@
+﻿DRIFT-SENSE++ GOLDEN BASELINE MANIFEST
+=====================================
+
+MODEL:
+GOLDEN_V54_SCALE_REFINED
+
+SCORE:
+91.040 / 100.000
+
+STATUS:
+VERIFIED DEVELOPMENT BASELINE
+IMMUTABLE REFERENCE
+
+ARCHITECTURE:
+- V25 localization / candidate generation
+- V28-C rejection
+- V39 pose refinement
+- V54 scale-only quadratic refinement
+- calib_lean.pkl
+
+COMPONENT SCORES:
+Localization: 40.000 / 40.000
+Pose:         19.743 / 20.000
+Rejection:     8.028 / 15.000
+Calibration:   8.269 / 10.000
+Efficiency:    5.000 / 5.000
+Documentation: 10.000 / 10.000
+
+KEY METRICS:
+Scale MAE:       0.0352
+Rejection F1:    0.5352
+Calibration AUC: 0.9953
+Spearman:        0.8269
+Runtime:         ~0.09 s/pair
+
+GOLDEN RULES:
+- Do not modify this directory.
+- Do not use this directory for experiments.
+- Do not replace production artifacts inside this directory.
+- Treat this directory as the reference submission state.
+
+DATE:
+2026-09-04 04:25:12

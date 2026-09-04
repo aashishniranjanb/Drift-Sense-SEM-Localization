@@ -1,0 +1,12 @@
+20/180  49s  cand rows=5481
+40/180  94s  cand rows=10979
+60/180  138s  cand rows=16412
+80/180  184s  cand rows=21997
+100/180  232s  cand rows=27521
+120/180  282s  cand rows=32923
+140/180  337s  cand rows=38479
+160/180  385s  cand rows=43806
+180/180  430s  cand rows=49214
+
+wrote phase2/V48_MAX/mh_pool_features.csv (49214 rows) and phase2/V48_MAX/mh_pair_features.csv (180 rows)  432s
+present pairs whose multi-hyp pool contains a <=5px candidate: 101/140   (SetA 53/70, SetB 48/70)

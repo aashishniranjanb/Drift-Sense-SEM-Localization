@@ -1,0 +1,12 @@
+{
+  "set_a_credit": 0.0,
+  "set_b_credit": 0.0,
+  "set_c_credit": 0.0,
+  "set_d_credit": 0.0,
+  "rgb_bonus_eligibility": false,
+  "gt_vs_replica_discrimination": false,
+  "baseline_coordinate_changes": 0,
+  "baseline_successes_broken": 0,
+  "new_absent_false_positives": 0,
+  "runtime_ms": 0
+}

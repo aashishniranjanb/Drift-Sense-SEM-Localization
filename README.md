@@ -4,7 +4,7 @@
 **Nanoscale SEM Reference Localization under Scale, Rotation, Heavy Degradation & Periodic Structural Ambiguity**
 
 [![CI Verification](https://img.shields.io/badge/CI-Passing_7%2F7-2ea043?style=flat-square&logo=githubactions)](.github/workflows/verify.yml)
-[![Benchmark Score](https://img.shields.io/badge/Dev_Validation-90.50%20%2F%20100-brightgreen?style=flat-square)](FINAL_SUBMISSION/documentation/SUBMISSION_MANIFEST.md)
+[![Benchmark Score](https://img.shields.io/badge/Grayscale-91.04%20%2F%20100-brightgreen?style=flat-square)](FINAL_SUBMISSION/documentation/SUBMISSION_MANIFEST.md) [![RGB Bonus](https://img.shields.io/badge/RGB_Bonus-%2B6-blue?style=flat-square)](FINAL_SUBMISSION/runtime/src/rgb_branch.py)
 [![Localization](https://img.shields.io/badge/Localization-100%25%20%E2%89%A4%205px-blue?style=flat-square)](FINAL_SUBMISSION/documentation/VALIDATION.md)
 [![Runtime](https://img.shields.io/badge/Latency-0.07%20s%2Fpair-blueviolet?style=flat-square)](FINAL_SUBMISSION/documentation/SUBMISSION_MANIFEST.md)
 [![Platform](https://img.shields.io/badge/Platform-Python%203.11%20%7C%20CPU--only-informational?style=flat-square)](FINAL_SUBMISSION/verification/ENVIRONMENT.md)
@@ -17,7 +17,7 @@
 
 > [!IMPORTANT]
 > ### RELEASED DEVELOPMENT-SET VALIDATION — NOT ORGANIZER HIDDEN-TEST SCORE
-> All benchmark figures reported throughout this repository (**90.50 / 100.00**, **100.0% ≤ 5 px**, **0.07 s/pair**, **Spearman ρ = 0.832**) are strictly measured on the **released 180-pair development set** (`data/phase2_dev/pairs.csv`).
+> All benchmark figures reported throughout this repository (**91.04 / 100.00 grayscale + 6 RGB bonus**, **100.0% ≤ 5 px**, **0.07 s/pair**) are strictly measured on the **released 180-pair development set** (`data/phase2_dev/pairs.csv`).
 > The organizer's official hidden-test score remains unknown until formal jury evaluation. See [`SCORE_INTEGRITY.md`](FINAL_SUBMISSION/documentation/SCORE_INTEGRITY.md) for full benchmark separation.
 
 ---

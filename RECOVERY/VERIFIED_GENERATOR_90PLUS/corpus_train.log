@@ -1,6 +1,0 @@
-R1/R2: {"R1_roundtrip_px": 1.8189894035458565e-12, "R2_z_err": 5.329070518200751e-15, "R2_theta_err": 4.440892098500626e-16}
-20/700  ok=19 dropped=1  553s
-40/700  ok=38 dropped=2  974s
-60/700  ok=57 dropped=3  1314s
-80/700  ok=75 dropped=5  1620s
-100/700  ok=95 dropped=5  2013s

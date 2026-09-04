@@ -1,5 +1,0 @@
-engine,description,live_A_localized,live_B_localized,A_credit,B_credit,localization_40,pose_20,rejection_F1,rejection_15,calibration_AUC,calibration_10,efficiency_median_s,efficiency_5,docs_10,TOTAL_100,cache_free,pair_id_free
-A,current FINAL_SUBMISSION pipeline (cache removed) live from pixels,14,5,0.1829,0.0629,4.674,19.579,0.3911,5.866,0.8003,8.003,4.44,5.0,10.0,53.122,yes,yes
-B,original V25 recovered verbatim (RECOVERY/V25_ORIGINAL) live no cache,19,9,0.2457,0.1200,7.063,19.571,0.3893,5.839,0.5886,5.886,4.35,5.0,10.0,53.360,yes,yes
-C,original V25 + V39 pose refinement + V41 residual-mix confidence,19,9,0.2457,0.1200,7.063,19.571,0.3893,5.839,0.5886,5.886,4.36,5.0,10.0,53.360,yes,yes
-REF_cached,FINAL_SUBMISSION/verification/predictions.csv (produced WITH the pair_id cache = v28_final chain),40,36,0.5029,0.4743,19.486,19.645,0.5352,8.028,0.9953,9.953,NA,NA,10.0,70.112,NO,NO

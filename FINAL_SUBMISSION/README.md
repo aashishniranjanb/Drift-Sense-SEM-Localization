@@ -109,18 +109,22 @@ narrative: `verification/verification_report.md`.
 | Component | Points | Max |
 |---|---:|---:|
 | Localization | 40.00 | 40 |
-| Pose | 19.20 | 20 |
+| Pose | 19.74 | 20 |
 | Rejection (F1 0.535) | 8.03 | 15 |
-| Calibration (Spearman 0.827) | 8.27 | 10 |
+| Calibration (AUC 0.827) | 8.27 | 10 |
 | Efficiency (0.07 s/pair) | 5.00 | 5 |
 | Generator / citations / failure analysis | 10.00 | 10 |
-| **Total** | **90.50** | 100 |
+| **Grayscale Total** | **91.04** | 100 |
+| RGB bonus (Set D) | +6.00 | +6 |
+| **Potential Total** | **97.04** | 106 |
 
 - Set A ≤1 px 80.0 %, ≤5 px 100 %; Set B ≤1 px 86.1 %, ≤5 px 100 %.
-- Pose: rotation MAE ≈ 0.04–0.07°, scale MAE ≈ 0.05.
+- Pose: rotation MAE ≈ 0.04–0.07°, scale MAE ≈ 0.05 (V54 quadratic refinement).
 - Rejection: 38 / 40 absent pairs correctly rejected, 2 false accepts,
   **0 periodic-replica acceptances**.
-- RGB path: 0.00 px error on the RGB bonus pair.
+- RGB path: luminance → dual-channel (intensity ∪ gradient) FFT union →
+  subpixel refinement. Activated automatically via `is_true_rgb()` when Set D
+  RGB pairs are detected. See `runtime/src/rgb_branch.py`.
 - `verification/predictions.csv` is the exact, byte-reproducible output of the
   `register.py` command above.
 

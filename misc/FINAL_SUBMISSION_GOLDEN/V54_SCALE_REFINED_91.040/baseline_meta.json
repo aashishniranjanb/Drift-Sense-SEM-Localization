@@ -1,0 +1,11 @@
+{
+  "name": "V54_SCALE_REFINED",
+  "score": 91.04,
+  "localization": 40.0,
+  "pose": 19.743,
+  "rejection": 8.028,
+  "calibration": 8.269,
+  "efficiency": 5.0,
+  "documentation": 10.0,
+  "status": "IMMUTABLE_GOLDEN"
+}
