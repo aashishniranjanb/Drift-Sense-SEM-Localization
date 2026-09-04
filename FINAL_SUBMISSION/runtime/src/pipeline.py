@@ -18,7 +18,7 @@ import pandas as pd
 
 from matcher import (multi_hypothesis_search, perform_pose_fallback_search,
                      compute_neighborhood_consistency, compute_gradient_ncc)
-from candidate_extractor import extract_candidates_akhilesh, cluster_replica_families
+from candidate_extractor import extract_nms_fast, cluster_replica_families
 from context_matcher import verify_candidate_context
 from phase_verifier import verify_phase_consistency
 from periodicity_detector import estimate_periodicity_from_corr
@@ -33,9 +33,10 @@ with open(os.path.join(_MODELS, "presence.pkl"), "rb") as f:
 _PRESENCE_THRESHOLD = 0.843     # V25 native gate (register.py applies V28-C on top)
 _K_SCALE = 3                    # scale hypotheses carried into extraction
 _M_ROT = 2                      # rotation hypotheses per scale
-_POOL_CAP = 240                 # merged candidate pool size
-_MERGE_PX = 5.0                 # dedup radius when merging pools across hypotheses
-_PER_HYP_K = 160               # candidates drawn from each hypothesis before merge
+_PER_HYP_K = 400               # NMS peaks drawn from each hypothesis before merge
+_NMS_R = 3                      # NMS suppression radius (px) -- tighter to keep near-neighbours
+_POOL_CAP = 280                 # merged pool size sent through full structural verification
+_MERGE_PX = 4.0                 # dedup radius when merging pools across hypotheses
 
 
 def _merge_pools(hyp_pools):
@@ -74,13 +75,15 @@ def localize_grayscale(ref_img, search_img):
     est_scale = float(top["best_scale"])
     est_theta = float(top["best_theta"])
 
-    # extract candidates per hypothesis, then merge
+    # extract candidates per hypothesis (deep NMS, tight radius), then merge
+    sh, sw = search_img.shape[:2]
+    scx, scy = sw / 2.0, sh / 2.0
     hyp_pools = []
     for hi, h in enumerate(hyps):
         tw_h, th_h = h["best_template"].shape[::-1]
-        ch = extract_candidates_akhilesh(h["corr_plane"], tw_h, th_h, ref_img, search_img,
-                                         float(h["best_scale"]), float(h["best_theta"]),
-                                         max_final_k=_PER_HYP_K)
+        ch = extract_nms_fast(h["corr_plane"], tw_h, th_h, max_k=_PER_HYP_K, r=_NMS_R)
+        for c in ch:
+            c["dist_to_center"] = float(np.hypot(c["cx"] - scx, c["cy"] - scy))
         hyp_pools.append((hi, h, ch))
     cands = _merge_pools(hyp_pools)
     cands = cluster_replica_families(cands, est_scale)
