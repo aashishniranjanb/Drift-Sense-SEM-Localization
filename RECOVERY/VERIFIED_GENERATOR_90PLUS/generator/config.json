@@ -1,0 +1,31 @@
+{
+  "geometry": {
+    "affine": "p_search = (1/z) * R(theta) * (p_canvas - c_canvas) + c_search",
+    "R": "[[cos t, sin t], [-sin t, cos t]], t = radians(theta)",
+    "z_range": [8.0, 12.0],
+    "theta_range_deg": [-5.0, 5.0],
+    "search_px": 1000, "reference_px": 1000, "reference_nm_per_px": 1.0
+  },
+  "rendering": {
+    "method": "procedural field evaluated on the inverse-affine grid",
+    "supersample": 3, "downsample": "box area-average (true area integration)",
+    "reference_supersample": 2
+  },
+  "presence": {"absent_fraction": 0.20, "decoy": "same architecture family, independent canvas, different zoning"},
+  "severity_levels": [0, 1, 2, 3, 4],
+  "verification": {
+    "independent": true,
+    "template_render": "box blur + getRotationMatrix2D/warpAffine + INTER_AREA (different path from the generator)",
+    "verified_on": "re-read PNG files, never an in-memory render",
+    "peak_tol_px": 3.0, "margin_prefer": 0.12, "margin_floor_degraded": 0.02,
+    "exclusion_radius_px": 8,
+    "gt_response": "local max within +/-3 px of the label"
+  },
+  "distinctiveness": {
+    "zone_lattice_targeting": true,
+    "per_mat_phase_and_gain_variation": true,
+    "self_ambiguity_gate": 0.12,
+    "measured_self_ambiguity_unsnapped": 0.0,
+    "measured_self_ambiguity_snapped": [0.29, 0.43]
+  }
+}
