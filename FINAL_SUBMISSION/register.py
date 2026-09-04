@@ -8,15 +8,11 @@ csv's directory). Output columns: pair_id, x, y, theta, scale, found, score.
 
 Pipeline (grayscale pairs):
     V25 structural localization  ->  V28-C presence gate (>0.873)  ->  V39
-    surgical pose refinement (live)  ->  V41 residual-mix calibration (live)  ->
-    batched V48 lean graded calibration (live).
+    surgical pose refinement  ->  V41 residual-mix calibration  ->  batched V48
+    lean graded calibration.
 
-V25 stage: the V25 localizer's 200-candidate structural verification is the
-runtime-dominant step. Its inference over the released development set is
-provided as a committed cache (models/v25_stage_cache.csv); for those pair_ids
-register.py reads the cached V25 result and runs every subsequent stage live.
-Any pair_id not in the cache (e.g. the held-out I/O-validation samples, or an
-RGB / Set-D pair) is localized fully live. No network, no downloads.
+Every pair is processed live from its images. No per-pair cache, no lookup keyed
+on pair_id, no network, no downloads. pair_id is only copied to the output row.
 """
 import argparse
 import os
@@ -43,27 +39,17 @@ from pose_estimator import refine_pose_v39, refine_scale_only_quadratic  # noqa:
 
 EV_COLS = ["top1_score", "margin", "top1_corr", "top1_ctx", "top1_neigh", "top1_grad", "mode_strong"]
 
-_CACHE_PATH = os.path.join(_HERE, "runtime", "models", "v25_stage_cache.csv")
-_CACHE = {}
-if os.path.exists(_CACHE_PATH):
-    _cdf = pd.read_csv(_CACHE_PATH)
-    _CACHE = {r["pair_id"]: r.to_dict() for _, r in _cdf.iterrows()}
 
-
-def _v25_stage(pair_id, ref_gray, search_gray):
-    """Return (v25_x, v25_y, v25_theta, v25_scale, v25_score, evidence-dict)."""
-    if pair_id in _CACHE:
-        c = _CACHE[pair_id]
-        ev = {k: float(c[k]) for k in EV_COLS}
-        return (float(c["v25_x"]), float(c["v25_y"]), float(c["v25_theta"]),
-                float(c["v25_scale"]), float(c["v25_score"]), ev)
+def _v25_stage(ref_gray, search_gray):
+    """Return (v25_x, v25_y, v25_theta, v25_scale, v25_score, evidence-dict) from
+    the live localization pipeline."""
     res = pipeline.localize_grayscale(ref_gray, search_gray)
     ev = {k: float(res["evidence"].get(k, 0.0)) for k in EV_COLS}
     return res["x"], res["y"], res["est_theta"], res["est_scale"], float(res["score"]), ev
 
 
-def _process_gray(pair_id, ref_gray, search_gray):
-    v25_x, v25_y, v25_theta, v25_scale, v25_score, ev = _v25_stage(pair_id, ref_gray, search_gray)
+def _process_gray(ref_gray, search_gray):
+    v25_x, v25_y, v25_theta, v25_scale, v25_score, ev = _v25_stage(ref_gray, search_gray)
 
     found = rejection.apply_v28c_gate(v25_score)
     x = y = theta = scale = 0.0
@@ -114,7 +100,7 @@ def main():
             else:
                 g_ref = cv2.cvtColor(ref_c, cv2.COLOR_BGR2GRAY)
                 g_srch = cv2.cvtColor(srch_c, cv2.COLOR_BGR2GRAY)
-                rows.append({"pair_id": pid, **_process_gray(pid, g_ref, g_srch)})
+                rows.append({"pair_id": pid, **_process_gray(g_ref, g_srch)})
         except Exception as e:
             sys.stderr.write(f"[warn] {pid}: {e!r} -> reject\n")
             rows.append({"pair_id": pid, "x": 0.0, "y": 0.0, "theta": 0.0, "scale": 0.0,
