@@ -1,0 +1,9 @@
+level,gt_recall,of
+top1,43,140
+top5,64,140
+top10,78,140
+top20,87,140
+top50,92,140
+top100,102,140
+top200,105,140
+deep_pool,106,140
