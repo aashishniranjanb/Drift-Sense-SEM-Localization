@@ -12,7 +12,14 @@ Interpreter: `C:/Python314/python.exe` (sklearn 1.8.0, matches the pickles).
 |---|---|---|---|---|---|
 | EXP001 | Engine B baseline on verified labels; is retrieval or ranking the bottleneck? | **Ranking.** R4=0/78, R2=36/78 | 21.03 | 9.73 | baseline |
 | EXP002 | The V25 learned ranker is anti-correlated with truth on verified labels | **Confirmed.** `context_combined` argmax: +34 recoveries, −2 | **37.74** | **16.51** | gate 3/5 — held |
-| EXP003 | Coarse pose grid is the next bottleneck; continuous refinement recovers it | *in progress* | — | — | — |
+| EXP003 | Sequential pose search is corrupted by rotation; joint search recovers it | **Confirmed.** scale≤1% 50→69/78, pose credit 0.853→0.962 | — | 19.24 | held |
+| EXP004 | pose_v2 + context selector end to end | **53.80/85** vs baseline 36.48 | 24.10 | 11.85 | held |
+| EXP005 | Runtime: pose is 95% of cost, not candidate scoring | pose_v3 **2.02×** faster, estimate identical on 28/30 | — | — | in progress |
+| EXP006 | Presence gate costs ~13 loc points; refit it on train-corpus data | *awaiting corpus* | — | — | — |
+
+EXP004 is the current best integrated result: loc 24.10 + pose 11.85 +
+rejection 7.85 + calibration 10.00 = **53.80/85**, against the Engine B baseline's
+36.48/85. Not promoted to any shipping artefact.
 
 ## Standing measurements
 
